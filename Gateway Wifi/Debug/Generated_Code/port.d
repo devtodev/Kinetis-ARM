@@ -7,7 +7,7 @@ Generated_Code/port.o: ../Generated_Code/port.c \
  ../Generated_Code/list.h ../Generated_Code/portTicks.h \
  ../Generated_Code/Cpu.h ../Generated_Code/PE_Error.h \
  ../Generated_Code/PE_Const.h ../Generated_Code/IO_Map.h \
- /home/Karl/workspace.kds/Gateway\ Wifi/Static_Code/IO_Map/MKL46Z4.h
+ /home/Karl/workspace.ok/Kinetis-ARM/Gateway\ Wifi/Static_Code/IO_Map/MKL46Z4.h
 
 ../Generated_Code/portmacro.h:
 
@@ -39,4 +39,4 @@ Generated_Code/port.o: ../Generated_Code/port.c \
 
 ../Generated_Code/IO_Map.h:
 
-/home/Karl/workspace.kds/Gateway\ Wifi/Static_Code/IO_Map/MKL46Z4.h:
+/home/Karl/workspace.ok/Kinetis-ARM/Gateway\ Wifi/Static_Code/IO_Map/MKL46Z4.h:

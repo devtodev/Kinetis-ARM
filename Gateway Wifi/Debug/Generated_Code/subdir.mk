@@ -9,10 +9,11 @@ C_SRCS += \
 ../Generated_Code/BT.c \
 ../Generated_Code/BitIoLdd1.c \
 ../Generated_Code/BitIoLdd2.c \
-../Generated_Code/BitIoLdd3.c \
-../Generated_Code/BitIoLdd4.c \
 ../Generated_Code/BitIoLdd5.c \
 ../Generated_Code/BitIoLdd6.c \
+../Generated_Code/BitIoLdd7.c \
+../Generated_Code/BitIoLdd8.c \
+../Generated_Code/CS1.c \
 ../Generated_Code/Cpu.c \
 ../Generated_Code/ESP8266.c \
 ../Generated_Code/FRTOS1.c \
@@ -25,7 +26,11 @@ C_SRCS += \
 ../Generated_Code/SW4.c \
 ../Generated_Code/SW5.c \
 ../Generated_Code/SW6.c \
-../Generated_Code/TasksOs.c \
+../Generated_Code/SegLCD1.c \
+../Generated_Code/TI1.c \
+../Generated_Code/TSK1.c \
+../Generated_Code/TU1.c \
+../Generated_Code/TimeDate.c \
 ../Generated_Code/UTIL1.c \
 ../Generated_Code/Vectors.c \
 ../Generated_Code/croutine.c \
@@ -47,10 +52,11 @@ OBJS += \
 ./Generated_Code/BT.o \
 ./Generated_Code/BitIoLdd1.o \
 ./Generated_Code/BitIoLdd2.o \
-./Generated_Code/BitIoLdd3.o \
-./Generated_Code/BitIoLdd4.o \
 ./Generated_Code/BitIoLdd5.o \
 ./Generated_Code/BitIoLdd6.o \
+./Generated_Code/BitIoLdd7.o \
+./Generated_Code/BitIoLdd8.o \
+./Generated_Code/CS1.o \
 ./Generated_Code/Cpu.o \
 ./Generated_Code/ESP8266.o \
 ./Generated_Code/FRTOS1.o \
@@ -63,7 +69,11 @@ OBJS += \
 ./Generated_Code/SW4.o \
 ./Generated_Code/SW5.o \
 ./Generated_Code/SW6.o \
-./Generated_Code/TasksOs.o \
+./Generated_Code/SegLCD1.o \
+./Generated_Code/TI1.o \
+./Generated_Code/TSK1.o \
+./Generated_Code/TU1.o \
+./Generated_Code/TimeDate.o \
 ./Generated_Code/UTIL1.o \
 ./Generated_Code/Vectors.o \
 ./Generated_Code/croutine.o \
@@ -85,10 +95,11 @@ C_DEPS += \
 ./Generated_Code/BT.d \
 ./Generated_Code/BitIoLdd1.d \
 ./Generated_Code/BitIoLdd2.d \
-./Generated_Code/BitIoLdd3.d \
-./Generated_Code/BitIoLdd4.d \
 ./Generated_Code/BitIoLdd5.d \
 ./Generated_Code/BitIoLdd6.d \
+./Generated_Code/BitIoLdd7.d \
+./Generated_Code/BitIoLdd8.d \
+./Generated_Code/CS1.d \
 ./Generated_Code/Cpu.d \
 ./Generated_Code/ESP8266.d \
 ./Generated_Code/FRTOS1.d \
@@ -101,7 +112,11 @@ C_DEPS += \
 ./Generated_Code/SW4.d \
 ./Generated_Code/SW5.d \
 ./Generated_Code/SW6.d \
-./Generated_Code/TasksOs.d \
+./Generated_Code/SegLCD1.d \
+./Generated_Code/TI1.d \
+./Generated_Code/TSK1.d \
+./Generated_Code/TU1.d \
+./Generated_Code/TimeDate.d \
 ./Generated_Code/UTIL1.d \
 ./Generated_Code/Vectors.d \
 ./Generated_Code/croutine.d \
@@ -122,7 +137,7 @@ C_DEPS += \
 Generated_Code/%.o: ../Generated_Code/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross ARM C Compiler'
-	arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/Karl/workspace.kds/Gateway Wifi/Static_Code/PDD" -I"/home/Karl/workspace.kds/Gateway Wifi/Static_Code/IO_Map" -I"/home/Karl/workspace.kds/Gateway Wifi/Sources" -I"/home/Karl/workspace.kds/Gateway Wifi/Generated_Code" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/Karl/workspace.ok/Kinetis-ARM/Gateway Wifi/Static_Code/PDD" -I"/home/Karl/workspace.ok/Kinetis-ARM/Gateway Wifi/Static_Code/IO_Map" -I"/home/Karl/workspace.ok/Kinetis-ARM/Gateway Wifi/Sources" -I"/home/Karl/workspace.ok/Kinetis-ARM/Gateway Wifi/Generated_Code" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

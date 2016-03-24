@@ -7,11 +7,11 @@ Generated_Code/ASerialLdd1.o: ../Generated_Code/ASerialLdd1.c \
  ../Generated_Code/ASerialLdd1.h ../Generated_Code/Cpu.h \
  ../Generated_Code/PE_Error.h ../Generated_Code/PE_Const.h \
  ../Generated_Code/IO_Map.h \
- /home/Karl/workspace.kds/Gateway\ Wifi/Static_Code/IO_Map/MKL46Z4.h \
- ../Generated_Code/BT.h \
- /home/Karl/workspace.kds/Gateway\ Wifi/Static_Code/PDD/UART_PDD.h \
- /home/Karl/workspace.kds/Gateway\ Wifi/Static_Code/PDD/PDD_Types.h \
- /home/Karl/workspace.kds/Gateway\ Wifi/Static_Code/PDD/SIM_PDD.h
+ /home/Karl/workspace.ok/Kinetis-ARM/Gateway\ Wifi/Static_Code/IO_Map/MKL46Z4.h \
+ ../Generated_Code/ESP8266.h \
+ /home/Karl/workspace.ok/Kinetis-ARM/Gateway\ Wifi/Static_Code/PDD/UART0_PDD.h \
+ /home/Karl/workspace.ok/Kinetis-ARM/Gateway\ Wifi/Static_Code/PDD/PDD_Types.h \
+ /home/Karl/workspace.ok/Kinetis-ARM/Gateway\ Wifi/Static_Code/PDD/SIM_PDD.h
 
 ../Generated_Code/FreeRTOS.h:
 
@@ -43,12 +43,12 @@ Generated_Code/ASerialLdd1.o: ../Generated_Code/ASerialLdd1.c \
 
 ../Generated_Code/IO_Map.h:
 
-/home/Karl/workspace.kds/Gateway\ Wifi/Static_Code/IO_Map/MKL46Z4.h:
+/home/Karl/workspace.ok/Kinetis-ARM/Gateway\ Wifi/Static_Code/IO_Map/MKL46Z4.h:
 
-../Generated_Code/BT.h:
+../Generated_Code/ESP8266.h:
 
-/home/Karl/workspace.kds/Gateway\ Wifi/Static_Code/PDD/UART_PDD.h:
+/home/Karl/workspace.ok/Kinetis-ARM/Gateway\ Wifi/Static_Code/PDD/UART0_PDD.h:
 
-/home/Karl/workspace.kds/Gateway\ Wifi/Static_Code/PDD/PDD_Types.h:
+/home/Karl/workspace.ok/Kinetis-ARM/Gateway\ Wifi/Static_Code/PDD/PDD_Types.h:
 
-/home/Karl/workspace.kds/Gateway\ Wifi/Static_Code/PDD/SIM_PDD.h:
+/home/Karl/workspace.ok/Kinetis-ARM/Gateway\ Wifi/Static_Code/PDD/SIM_PDD.h:

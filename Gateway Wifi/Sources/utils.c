@@ -19,6 +19,11 @@ unsigned int strLen(char *value)
 	return i;
 }
 
+void setLCD(char *data)
+{
+	vfnLCD_Write_Msg(data);
+}
+
 char stopChar(char value)
 {
 	return (value == EOS);

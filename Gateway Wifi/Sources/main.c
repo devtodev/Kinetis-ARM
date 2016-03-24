@@ -1,7 +1,7 @@
 /* ###################################################################
 **     Filename    : main.c
 **     Project     : Gateway Wifi
-**     Processor   : MKL46Z256VLL4
+**     Processor   : MKL46Z256VMC4
 **     Version     : Driver 01.01
 **     Compiler    : GNU C Compiler
 **     Date/Time   : 2015-12-22, 15:49, # CodeGen: 0
@@ -31,12 +31,17 @@
 #include "Cpu.h"
 #include "Events.h"
 #include "BT.h"
-#include "ASerialLdd1.h"
-#include "ESP8266.h"
 #include "ASerialLdd2.h"
+#include "SegLCD1.h"
+#include "TI1.h"
+#include "ESP8266.h"
+#include "ASerialLdd1.h"
 #include "FRTOS1.h"
+#include "TSK1.h"
 #include "UTIL1.h"
-#include "TasksOs.h"
+#include "CS1.h"
+#include "TU1.h"
+#include "TimeDate.h"
 #include "Flash.h"
 #include "IntFlashLdd1.h"
 #include "SW4.h"
@@ -44,13 +49,15 @@
 #include "SW1.h"
 #include "BitIoLdd2.h"
 #include "SW2.h"
-#include "BitIoLdd3.h"
 #include "SW3.h"
-#include "BitIoLdd4.h"
 #include "SW5.h"
-#include "BitIoLdd5.h"
+#include "BitIoLdd7.h"
 #include "SW6.h"
+#include "BitIoLdd5.h"
+#include "UTIL1.h"
+#include "BitIoLdd8.h"
 #include "BitIoLdd6.h"
+#include "frtos_tasks.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -68,8 +75,6 @@ int main(void)
   PE_low_level_init();
   /*** End of Processor Expert internal initialization.                    ***/
 
-  /* Write your code here */
-  /* For example: for(;;) { } */
 
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/

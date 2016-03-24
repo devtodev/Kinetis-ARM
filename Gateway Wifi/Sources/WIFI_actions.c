@@ -5,6 +5,8 @@
  *      Author: Carlos Miguens
  */
 
+#define DEBUG 0
+
 #include "WIFI_actions.h"
 #include "ESP8266.h"
 #include "string.h"
@@ -31,7 +33,9 @@ void WIFI_AddCharToInputBuffer(char data)
 	wifiInputBuffer[cursorWifiInputBuffer] = data;
 	cursorWifiInputBuffer++;
 	wifiInputBuffer[cursorWifiInputBuffer] = '\0';
+#if DEBUG
 	BT_showLogChar(data);
+#endif
 	// detectar OK y liberar el semaforo para interpretar el mensaje
 	if ((cursorWifiInputBuffer > 5) &&
 		(((wifiInputBuffer[cursorWifiInputBuffer-2] == 'O') && (wifiInputBuffer[cursorWifiInputBuffer-1] == 'K'))
@@ -301,9 +305,11 @@ bool SSIDStoredVisible()
 	while (spotSSID[i] != '\0')
 	{
 		i++;
+		//el SSID almacenado en memoria esta visible
 		if (strcmp(storeSSID, spotSSID[i]))
 			return TRUE;
 	}
+	//no se visualiza el SSID
 	return FALSE;
 }
 

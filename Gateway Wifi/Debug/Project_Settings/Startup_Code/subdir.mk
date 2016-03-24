@@ -17,7 +17,7 @@ C_DEPS += \
 Project_Settings/Startup_Code/%.o: ../Project_Settings/Startup_Code/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross ARM C Compiler'
-	arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/Karl/workspace.kds/Gateway Wifi/Static_Code/PDD" -I"/home/Karl/workspace.kds/Gateway Wifi/Static_Code/IO_Map" -I"/home/Karl/workspace.kds/Gateway Wifi/Sources" -I"/home/Karl/workspace.kds/Gateway Wifi/Generated_Code" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/Karl/workspace.ok/Kinetis-ARM/Gateway Wifi/Static_Code/PDD" -I"/home/Karl/workspace.ok/Kinetis-ARM/Gateway Wifi/Static_Code/IO_Map" -I"/home/Karl/workspace.ok/Kinetis-ARM/Gateway Wifi/Sources" -I"/home/Karl/workspace.ok/Kinetis-ARM/Gateway Wifi/Generated_Code" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

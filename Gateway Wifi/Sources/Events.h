@@ -1,7 +1,7 @@
 /* ###################################################################
 **     Filename    : Events.h
 **     Project     : Gateway Wifi
-**     Processor   : MKL46Z256VLL4
+**     Processor   : MKL46Z256VMC4
 **     Component   : Events
 **     Version     : Driver 01.00
 **     Compiler    : GNU C Compiler
@@ -34,12 +34,17 @@
 #include "PE_Const.h"
 #include "IO_Map.h"
 #include "BT.h"
-#include "ASerialLdd1.h"
-#include "ESP8266.h"
 #include "ASerialLdd2.h"
+#include "SegLCD1.h"
+#include "TI1.h"
+#include "ESP8266.h"
+#include "ASerialLdd1.h"
 #include "FRTOS1.h"
+#include "TSK1.h"
 #include "UTIL1.h"
-#include "TasksOs.h"
+#include "CS1.h"
+#include "TU1.h"
+#include "TimeDate.h"
 #include "Flash.h"
 #include "IntFlashLdd1.h"
 #include "SW4.h"
@@ -47,12 +52,13 @@
 #include "SW1.h"
 #include "BitIoLdd2.h"
 #include "SW2.h"
-#include "BitIoLdd3.h"
 #include "SW3.h"
-#include "BitIoLdd4.h"
 #include "SW5.h"
-#include "BitIoLdd5.h"
+#include "BitIoLdd7.h"
 #include "SW6.h"
+#include "BitIoLdd5.h"
+#include "UTIL1.h"
+#include "BitIoLdd8.h"
 #include "BitIoLdd6.h"
 
 #ifdef __cplusplus
@@ -285,6 +291,26 @@ void FRTOS1_vApplicationMallocFailedHook(void);
 **     Returns     : Nothing
 ** ===================================================================
 */
+
+/*
+** ===================================================================
+**     Event       :  TI1_OnInterrupt (module Events)
+**
+**     Component   :  TI1 [TimerInt_LDD]
+*/
+/*!
+**     @brief
+**         Called if periodic event occur. Component and OnInterrupt
+**         event must be enabled. See [SetEventMask] and [GetEventMask]
+**         methods. This event is available only if a [Interrupt
+**         service/event] is enabled.
+**     @param
+**         UserDataPtr     - Pointer to the user or
+**                           RTOS specific data. The pointer passed as
+**                           the parameter of Init method.
+*/
+/* ===================================================================*/
+void TI1_OnInterrupt(LDD_TUserData *UserDataPtr);
 
 /* END Events */
 

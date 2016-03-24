@@ -13,20 +13,23 @@
 
 /* Begin of <includes> initialization, DO NOT MODIFY LINES BELOW */
 
-#include "TasksOs.h"
+#include "TSK1.h"
 #include "FRTOS1.h"
 #include "frtos_tasks.h"
+
+/* End <includes> initialization, DO NOT MODIFY LINES ABOVE */
+
+#include "utils.h"
+#include "BT_actions.h"
+#include "WIFI_actions.h"
 #include "SW1.h"
 #include "SW2.h"
 #include "SW3.h"
 #include "SW4.h"
 #include "SW5.h"
 #include "SW6.h"
-/* End <includes> initialization, DO NOT MODIFY LINES ABOVE */
-
-#include "BT_actions.h"
-#include "WIFI_actions.h"
-
+#include "UTIL1.h"
+#include "LCD/LCDConfig.h"
 static portTASK_FUNCTION(GatewayTask, pvParameters) {
 
   initGateway();
@@ -44,7 +47,12 @@ static portTASK_FUNCTION(HMITask, pvParameters) {
   int i;
   /* Write your task initialization code here ... */
   BT_init();
+  MySegLCDPtr = SegLCD1_Init(NULL);
+
+
   for(;;) {
+	  setLCD("9991");
+	  SymbolON(11,0);
 	  xSemaphoreTake(xSemaphoreWifiRefresh, portMAX_DELAY);
 	  switch (connection.status)
 	  {
@@ -157,7 +165,7 @@ void CreateTasks(void) {
   if (FRTOS1_xTaskCreate(
      GatewayTask,  /* pointer to the task */
       "Gateway", /* task name for kernel awareness debugging */
-      configMINIMAL_STACK_SIZE + 1000, /* task stack size */
+      1200, /* task stack size */
       (void*)NULL, /* optional task startup argument */
       tskIDLE_PRIORITY + 1,  /* initial priority */
       (xTaskHandle*)NULL /* optional task handle to create */
@@ -170,7 +178,7 @@ void CreateTasks(void) {
   if (FRTOS1_xTaskCreate(
      HMITask,  /* pointer to the task */
       "HMI", /* task name for kernel awareness debugging */
-      configMINIMAL_STACK_SIZE + 1000, /* task stack size */
+      1200, /* task stack size */
       (void*)NULL, /* optional task startup argument */
       tskIDLE_PRIORITY + 0,  /* initial priority */
       (xTaskHandle*)NULL /* optional task handle to create */

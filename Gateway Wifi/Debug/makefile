@@ -8,6 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Sources/LCD/subdir.mk
 -include Sources/subdir.mk
 -include Project_Settings/Startup_Code/subdir.mk
 -include Generated_Code/subdir.mk
@@ -52,7 +53,7 @@ all: Gateway\ Wifi.elf secondary-outputs
 Gateway\ Wifi.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross ARM C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/Karl/workspace.kds/Gateway Wifi/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"/home/Karl/workspace.kds/Gateway Wifi/Project_Settings/Linker_Files" -Wl,-Map,"Gateway Wifi.map" -specs=nano.specs -specs=nosys.specs -o "Gateway Wifi.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/Karl/workspace.ok/Kinetis-ARM/Gateway Wifi/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"/home/Karl/workspace.ok/Kinetis-ARM/Gateway Wifi/Project_Settings/Linker_Files" -Wl,-Map,"Gateway Wifi.map" -specs=nano.specs -specs=nosys.specs -o "Gateway Wifi.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

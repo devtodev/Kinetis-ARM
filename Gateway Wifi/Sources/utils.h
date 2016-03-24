@@ -11,6 +11,16 @@
 #define MAXLENFIND 20 // 28
 #define EOL   '\n'
 
+#include "TimeDate.h"
+
 int find(char *text, char *word, int *rtas);
 unsigned int strLen(char *value);
 int strsub(char *text, int init, int end, char *rta);
+void setLCD(char *data);
+
+static LDD_TDeviceData *MySegLCDPtr;
+
+
+
+
+
