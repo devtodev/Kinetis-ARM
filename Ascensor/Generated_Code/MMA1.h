@@ -8,7 +8,7 @@
 **     Version     : Component 01.036, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-03-25, 14:23, # CodeGen: 58
+**     Date/Time   : 2016-03-26, 06:16, # CodeGen: 61
 **     Abstract    :
 **         Implements a Driver for the MMA8451 accelerometer from Freescale.
 **     Settings    :
