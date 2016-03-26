@@ -78,6 +78,7 @@ static portTASK_FUNCTION(SensorTask, pvParameters) {
 		switch (movimiento.x)
 		{
 			case ACCEL_POSITIVO:
+
 				BT_showString("  X> ");
 				break;
 			case ACCEL_NEUTRO:

@@ -53,8 +53,11 @@
     <GeneratedCs>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/ASerialLdd1.c</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/ASerialLdd2.c</PathName>
+      <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/Accel_Int1.c</PathName>
+      <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/Accel_Int2.c</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BT.c</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd1.c</PathName>
+      <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd10.c</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd2.c</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd3.c</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd4.c</PathName>
@@ -62,6 +65,7 @@
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd6.c</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd7.c</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd8.c</PathName>
+      <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd9.c</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/CLS1.c</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/CS1.c</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/Cpu.c</PathName>
@@ -121,8 +125,11 @@
     <GeneratedHs>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/ASerialLdd1.h</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/ASerialLdd2.h</PathName>
+      <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/Accel_Int1.h</PathName>
+      <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/Accel_Int2.h</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BT.h</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd1.h</PathName>
+      <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd10.h</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd2.h</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd3.h</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd4.h</PathName>
@@ -130,6 +137,7 @@
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd6.h</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd7.h</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd8.h</PathName>
+      <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/BitIoLdd9.h</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/CLS1.h</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/CS1.h</PathName>
       <PathName>/home/Karl/workspace.ok/Kinetis-ARM/Ascensor/Generated_Code/Cpu.h</PathName>

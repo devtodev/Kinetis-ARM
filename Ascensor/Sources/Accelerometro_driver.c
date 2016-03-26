@@ -10,8 +10,8 @@
 #define ACCEL_FF_MT_SRC   0x16
 #define ACCEL_FF_MT_THS   0x17
 #define ACCEL_FF_MT_COUNT 0x18
-#define ACCEL_REG_1	  0x2A
-#define ACCEL_REG_2	  0x2B
+#define ACCEL_REG_1	  	  0x2A
+#define ACCEL_REG_2	      0x2B
 #define ACCEL_REG_3  	  0x2C
 #define ACCEL_REG_4  	  0x2D
 #define ACCEL_REG_5  	  0xE2
@@ -213,11 +213,10 @@ void Accel_Init(void)
 	GI2C1_WriteByteAddress8(MMA1_I2C_ADDR, ACCEL_REG_2, ctrl_reg_2);
 	GI2C1_WriteByteAddress8(MMA1_I2C_ADDR, ACCEL_REG_4, ctrl_reg_4);
 	GI2C1_WriteByteAddress8(MMA1_I2C_ADDR, ACCEL_REG_5, ctrl_reg_5);
-	GI2C1_WriteByteAddress8(MMA1_I2C_ADDR, ACCEL_FF_MT_CFG, ff_mm_cfg);
-	//GI2C1_WriteByteAddress8(MMA1_I2C_ADDR, ACCEL_REG_RANGE, ctrl_reg_range);
+	GI2C1_WriteByteAddress8(MMA1_I2C_ADDR, 0x15, ff_mm_cfg); // ACCEL_FF_MT_CFG
 	FRTOS1_vTaskDelay(700/portTICK_RATE_MS);
-	rbuf = GI2C1_ReadByteAddress8(MMA1_I2C_ADDR, ACCEL_FF_MT_CFG, &buf);
-	GI2C1_ReadBlock(&buf, 1, GI2C1_DO_NOT_SEND_STOP);
+	GI2C1_ReadByteAddress8(MMA1_I2C_ADDR, 0x0D, &buf); // WHO_I_AM = 0x1a
+	GI2C1_ReadByteAddress8(MMA1_I2C_ADDR, 0x15, &buf); // ACCEL_FF_MT_CFG = 0 why??? :-(
 	return 0;
 }
 
@@ -227,7 +226,7 @@ Movimiento getMovimiento()
 	Movimiento resultado;
 	unsigned char lectura;
 	uint8_t buf;
-	static const uint8_t addr = ACCEL_FF_MT_CFG; //ACCEL_FF_MT_SRC;
+	static const uint8_t addr = ACCEL_FF_MT_SRC;
 
 	if(GI2C1_ReadAddress(MMA1_I2C_ADDR, (uint8_t*)&addr, sizeof(addr), &buf, 1)!=ERR_OK) {
 		resultado.flag = -1;
