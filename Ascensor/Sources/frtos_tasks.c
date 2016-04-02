@@ -10,7 +10,7 @@
 #define SENSOR  	1
 #define HDMI 		1
 #define ZAPATILLA 	0
-
+#define MODO_DEBUG  0
 #define ACCEL_ANTIREBOTE	30
 
 /* Begin of <includes> initialization, DO NOT MODIFY LINES BELOW */
@@ -51,7 +51,7 @@ static portTASK_FUNCTION(GatewayTask, pvParameters) {
 
 static portTASK_FUNCTION(SensorTask, pvParameters) {
 	int16_t xyz[3], xyzold[3], cambioEstado;
-	char lcdText[] = "1234";
+	char lcdText[] = "1234293812";
 	Movimiento movimiento;
 
 	BT_init();
@@ -64,7 +64,11 @@ static portTASK_FUNCTION(SensorTask, pvParameters) {
 	xyzold[2] = xyz[2];
 	for(;;)
 	{
+#if !GATEWAY
+		if (1 == 1)
+#else
 		if (connection.status  == WIFI_CONNECTED)
+#endif
 		{
 			//LED1_Put(movimiento.flag);
 			//LED2_Put(movimiento.x);
@@ -88,8 +92,10 @@ static portTASK_FUNCTION(SensorTask, pvParameters) {
 				{
 					// poner en cola mensaje de quieto
 					cambioEstado = 0;
+#if GATEWAY
 					sendInfo("Quieto\0");
-					BT_showString("Quieto\0");
+#endif
+					BT_showString("Quieto\r\n\0");
 
 				}
 			}
@@ -102,8 +108,10 @@ static portTASK_FUNCTION(SensorTask, pvParameters) {
 				{
 					// poner en cola mensaje de movimiento
 					cambioEstado = 1;
+#if GATEWAY
 					sendInfo("Movimiento\0");
-					BT_showString("Movimiento\0");
+#endif
+					BT_showString("Movimiento\r\n\0");
 				}
 			}
 #if MODO_DEBUG
@@ -116,12 +124,13 @@ static portTASK_FUNCTION(SensorTask, pvParameters) {
 			itoa(movimiento.z, lcdText);
 			BT_showString(lcdText);
 			BT_showString("     \0");
+			BT_showString("\r\n");
+#endif
+
+			FRTOS1_vTaskDelay(500/portTICK_RATE_MS);
 			xyzold[0] = xyz[0];
 			xyzold[1] = xyz[1];
 			xyzold[2] = xyz[2];
-			BT_showString("\r\n");
-#endif
-			FRTOS1_vTaskDelay(200/portTICK_RATE_MS);
 		} else {
 			FRTOS1_vTaskDelay(2000/portTICK_RATE_MS);
 		}

@@ -193,7 +193,7 @@ void sendInfo(char *data)
 	FRTOS1_vTaskDelay(1000/portTICK_RATE_MS);
 	sendPartialATCommand(DEVICE_ID);
 	sendPartialATCommand("|\0");
-	sendPartialATCommand(data);
+	sendATCommand(data);
 }
 
 void evaluarConeccionConServer()
