@@ -1,19 +1,17 @@
-
-/*!
-** @}
-*/
 /*
-** ###################################################################
-**
-**     This file was created by Processor Expert 10.5 [05.21]
-**     for the Freescale Kinetis series of microcontrollers.
-**
-** ###################################################################
-*/
+ * WIFI_actions.c
+ *
+ *  Created on: Marzo 2016
+ *      Author: Carlos Miguens
+ */
 
-#define GATEWAY 0
-#define SENSOR  1
-#define HDMI 	0
+
+#define GATEWAY 	1
+#define SENSOR  	1
+#define HDMI 		1
+#define ZAPATILLA 	0
+
+#define ACCEL_ANTIREBOTE	30
 
 /* Begin of <includes> initialization, DO NOT MODIFY LINES BELOW */
 
@@ -26,12 +24,6 @@
 #include "utils.h"
 #include "BT_actions.h"
 #include "WIFI_actions.h"
-#include "SW1.h"
-#include "SW2.h"
-#include "SW3.h"
-#include "SW4.h"
-#include "SW5.h"
-#include "SW6.h"
 #include "UTIL1.h"
 #include "LCD/LCDConfig.h"
 #include "SegLCD1.h"
@@ -58,65 +50,82 @@ static portTASK_FUNCTION(GatewayTask, pvParameters) {
 #if SENSOR
 
 static portTASK_FUNCTION(SensorTask, pvParameters) {
-	uint8_t xyz[3];
+	int16_t xyz[3], xyzold[3], cambioEstado;
 	char lcdText[] = "1234";
 	Movimiento movimiento;
 
-	Accel_Init();
-	//MMA1_Init();
+	BT_init();
+	MMA1_Init();
 
 	MySegLCDPtr = SegLCD1_Init(NULL);
 	//  SymbolON(11,0);
-
+	xyzold[0] = xyz[0];
+	xyzold[1] = xyz[1];
+	xyzold[2] = xyz[2];
 	for(;;)
 	{
-		movimiento = getMovimiento();
-
-		//LED1_Put(movimiento.flag);
-		//LED2_Put(movimiento.x);
-
-		switch (movimiento.x)
+		if (connection.status  == WIFI_CONNECTED)
 		{
-			case ACCEL_POSITIVO:
+			//LED1_Put(movimiento.flag);
+			//LED2_Put(movimiento.x);
+			xyz[0] = MMA1_GetX();
+			xyz[1] = MMA1_GetY();
+			xyz[2] = MMA1_GetZ();
 
-				BT_showString("  X> ");
-				break;
-			case ACCEL_NEUTRO:
-				BT_showString("  X  ");
-				break;
-			case ACCEL_NEGATIVO:
-				BT_showString(" <X  ");
-				break;
+			movimiento.x = (xyz[0] > xyzold[0])?xyz[0]-xyzold[0]:xyzold[0]-xyz[0];
+			movimiento.y = (xyz[1] > xyzold[1])?xyz[1]-xyzold[1]:xyzold[1]-xyz[1];
+			movimiento.z = (xyz[2] > xyzold[2])?xyz[2]-xyzold[2]:xyzold[2]-xyz[2];
+
+			movimiento.x = (movimiento.x<0)?movimiento.x*-1:movimiento.x;
+			movimiento.y = (movimiento.y<0)?movimiento.y*-1:movimiento.y;
+			movimiento.z = (movimiento.z<0)?movimiento.z*-1:movimiento.z;
+
+			if ((movimiento.x< ACCEL_ANTIREBOTE)&&
+				(movimiento.y< ACCEL_ANTIREBOTE)&&
+				(movimiento.z< ACCEL_ANTIREBOTE))
+			{
+				if (cambioEstado == 1)
+				{
+					// poner en cola mensaje de quieto
+					cambioEstado = 0;
+					sendInfo("Quieto\0");
+					BT_showString("Quieto\0");
+
+				}
+			}
+			if ((movimiento.x> ACCEL_ANTIREBOTE)&&
+				(movimiento.y> ACCEL_ANTIREBOTE)&&
+				(movimiento.z> ACCEL_ANTIREBOTE))
+			{
+				// en movimiento
+				if (cambioEstado == 0)
+				{
+					// poner en cola mensaje de movimiento
+					cambioEstado = 1;
+					sendInfo("Movimiento\0");
+					BT_showString("Movimiento\0");
+				}
+			}
+#if MODO_DEBUG
+			itoa(movimiento.x, lcdText);
+			BT_showString(lcdText);
+			BT_showString("     \0");
+			itoa(movimiento.y, lcdText);
+			BT_showString(lcdText);
+			BT_showString("     \0");
+			itoa(movimiento.z, lcdText);
+			BT_showString(lcdText);
+			BT_showString("     \0");
+			xyzold[0] = xyz[0];
+			xyzold[1] = xyz[1];
+			xyzold[2] = xyz[2];
+			BT_showString("\r\n");
+#endif
+			FRTOS1_vTaskDelay(200/portTICK_RATE_MS);
+		} else {
+			FRTOS1_vTaskDelay(2000/portTICK_RATE_MS);
 		}
 
-		switch (movimiento.y)
-		{
-			case ACCEL_POSITIVO:
-				BT_showString("  Y> ");
-				break;
-			case ACCEL_NEUTRO:
-				BT_showString("  Y  ");
-				break;
-			case ACCEL_NEGATIVO:
-				BT_showString(" <Y  ");
-				break;
-		}
-
-		switch (movimiento.z)
-		{
-			case ACCEL_POSITIVO:
-				BT_showString("  Z> ");
-				break;
-			case ACCEL_NEUTRO:
-				BT_showString("  Z  ");
-				break;
-			case ACCEL_NEGATIVO:
-				BT_showString(" <Z  ");
-				break;
-		}
-
-		BT_showString("\r\n");
-		FRTOS1_vTaskDelay(700/portTICK_RATE_MS);
 	}
 	/* Destroy the task */
 	vTaskDelete(SensorTask);
@@ -126,7 +135,9 @@ static portTASK_FUNCTION(SensorTask, pvParameters) {
 
 #if HDMI
 static portTASK_FUNCTION(HMITask, pvParameters) {
+#if ZAPATILLA
   char menuConectado[MENUMAXLENGHT][64] = {"Switch 1", "Switch 2", "Switch 3", "Switch 4", "Switch 5", "Switch 6", "Desconectar"};
+#endif
   char opcionHIM[30];
   int i;
   /* Write your task initialization code here ... */
@@ -140,9 +151,9 @@ static portTASK_FUNCTION(HMITask, pvParameters) {
 	  	  case WIFI_DISCONNECTED:
 		    // necesito obtener los spots
 	  		BT_sendSaltoLinea();BT_sendSaltoLinea();BT_sendSaltoLinea();BT_sendSaltoLinea();
-	  		BT_showString("Agro Robots WiFi Spot");
+	  		BT_showString("Sensor de MoViMiEnTo Wifi ~ BT Spot");
 	  		BT_sendSaltoLinea();BT_sendSaltoLinea();
-	  		FRTOS1_vTaskDelay(1000/portTICK_RATE_MS);
+	  		FRTOS1_vTaskDelay(10/portTICK_RATE_MS);
 	  		refreshWifiSpots();
 	  		xSemaphoreTake(xSemaphoreWifiRefresh, portMAX_DELAY);
 	  		if (SSIDStoredVisible())
@@ -161,12 +172,7 @@ static portTASK_FUNCTION(HMITask, pvParameters) {
 					BT_askValue("Password: ", &connection.password[0]);
 					// showDetails
 					BT_sendSaltoLinea();BT_sendSaltoLinea();
-					BT_showString("SSID: ");
-					BT_showString(&connection.ssid[0]);
-					BT_sendSaltoLinea();
-					BT_showString("PASSWORD: ");
-					BT_showString(&connection.password[0]);
-					BT_sendSaltoLinea();
+					BT_showString("Conectando...");
 			  		// try to connect
 					tryToConnect();
 				} else {
@@ -183,6 +189,7 @@ static portTASK_FUNCTION(HMITask, pvParameters) {
 			connectingToServer();
 		  break;
 	  	  case WIFI_CONNECTED:
+#if ZAPATILLA
 	  		switch (BT_showMenu(&menuConectado, &opcionHIM[0]))
 	  		{
 				case 0:
@@ -235,6 +242,7 @@ static portTASK_FUNCTION(HMITask, pvParameters) {
 					for (i = 0; i < 100; i++) BT_sendSaltoLinea();
 				break;
 	  		}
+#endif
 		  break;
 	  }
   }

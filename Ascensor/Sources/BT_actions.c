@@ -51,14 +51,6 @@ void BT_showString(char *text)
 	xSemaphoreGive(xSemaphoreBTWrite);
 }
 
-void BT_showLog(char *text)
-{
-	xSemaphoreTake(xSemaphoreBTWrite, portMAX_DELAY);
-	if (BT_logMode == logMode_DEBUG)
-		BT_showString(text);
-	xSemaphoreGive(xSemaphoreBTWrite);
-}
-
 void BT_showLogChar(char data)
 {
 	xSemaphoreTake(xSemaphoreBTWrite, portMAX_DELAY);

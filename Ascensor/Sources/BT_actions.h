@@ -22,7 +22,6 @@ char BT_mode;  // LOG, MENU, INPUT
 void BT_init();
 void BT_setLogMode(char mode);
 void BT_showString(char *text);
-void BT_showLog(char *text);
 void BT_showLogChar(char data);
 int BT_showMenu(char text[MENUMAXLENGHT][64], char *reply);
 void BT_askValue(char *text, char *value);

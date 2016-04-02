@@ -119,7 +119,7 @@ void connectionMode()
 
 void connectingToServer()
 {
-	sendATCommand("AT+CIPSTART=\"TCP\",\"54.208.231.134\",56765\0");
+	sendATCommand("AT+CIPSTART=\"TCP\",\"54.208.231.134\",3000\0");
 }
 
 char getStatus()
