@@ -93,7 +93,7 @@ static portTASK_FUNCTION(SensorTask, pvParameters) {
 					// poner en cola mensaje de quieto
 					cambioEstado = 0;
 #if GATEWAY
-					sendInfo("Quieto\0");
+					sendInfo("QUI\0");
 #endif
 					BT_showString("Quieto\r\n\0");
 
@@ -109,9 +109,9 @@ static portTASK_FUNCTION(SensorTask, pvParameters) {
 					// poner en cola mensaje de movimiento
 					cambioEstado = 1;
 #if GATEWAY
-					sendInfo("Movimiento\0");
+					sendInfo("MOV\0");
 #endif
-					BT_showString("Movimiento\r\n\0");
+					BT_showString("Movio\r\n\0");
 				}
 			}
 #if MODO_DEBUG
@@ -127,6 +127,13 @@ static portTASK_FUNCTION(SensorTask, pvParameters) {
 			BT_showString("\r\n");
 #endif
 
+#if GATEWAY
+			// desconectar del wifi al apretar la q
+			if (getBufferBT()[0] == 'q')
+			{
+				disconectFromSpot();
+			}
+#endif
 			FRTOS1_vTaskDelay(500/portTICK_RATE_MS);
 			xyzold[0] = xyz[0];
 			xyzold[1] = xyz[1];
@@ -162,13 +169,14 @@ static portTASK_FUNCTION(HMITask, pvParameters) {
 	  		BT_sendSaltoLinea();BT_sendSaltoLinea();BT_sendSaltoLinea();BT_sendSaltoLinea();
 	  		BT_showString("Sensor de MoViMiEnTo Wifi ~ BT Spot");
 	  		BT_sendSaltoLinea();BT_sendSaltoLinea();
-	  		FRTOS1_vTaskDelay(10/portTICK_RATE_MS);
 	  		refreshWifiSpots();
+	  		FRTOS1_vTaskDelay(500/portTICK_RATE_MS);
 	  		xSemaphoreTake(xSemaphoreWifiRefresh, portMAX_DELAY);
 	  		if (SSIDStoredVisible())
 	  		{
 	  			strcpy(connection.ssid, storeSSID);
 	  			strcpy(connection.password, storePassword);
+	  			tryToConnect();
 	  		} else {
 				// mostrar los SSIDs
 				if (BT_showMenu(&spotSSID, &connection.ssid[0]) != -69)

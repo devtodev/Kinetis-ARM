@@ -190,7 +190,7 @@ void sendInfo(char *data)
 {
 	// "DeviceID|TipoAccionId|Valor"
 	sendATCommand("AT+CIPSEND=5\0");
-	FRTOS1_vTaskDelay(1000/portTICK_RATE_MS);
+	FRTOS1_vTaskDelay(500/portTICK_RATE_MS);
 	sendPartialATCommand(DEVICE_ID);
 	sendPartialATCommand("|\0");
 	sendATCommand(data);
@@ -211,7 +211,7 @@ void evaluarConeccionConServer()
 	// conecto correctamente
 	connection.status = WIFI_CONNECTED;
 	// presentarse !
-	sendInfo("presentarse|ok");
+	sendInfo(":-)");
 	xSemaphoreGive(xSemaphoreWifiRefresh);
 }
 

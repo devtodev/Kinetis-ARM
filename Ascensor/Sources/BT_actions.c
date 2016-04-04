@@ -59,6 +59,11 @@ void BT_showLogChar(char data)
 	xSemaphoreGive(xSemaphoreBTWrite);
 }
 
+char *getBufferBT()
+{
+	return BTinputBuffer;
+}
+
 int BT_showMenu(char text[MENUMAXLENGHT][64], char *reply)
 {
 	char opcion[MENUMAXLENGHT];
@@ -99,6 +104,7 @@ void BT_askValue(char *text, char *value)
 	BTinputBuffer[BTinputBufferCursor] = '\0';
 	BT_showString(text);
 	xSemaphoreTake(xSemaphoreBTRead, portMAX_DELAY);
+	BTinputBufferCursor = 0;
 	strcpy(value, &BTinputBuffer[0]);
 }
 

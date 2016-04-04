@@ -24,6 +24,7 @@ void BT_setLogMode(char mode);
 void BT_showString(char *text);
 void BT_showLogChar(char data);
 int BT_showMenu(char text[MENUMAXLENGHT][64], char *reply);
+char *getBufferBT();
 void BT_askValue(char *text, char *value);
 void BT_inputChar(char data);
 void BT_sendSaltoLinea();

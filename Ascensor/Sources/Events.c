@@ -26,6 +26,8 @@
 */         
 /* MODULE Events */
 
+#define ATDEBUGMODE 0
+
 #include "Cpu.h"
 #include "Events.h"
 #include "BT_actions.h"
@@ -164,10 +166,10 @@ void ESP8266_OnRxChar(void)
 {
 	char data;
 	ESP8266_RecvChar(&data);
-	if (connection.status == WIFI_ATMODE)
-		BT_SendChar(data);
-	else
-		WIFI_AddCharToInputBuffer(data);
+#if ATDEBUGMODE
+	BT_SendChar(data);
+#endif
+	WIFI_AddCharToInputBuffer(data);
 }
 
 /*
