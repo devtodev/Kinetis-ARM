@@ -7,7 +7,7 @@
 **     Version     : Component 01.188, Driver 01.12, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-03-26, 18:53, # CodeGen: 68
+**     Date/Time   : 2016-10-14, 15:30, # CodeGen: 74
 **     Abstract    :
 **         This component "Serial_LDD" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -274,12 +274,12 @@ LDD_TError ASerialLdd2_ReceiveBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *B
     return ERR_BUSY;                   /* If yes then error */
   }
   /* {FreeRTOS RTOS Adapter} Critical section begin (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskENTER_CRITICAL();
+  EnterCritical();
   DeviceDataPrv->InpDataPtr = (uint8_t*)BufferPtr; /* Store a pointer to the input data. */
   DeviceDataPrv->InpDataNumReq = Size; /* Store a number of characters to be received. */
   DeviceDataPrv->InpRecvDataNum = 0x00U; /* Set number of received characters to zero. */
   /* {FreeRTOS RTOS Adapter} Critical section ends (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskEXIT_CRITICAL();
+  ExitCritical();
   return ERR_OK;                       /* OK */
 }
 
@@ -334,14 +334,14 @@ LDD_TError ASerialLdd2_SendBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *Buff
     return ERR_BUSY;                   /* If yes then error */
   }
   /* {FreeRTOS RTOS Adapter} Critical section begin (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskENTER_CRITICAL();
+  EnterCritical();
   DeviceDataPrv->OutDataPtr = (uint8_t*)BufferPtr; /* Set a pointer to the output data. */
   DeviceDataPrv->OutDataNumReq = Size; /* Set the counter of characters to be sent. */
   DeviceDataPrv->OutSentDataNum = 0x00U; /* Clear the counter of sent characters. */
   DeviceDataPrv->SerFlag |= ENABLED_TX_INT; /* Set the flag ENABLED_TX_INT */
   UART_PDD_EnableInterrupt(UART1_BASE_PTR, UART_PDD_INTERRUPT_TRANSMITTER); /* Enable TX interrupt */
   /* {FreeRTOS RTOS Adapter} Critical section ends (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskEXIT_CRITICAL();
+  ExitCritical();
   return ERR_OK;                       /* OK */
 }
 
@@ -486,11 +486,11 @@ LDD_TError ASerialLdd2_GetError(LDD_TDeviceData *DeviceDataPtr, LDD_SERIAL_TErro
   ASerialLdd2_TDeviceDataPtr DeviceDataPrv = (ASerialLdd2_TDeviceDataPtr)DeviceDataPtr;
 
   /* {FreeRTOS RTOS Adapter} Critical section begin (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskENTER_CRITICAL();
+  EnterCritical();
   *ErrorPtr = DeviceDataPrv->ErrFlag;
   DeviceDataPrv->ErrFlag = 0x00U;      /* Reset error flags */
   /* {FreeRTOS RTOS Adapter} Critical section ends (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskEXIT_CRITICAL();
+  ExitCritical();
   return ERR_OK;                       /* OK */
 }
 

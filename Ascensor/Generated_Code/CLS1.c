@@ -4,10 +4,10 @@
 **     Project     : Ascensor
 **     Processor   : MKL46Z256VMC4
 **     Component   : Shell
-**     Version     : Component 01.077, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.085, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-03-26, 18:53, # CodeGen: 68
+**     Date/Time   : 2016-10-14, 15:30, # CodeGen: 74
 **     Abstract    :
 **
 **     Settings    :
@@ -16,6 +16,7 @@
 **          Prompt                                         : "CMD> "
 **          Project Name                                   : My Project Name
 **          Silent Mode Prefix                             : #
+**          Buffer Size                                    : 48
 **          Blocking Send                                  : Enabled
 **            Wait                                         : WAIT1
 **            Timeout (ms)                                 : 20
@@ -39,6 +40,7 @@
 **         SendNum16s                   - void CLS1_SendNum16s(int16_t val, CLS1_StdIO_OutErr_FctType io);
 **         SendNum32u                   - void CLS1_SendNum32u(uint32_t val, CLS1_StdIO_OutErr_FctType io);
 **         SendNum32s                   - void CLS1_SendNum32s(int32_t val, CLS1_StdIO_OutErr_FctType io);
+**         SendCh                       - void CLS1_SendCh(uint8_t ch, CLS1_StdIO_OutErr_FctType io);
 **         SendStr                      - void CLS1_SendStr(const uint8_t *str, CLS1_StdIO_OutErr_FctType io);
 **         SendData                     - void CLS1_SendData(const uint8_t *data, uint16_t dataSize,...
 **         PrintStatus                  - uint8_t CLS1_PrintStatus(CLS1_ConstStdIOType *io);
@@ -62,14 +64,32 @@
 **         Init                         - void CLS1_Init(void);
 **         Deinit                       - void CLS1_Deinit(void);
 **
-**     License   :  Open Source (LGPL)
-**     Copyright : (c) Copyright Erich Styger, 2014-2015, all rights reserved.
-**     http      : http://www.mcuoneclipse.com
-**     This an open source software implementing a command line shell with Processor Expert.
-**     This is a free software and is opened for education,  research  and commercial developments under license policy of following terms:
-**     * This is a free software and there is NO WARRANTY.
-**     * No restriction on use. You can use, modify and redistribute it for personal, non-profit or commercial product UNDER YOUR RESPONSIBILITY.
-**     * Redistributions of source code must retain the above copyright notice.
+**     * Copyright (c) 2014-2016, Erich Styger
+**      * Web:         https://mcuoneclipse.com
+**      * SourceForge: https://sourceforge.net/projects/mcuoneclipse
+**      * Git:         https://github.com/ErichStyger/McuOnEclipse_PEx
+**      * All rights reserved.
+**      *
+**      * Redistribution and use in source and binary forms, with or without modification,
+**      * are permitted provided that the following conditions are met:
+**      *
+**      * - Redistributions of source code must retain the above copyright notice, this list
+**      *   of conditions and the following disclaimer.
+**      *
+**      * - Redistributions in binary form must reproduce the above copyright notice, this
+**      *   list of conditions and the following disclaimer in the documentation and/or
+**      *   other materials provided with the distribution.
+**      *
+**      * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+**      * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+**      * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+**      * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+**      * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+**      * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+**      * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+**      * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+**      * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+**      * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ** ###################################################################*/
 /*!
 ** @file CLS1.c
@@ -86,23 +106,21 @@
 #include <ctype.h> /* for isalnum*/
 
 #include "CLS1.h"
-/* Include inherited components */
-#include "WAIT1.h"
-#include "UTIL1.h"
-#include "BT.h"
-#include "CS1.h"
-#include "KSDK1.h"
 
+uint8_t CLS1_DefaultShellBuffer[CLS1_DEFAULT_SHELL_BUFFER_SIZE]; /* default buffer which can be used by the application */
 #if CLS1_HISTORY_ENABLED
   static uint8_t CLS1_history[CLS1_NOF_HISTORY][CLS1_HIST_LEN]; /* History buffers */
   static uint8_t CLS1_history_index = 0; /* Selected command */
+#endif
+#if CLS1_ECHO_ENABLED
+  static bool CLS1_EchoEnabled = TRUE;
 #endif
 
 #ifdef __HC08__
   #pragma MESSAGE DISABLE C3303 /* implicit concatenation of strings */
 #endif
 
-static CLS1_ConstStdIOType CLS1_stdio =
+CLS1_ConstStdIOType CLS1_stdio =
 {
   (CLS1_StdIO_In_FctType)CLS1_ReadChar, /* stdin */
   (CLS1_StdIO_OutErr_FctType)CLS1_SendChar, /* stdout */
@@ -113,7 +131,22 @@ static CLS1_ConstStdIOType *CLS1_currStdIO = &CLS1_stdio;
 /* Internal method prototypes */
 static void SendSeparatedStrings(const uint8_t *strA, const uint8_t *strB, uint8_t tabChar, uint8_t tabPos, CLS1_StdIO_OutErr_FctType io);
 
-
+/*
+** ===================================================================
+**     Method      :  CLS1_SendCh (component Shell)
+**     Description :
+**         Prints a character using an I/O function
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         ch              - Character to send
+**         io              - I/O callbacks to be used for printing.
+**     Returns     : Nothing
+** ===================================================================
+*/
+void CLS1_SendCh(uint8_t ch, CLS1_StdIO_OutErr_FctType io)
+{
+  io(ch);
+}
 
 /*
 ** ===================================================================
@@ -292,8 +325,21 @@ uint8_t CLS1_ParseCommand(const uint8_t *cmd, bool *handled, CLS1_ConstStdIOType
     CLS1_SendStr((unsigned char*)"\r\n", io->stdOut);
     CLS1_SendHelpStr((unsigned char*)"CLS1", (const unsigned char*)"Group of CLS1 commands\r\n", io->stdOut);
     CLS1_SendHelpStr((unsigned char*)"  help|status", (const unsigned char*)"Print help or status information\r\n", io->stdOut);
+#if CLS1_ECHO_ENABLED
+    CLS1_SendHelpStr((unsigned char*)"  echo (on|off)", (const unsigned char*)"Turn echo on or off\r\n", io->stdOut);
+#endif
     *handled = TRUE;
     return ERR_OK;
+#if CLS1_ECHO_ENABLED
+  } else if ((UTIL1_strcmp((char*)cmd, "CLS1 echo on")==0)) {
+    *handled = TRUE;
+    CLS1_EchoEnabled = TRUE;
+    return ERR_OK;
+  } else if ((UTIL1_strcmp((char*)cmd, "CLS1 echo off")==0)) {
+    *handled = TRUE;
+    CLS1_EchoEnabled = FALSE;
+    return ERR_OK;
+#endif
   } else if ((UTIL1_strcmp((char*)cmd, CLS1_CMD_STATUS)==0) || (UTIL1_strcmp((char*)cmd, "CLS1 status")==0)) {
     *handled = TRUE;
     return CLS1_PrintStatus(io);
@@ -339,7 +385,7 @@ bool CLS1_IsHistoryCharacter(uint8_t ch, uint8_t *cmdBuf, size_t cmdBufIdx, bool
   *isPrev = FALSE;
 #if CLS1_HISTORY_ENABLED
   if (   cmdBufIdx==0 /* first character on command line */
-      || (UTIL1_strcmp(cmdBuf, CLS1_history[CLS1_history_index])==0) /* pressing prev/next character on previous history element */
+      || (UTIL1_strcmp((const char*)cmdBuf, (const char*)CLS1_history[CLS1_history_index])==0) /* pressing prev/next character on previous history element */
       )
   {
     if (ch==CLS1_HISTORY_PREV_CHAR) {
@@ -391,7 +437,8 @@ bool CLS1_IsHistoryCharacter(uint8_t ch, uint8_t *cmdBuf, size_t cmdBufIdx, bool
 **         bufSize         - size of buffer
 **       * io              - Pointer to I/O callbacks
 **     Returns     :
-**         ---             - Error code
+**         ---             - TRUE if something has been read, FALSE
+**                           otherwise
 ** ===================================================================
 */
 bool CLS1_ReadLine(uint8_t *bufStart, uint8_t *buf, size_t bufSize, CLS1_ConstStdIOType *io)
@@ -409,15 +456,17 @@ bool CLS1_ReadLine(uint8_t *bufStart, uint8_t *buf, size_t bufSize, CLS1_ConstSt
       if (c=='\b' || c=='\177') {      /* check for backspace */
         if (buf > bufStart) {          /* Avoid buffer underflow */
 #if CLS1_ECHO_ENABLED
-           io->stdOut('\b');           /* delete character on terminal */
-           io->stdOut(' ');
-           io->stdOut('\b');
+           if (CLS1_EchoEnabled) {
+             io->stdOut('\b');         /* delete character on terminal */
+             io->stdOut(' ');
+             io->stdOut('\b');
+           }
 #endif
            buf--;                      /* delete last character in buffer */
            *buf = '\0';
            bufSize++;
         }
-      } else if (CLS1_IsHistoryCharacter(c, bufStart, buf-bufStart, &isBackwardHistory)) {
+      } else if (CLS1_IsHistoryCharacter(c, bufStart, (size_t)(buf-bufStart), &isBackwardHistory)) {
 #if CLS1_HISTORY_ENABLED
         uint8_t cBuf[3]={'\0','\0','\0'}, cBufIdx = 0;
         bool prevInHistory;
@@ -456,24 +505,30 @@ bool CLS1_ReadLine(uint8_t *bufStart, uint8_t *buf, size_t bufSize, CLS1_ConstSt
           }
           UTIL1_strcpy(bufStart, CLS1_HIST_LEN, CLS1_history[CLS1_history_index]);
         }
-        bufSize = bufSize + buf - bufStart - UTIL1_strlen(bufStart); /* update the buffer */
-        buf = bufStart + UTIL1_strlen(bufStart);
+        bufSize = bufSize + buf - bufStart - UTIL1_strlen((const char*)bufStart); /* update the buffer */
+        buf = bufStart + UTIL1_strlen((const char*)bufStart);
 #endif
 #if CLS1_ECHO_ENABLED
-        CLS1_SendStr((unsigned char*)"\r\n", io->stdOut);
-        CLS1_PrintPrompt(io);
-        CLS1_SendStr(bufStart, io->stdOut);
+        if (CLS1_EchoEnabled) {
+          CLS1_SendStr((unsigned char*)"\r\n", io->stdOut);
+          CLS1_PrintPrompt(io);
+          CLS1_SendStr(bufStart, io->stdOut);
+        }
 #endif
       } else {
 #if CLS1_ECHO_ENABLED
-        io->stdOut(c);                 /* echo character */
+        if (CLS1_EchoEnabled) {
+          io->stdOut(c);               /* echo character */
+        }
 #endif
         *buf = (uint8_t)c;             /* append character to the string */
         buf++;
         bufSize--;
         if ((c=='\r') || (c=='\n')) {
 #if CLS1_ECHO_ENABLED
-          CLS1_SendStr((unsigned char*)"\n", io->stdOut);
+          if (CLS1_EchoEnabled) {
+            CLS1_SendStr((unsigned char*)"\n", io->stdOut);
+          }
 #endif
 #if CLS1_HISTORY_ENABLED
           if ((bufStart[0] != '\0') && (bufStart[0] != '\r') && (bufStart[0] != '\n')) {
@@ -519,15 +574,14 @@ bool CLS1_ReadLine(uint8_t *bufStart, uint8_t *buf, size_t bufSize, CLS1_ConstSt
 */
 uint8_t CLS1_PrintStatus(CLS1_ConstStdIOType *io)
 {
-  CLS1_SendStr((unsigned char*)"\r\n", io->stdOut);
-  CLS1_SendStr((unsigned char*)CLS1_DASH_LINE, io->stdOut);
-  CLS1_SendStr((unsigned char*)"\r\nSYSTEM STATUS\r\n", io->stdOut);
-  CLS1_SendStr((unsigned char*)CLS1_DASH_LINE, io->stdOut);
-  CLS1_SendStr((unsigned char*)"\r\n", io->stdOut);
-  CLS1_SendStatusStr((const unsigned char*)"Firmware", (const unsigned char*)__DATE__, io->stdOut);
+  CLS1_SendStatusStr((const unsigned char*)"CLS1", (const unsigned char*)"\r\n", io->stdOut);
+  CLS1_SendStatusStr((const unsigned char*)"  Build", (const unsigned char*)__DATE__, io->stdOut);
   CLS1_SendStr((unsigned char*)" ", io->stdOut);
   CLS1_SendStr((unsigned char*)__TIME__, io->stdOut);
   CLS1_SendStr((unsigned char*)"\r\n", io->stdOut);
+#if CLS1_ECHO_ENABLED
+  CLS1_SendStatusStr((const unsigned char*)"  echo", CLS1_EchoEnabled?(const unsigned char*)"On\r\n":(const unsigned char*)"Off\r\n", io->stdOut);
+#endif
   return ERR_OK;
 }
 
@@ -580,6 +634,9 @@ uint8_t CLS1_IterateTable(const uint8_t *cmd, bool *handled, CLS1_ConstStdIOType
   if (parserTable==NULL) { /* no table??? */
     return ERR_FAILED;
   }
+  if (io==NULL) { /* no IO handler??? */
+    return ERR_FAILED;
+  }
   /* iterate through all parser functions in table */
   while(*parserTable!=NULL) {
     if ((*parserTable)(cmd, handled, io)!=ERR_OK) {
@@ -620,6 +677,9 @@ uint8_t CLS1_ParseWithCommandTable(const uint8_t *cmd, CLS1_ConstStdIOType *io, 
   bool parseBuffer, finished;
 #endif
 
+  if (io==NULL) { /* no I/O handler? */
+    return ERR_FAILED;
+  }
   if (*cmd=='\0') { /* empty command */
     return ERR_OK;
   }
@@ -746,10 +806,13 @@ CLS1_ConstStdIOTypePtr CLS1_GetStdio(void)
 */
 uint8_t CLS1_ReadAndParseWithCommandTable(uint8_t *cmdBuf, size_t cmdBufSize, CLS1_ConstStdIOType *io, CLS1_ConstParseCommandCallback *parseCallback)
 {
+  /* IMPORTANT NOTE: this function *appends* to the buffer, so the buffer needs to be initialized first! */
   uint8_t res = ERR_OK;
   size_t len;
 
-  /* IMPORTANT NOTE: this function *appends* to the buffer, so the buffer needs to be initialized first! */
+  if (io==NULL) { /* no I/O handler? */
+    return ERR_FAILED;
+  }
   len = UTIL1_strlen((const char*)cmdBuf);
   if (CLS1_ReadLine(cmdBuf, cmdBuf+len, cmdBufSize-len, io)) {
     len = UTIL1_strlen((const char*)cmdBuf); /* length of buffer string */
@@ -980,6 +1043,9 @@ void CLS1_Init(void)
       CLS1_history[i][0] = '\0';
     }
   }
+#endif
+#if CLS1_ECHO_ENABLED
+  CLS1_EchoEnabled = TRUE;
 #endif
 }
 

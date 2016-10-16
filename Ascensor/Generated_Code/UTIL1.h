@@ -4,14 +4,15 @@
 **     Project     : Ascensor
 **     Processor   : MKL46Z256VMC4
 **     Component   : Utility
-**     Version     : Component 01.111, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.126, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-03-26, 18:53, # CodeGen: 68
+**     Date/Time   : 2016-10-14, 15:30, # CodeGen: 74
 **     Abstract    :
 **          Contains various utility functions.
 **     Settings    :
 **          Component name                                 : UTIL1
+**          SDK                                            : KSDK1
 **     Contents    :
 **         strcpy                  - void UTIL1_strcpy(uint8_t *dst, size_t dstSize, const unsigned char *src);
 **         strcat                  - void UTIL1_strcat(uint8_t *dst, size_t dstSize, const unsigned char *src);
@@ -23,6 +24,7 @@
 **         Num16uToStr             - void UTIL1_Num16uToStr(uint8_t *dst, size_t dstSize, uint16_t val);
 **         Num32uToStr             - void UTIL1_Num32uToStr(uint8_t *dst, size_t dstSize, uint32_t val);
 **         Num32sToStr             - void UTIL1_Num32sToStr(uint8_t *dst, size_t dstSize, int32_t val);
+**         NumFloatToStr           - void UTIL1_NumFloatToStr(uint8_t *dst, size_t dstSize, float val, uint8_t...
 **         Num16sToStrFormatted    - void UTIL1_Num16sToStrFormatted(uint8_t *dst, size_t dstSize, int16_t val,...
 **         Num16uToStrFormatted    - void UTIL1_Num16uToStrFormatted(uint8_t *dst, size_t dstSize, uint16_t val,...
 **         Num32uToStrFormatted    - void UTIL1_Num32uToStrFormatted(uint8_t *dst, size_t dstSize, uint32_t val,...
@@ -42,34 +44,41 @@
 **         strcatNum24Hex          - void UTIL1_strcatNum24Hex(uint8_t *dst, size_t dstSize, uint32_t num);
 **         strcatNum32Hex          - void UTIL1_strcatNum32Hex(uint8_t *dst, size_t dstSize, uint32_t num);
 **         strcatNum32sDotValue100 - void UTIL1_strcatNum32sDotValue100(uint8_t *dst, size_t dstSize, int32_t num);
+**         strcatNumFloat          - void UTIL1_strcatNumFloat(uint8_t *dst, size_t dstSize, float val, uint8_t...
 **         IsLeapYear              - bool UTIL1_IsLeapYear(uint16_t year);
-**         WeekDay                 - byte UTIL1_WeekDay(uint16_t year, uint8_t month, uint8_t day);
-**         ReadEscapedName         - byte UTIL1_ReadEscapedName(const unsigned char *filename, uint8_t *destname,...
-**         xatoi                   - byte UTIL1_xatoi(const unsigned char **str, int32_t *res);
-**         ScanDate                - byte UTIL1_ScanDate(const unsigned char **str, uint8_t *day, uint8_t *month,...
-**         ScanTime                - byte UTIL1_ScanTime(const unsigned char **str, uint8_t *hour, uint8_t...
-**         ScanDecimal8uNumber     - byte UTIL1_ScanDecimal8uNumber(const unsigned char **str, uint8_t *val);
-**         ScanDecimal8sNumber     - byte UTIL1_ScanDecimal8sNumber(const unsigned char **str, signed char *val);
-**         ScanDecimal16uNumber    - byte UTIL1_ScanDecimal16uNumber(const unsigned char **str, uint16_t *val);
-**         ScanDecimal16sNumber    - byte UTIL1_ScanDecimal16sNumber(const unsigned char **str, int16_t *val);
-**         ScanDecimal32uNumber    - byte UTIL1_ScanDecimal32uNumber(const unsigned char **str, uint32_t *val);
+**         WeekDay                 - uint8_t UTIL1_WeekDay(uint16_t year, uint8_t month, uint8_t day);
+**         ReadEscapedName         - uint8_t UTIL1_ReadEscapedName(const unsigned char *filename, uint8_t...
+**         xatoi                   - uint8_t UTIL1_xatoi(const unsigned char **str, int32_t *res);
+**         ScanDate                - uint8_t UTIL1_ScanDate(const unsigned char **str, uint8_t *day, uint8_t...
+**         ScanTime                - uint8_t UTIL1_ScanTime(const unsigned char **str, uint8_t *hour, uint8_t...
+**         ScanDecimal8uNumber     - uint8_t UTIL1_ScanDecimal8uNumber(const unsigned char **str, uint8_t *val);
+**         ScanDecimal8sNumber     - uint8_t UTIL1_ScanDecimal8sNumber(const unsigned char **str, signed char *val);
+**         ScanDecimal16uNumber    - uint8_t UTIL1_ScanDecimal16uNumber(const unsigned char **str, uint16_t *val);
+**         ScanDecimal16sNumber    - uint8_t UTIL1_ScanDecimal16sNumber(const unsigned char **str, int16_t *val);
+**         ScanDecimal32uNumber    - uint8_t UTIL1_ScanDecimal32uNumber(const unsigned char **str, uint32_t *val);
 **         ScanDecimal32sNumber    - uint8_t UTIL1_ScanDecimal32sNumber(const unsigned char **str, int32_t *val);
 **         ScanDecimal32sDotNumber - uint8_t UTIL1_ScanDecimal32sDotNumber(const unsigned char **str, int32_t...
-**         ScanHex8uNumber         - byte UTIL1_ScanHex8uNumber(const unsigned char **str, uint8_t *val);
-**         ScanHex8uNumberNoPrefix - byte UTIL1_ScanHex8uNumberNoPrefix(const unsigned char **str, uint8_t *val);
-**         ScanHex16uNumber        - byte UTIL1_ScanHex16uNumber(const unsigned char **str, uint16_t *val);
+**         ScanHex8uNumber         - uint8_t UTIL1_ScanHex8uNumber(const unsigned char **str, uint8_t *val);
+**         ScanHex8uNumberNoPrefix - uint8_t UTIL1_ScanHex8uNumberNoPrefix(const unsigned char **str, uint8_t *val);
+**         ScanHex16uNumber        - uint8_t UTIL1_ScanHex16uNumber(const unsigned char **str, uint16_t *val);
 **         ScanHex32uNumber        - uint8_t UTIL1_ScanHex32uNumber(const unsigned char **str, uint32_t *val);
 **         ScanSeparatedNumbers    - uint8_t UTIL1_ScanSeparatedNumbers(const unsigned char **str, uint8_t...
 **         ScanDoubleQuotedString  - uint8_t UTIL1_ScanDoubleQuotedString(const uint8_t **cmd, uint8_t *buf,...
 **         strcmp                  - int16_t UTIL1_strcmp(const char *, const char *);
 **         strncmp                 - int16_t UTIL1_strncmp(const char *, const char *, size_t size);
 **         strFind                 - int16_t UTIL1_strFind(uint8_t *str, uint8_t *subStr);
-**         strtailcmp              - byte UTIL1_strtailcmp(uint8_t *str, uint8_t *tail);
-**         strlen                  - word UTIL1_strlen(const char *);
-**         strCutTail              - byte UTIL1_strCutTail(uint8_t *str, uint8_t *tail);
+**         strtailcmp              - uint8_t UTIL1_strtailcmp(const uint8_t *str, const uint8_t *tail);
+**         strlen                  - uint16_t UTIL1_strlen(const char *);
+**         strCutTail              - uint8_t UTIL1_strCutTail(uint8_t *str, uint8_t *tail);
+**         GetValue16LE            - uint16_t UTIL1_GetValue16LE(uint8_t *dataP);
+**         GetValue24LE            - uint32_t UTIL1_GetValue24LE(uint8_t *dataP);
+**         GetValue32LE            - uint32_t UTIL1_GetValue32LE(uint8_t *dataP);
+**         SetValue16LE            - void UTIL1_SetValue16LE(uint16_t data, uint8_t *dataP);
+**         SetValue24LE            - void UTIL1_SetValue24LE(uint32_t data, uint8_t *dataP);
+**         SetValue32LE            - void UTIL1_SetValue32LE(uint32_t data, uint8_t *dataP);
 **
 **     License   :  Open Source (LGPL)
-**     Copyright : (c) Copyright Erich Styger, 2014-2015, all rights reserved.
+**     Copyright : (c) Copyright Erich Styger, 2014-2016, all rights reserved.
 **     xatoi(): Copyright (C) 2010, ChaN, all right reserved. (see copyright notice and license at the function implementation).
 **     This an open source software implementing utility functions using Processor Expert.
 **     This is a free software and is opened for education,  research and commercial developments under license policy of following terms:
@@ -93,15 +102,17 @@
 #define __UTIL1_H
 
 /* MODULE UTIL1. */
-
-/* Include shared modules, which are used for whole project */
-#include "PE_Types.h"
-#include "PE_Error.h"
-#include "PE_Const.h"
-#include "IO_Map.h"
 /* Include inherited beans */
+#include "KSDK1.h"
 
-#include "Cpu.h"
+#if KSDK1_SDK_VERSION_USED == KSDK1_SDK_VERSION_NONE
+/* Include shared modules, which are used for whole project */
+  #include "PE_Types.h"
+  #include "PE_Error.h"
+  #include "PE_Const.h"
+  #include "IO_Map.h"
+  #include "Cpu.h"
+#endif
 #include <string.h>
 #include <stddef.h> /* for size_t */
 
@@ -112,6 +123,9 @@ typedef enum {
   UTIL1_SEP_NUM_TYPE_UINT8_HEX_NO_PREFIX /* uint8_t hex number type, no 0x prefix */
 } UTIL1_SeparatedNumberType;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 void UTIL1_strcpy(uint8_t *dst, size_t dstSize, const unsigned char *src);
 /*
@@ -221,8 +235,8 @@ void UTIL1_strcatNum8Hex(uint8_t *dst, size_t dstSize, uint8_t num);
 ** ===================================================================
 **     Method      :  UTIL1_strcatNum8Hex (component Utility)
 **     Description :
-**         Appends a 8bit unsigned value to a buffer as hex number
-**         (without a 0x prefix).
+**         Appends a 8bit unsigned value to a string buffer as hex
+**         number (without a 0x prefix).
 **     Parameters  :
 **         NAME            - DESCRIPTION
 **       * dst             - Pointer to destination string
@@ -238,8 +252,8 @@ void UTIL1_strcatNum16Hex(uint8_t *dst, size_t dstSize, uint16_t num);
 ** ===================================================================
 **     Method      :  UTIL1_strcatNum16Hex (component Utility)
 **     Description :
-**         Appends a 16bit unsigned value to a buffer as hex number
-**         (without a 0x prefix).
+**         Appends a 16bit unsigned value to a string buffer as hex
+**         number (without a 0x prefix).
 **     Parameters  :
 **         NAME            - DESCRIPTION
 **       * dst             - Pointer to destination string
@@ -287,8 +301,8 @@ void UTIL1_strcatNum32Hex(uint8_t *dst, size_t dstSize, uint32_t num);
 ** ===================================================================
 **     Method      :  UTIL1_strcatNum32Hex (component Utility)
 **     Description :
-**         Appends a 16bit unsigned value to a buffer as hex number
-**         (without a 0x prefix).
+**         Appends a 16bit unsigned value to a string buffer as hex
+**         number (without a 0x prefix).
 **     Parameters  :
 **         NAME            - DESCRIPTION
 **       * dst             - Pointer to destination string
@@ -336,8 +350,8 @@ void UTIL1_chcat(uint8_t *dst, size_t dstSize, uint8_t ch);
 ** ===================================================================
 **     Method      :  UTIL1_chcat (component Utility)
 **     Description :
-**         Adds a single character to a zero byte terminated buffer. It
-**         cares about buffer overflow.
+**         Adds a single character to a zero byte terminated string
+**         buffer. It cares about buffer overflow.
 **     Parameters  :
 **         NAME            - DESCRIPTION
 **       * dst             - Pointer to destination string
@@ -422,8 +436,8 @@ void UTIL1_strcatNum24Hex(uint8_t *dst, size_t dstSize, uint32_t num);
 ** ===================================================================
 **     Method      :  UTIL1_strcatNum24Hex (component Utility)
 **     Description :
-**         Appends a 32bit unsigned value to a buffer as hex number
-**         (without a 0x prefix). Only 24bits are used.
+**         Appends a 32bit unsigned value to a string buffer as hex
+**         number (without a 0x prefix). Only 24bits are used.
 **     Parameters  :
 **         NAME            - DESCRIPTION
 **       * dst             - Pointer to destination string
@@ -845,7 +859,7 @@ uint8_t UTIL1_ScanHex8uNumber(const unsigned char **str, uint8_t *val);
 ** ===================================================================
 */
 
-uint8_t UTIL1_strtailcmp(uint8_t *str, uint8_t *tail);
+uint8_t UTIL1_strtailcmp(const uint8_t *str, const uint8_t *tail);
 /*
 ** ===================================================================
 **     Method      :  UTIL1_strtailcmp (component Utility)
@@ -901,8 +915,8 @@ void UTIL1_strcatNum32sDotValue100(uint8_t *dst, size_t dstSize, int32_t num);
 ** ===================================================================
 **     Method      :  UTIL1_strcatNum32sDotValue100 (component Utility)
 **     Description :
-**         Appends a 32bit signed value to a buffer. The value is in
-**         1/100 units.  For example for the value -13456 it will
+**         Appends a 32bit signed value to a string buffer. The value
+**         is in 1/100 units.  For example for the value -13456 it will
 **         append the string "-134.56"
 **     Parameters  :
 **         NAME            - DESCRIPTION
@@ -1066,7 +1080,131 @@ void UTIL1_strcatPad(uint8_t *dst, size_t dstSize, const unsigned char *src, cha
 ** ===================================================================
 */
 
+void UTIL1_NumFloatToStr(uint8_t *dst, size_t dstSize, float val, uint8_t nofFracDigits);
+/*
+** ===================================================================
+**     Method      :  UTIL1_NumFloatToStr (component Utility)
+**     Description :
+**         Converts a float value into a string.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * dst             - Pointer to destination string
+**         dstSize         - Size of the destination buffer (in
+**                           bytes).
+**         val             - Value to be converted.
+**         nofFracDigits   - Number of fractional
+**                           digits to print
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void UTIL1_strcatNumFloat(uint8_t *dst, size_t dstSize, float val, uint8_t nofFracDigits);
+/*
+** ===================================================================
+**     Method      :  UTIL1_strcatNumFloat (component Utility)
+**     Description :
+**         Converts a float value into a string.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * dst             - Pointer to destination string
+**         dstSize         - Size of the destination buffer (in
+**                           bytes).
+**         val             - Value to be converted.
+**         nofFracDigits   - Number of factional
+**                           digits to print
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+uint16_t UTIL1_GetValue16LE(uint8_t *dataP);
+/*
+** ===================================================================
+**     Method      :  UTIL1_GetValue16LE (component Utility)
+**     Description :
+**         Returns a 16bit Little Endian value from memory
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * dataP           - Pointer to memory
+**     Returns     :
+**         ---             - Error code
+** ===================================================================
+*/
+
+uint32_t UTIL1_GetValue24LE(uint8_t *dataP);
+/*
+** ===================================================================
+**     Method      :  UTIL1_GetValue24LE (component Utility)
+**     Description :
+**         Returns a 24bit Little Endian value from memory
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * dataP           - Pointer to memory
+**     Returns     :
+**         ---             - Error code
+** ===================================================================
+*/
+
+uint32_t UTIL1_GetValue32LE(uint8_t *dataP);
+/*
+** ===================================================================
+**     Method      :  UTIL1_GetValue32LE (component Utility)
+**     Description :
+**         Returns a 32bit Little Endian value from memory
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * dataP           - Pointer to memory
+**     Returns     :
+**         ---             - Error code
+** ===================================================================
+*/
+
+void UTIL1_SetValue16LE(uint16_t data, uint8_t *dataP);
+/*
+** ===================================================================
+**     Method      :  UTIL1_SetValue16LE (component Utility)
+**     Description :
+**         Stores a 16bit value in memory as Little Endian
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         data            - Value to store
+**       * dataP           - Pointer to memory
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void UTIL1_SetValue24LE(uint32_t data, uint8_t *dataP);
+/*
+** ===================================================================
+**     Method      :  UTIL1_SetValue24LE (component Utility)
+**     Description :
+**         Stores a 24bit value in memory as Little Endian
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         data            - Value to store
+**       * dataP           - Pointer to memory
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void UTIL1_SetValue32LE(uint32_t data, uint8_t *dataP);
+/*
+** ===================================================================
+**     Method      :  UTIL1_SetValue32LE (component Utility)
+**     Description :
+**         Stores a 32bit value in memory as Little Endian
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         data            - Value to store
+**       * dataP           - Pointer to memory
+**     Returns     : Nothing
+** ===================================================================
+*/
+
 /* END UTIL1. */
+
+#ifdef __cplusplus
+}  /* extern "C" */
+#endif
 
 #endif
 /* ifndef __UTIL1_H */

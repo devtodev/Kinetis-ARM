@@ -43,5 +43,5 @@ char *getWifiBuffer();
 char tryToConnect();
 void readBuffer();
 void sendInfo(char *data);
-bool SSIDStoredVisible();
+unsigned char SSIDStoredVisible();
 void disconectFromSpot();

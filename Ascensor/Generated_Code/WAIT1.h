@@ -4,14 +4,15 @@
 **     Project     : Ascensor
 **     Processor   : MKL46Z256VMC4
 **     Component   : Wait
-**     Version     : Component 01.067, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.069, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-03-26, 18:53, # CodeGen: 68
+**     Date/Time   : 2016-10-14, 15:30, # CodeGen: 74
 **     Abstract    :
 **          Implements busy waiting routines.
 **     Settings    :
 **          Component name                                 : WAIT1
+**          SDK                                            : KSDK1
 **          Manual Clock Values                            : Disabled
 **          Delay100usFunction                             : Delay100US
 **          RTOS                                           : Disabled
@@ -27,7 +28,7 @@
 **         WaitOSms       - void WAIT1_WaitOSms(void);
 **
 **     License   : Open Source (LGPL)
-**     Copyright : Erich Styger, 2013-2014, all rights reserved.
+**     Copyright : Erich Styger, 2013-2016, all rights reserved.
 **     Web       : www.mcuoneclipse.com
 **     This an open source software implementing waiting routines using Processor Expert.
 **     This is a free software and is opened for education,  research  and commercial developments under license policy of following terms:
@@ -51,14 +52,17 @@
 
 /* MODULE WAIT1. */
 
-/* Include shared modules, which are used for whole project */
-#include "PE_Types.h"
-#include "PE_Error.h"
-#include "PE_Const.h"
-#include "IO_Map.h"
 /* Include inherited beans */
+#include "KSDK1.h"
 
-#include "Cpu.h"
+#if KSDK1_SDK_VERSION_USED == KSDK1_SDK_VERSION_NONE
+/* Include shared modules, which are used for whole project */
+  #include "PE_Types.h"
+  #include "PE_Error.h"
+  #include "PE_Const.h"
+  #include "IO_Map.h"
+  #include "Cpu.h"
+#endif
 /* include RTOS header files */
 #include "FreeRTOS.h" /* for vTaskDelay() */
 #include "task.h"
@@ -68,7 +72,12 @@ extern "C" {
 #endif
 
 
-#define WAIT1_INSTR_CLOCK_HZ       CPU_CORE_CLK_HZ /* for Kinetis, use core clock as base for instruction execution */
+#if KSDK1_SDK_VERSION_USED != KSDK1_SDK_VERSION_NONE
+  extern uint32_t SystemCoreClock; /* clock frequency variable defined system_<device>.h of the SDK */
+  #define WAIT1_INSTR_CLOCK_HZ       SystemCoreClock  /* core clock frequency in Hz */
+#else
+  #define WAIT1_INSTR_CLOCK_HZ       CPU_CORE_CLK_HZ /* for Kinetis, use core clock as base for instruction execution */
+#endif
 #define WAIT1_NofCyclesMs(ms, hz)  ((ms)*((hz)/1000)) /* calculates the needed cycles based on bus clock frequency */
 #define WAIT1_NofCyclesUs(us, hz)  ((us)*(((hz)/1000)/1000)) /* calculates the needed cycles based on bus clock frequency */
 #define WAIT1_NofCyclesNs(ns, hz)  (((ns)*(((hz)/1000)/1000))/1000) /* calculates the needed cycles based on bus clock frequency */
@@ -132,11 +141,13 @@ void WAIT1_Waitms(uint16_t ms);
 
 /* we are having a static clock configuration: implement as macro/inlined version */
 #define WAIT1_Waitus(us)  \
+        /*lint -save -e(505,506,522) Constant value Boolean, Redundant left argument to comma. */\
        (  ((WAIT1_NofCyclesUs((us),WAIT1_INSTR_CLOCK_HZ)==0)||(us)==0) ? \
           (void)0 : \
           ( ((us)/1000)==0 ? (void)0 : WAIT1_Waitms((uint16_t)((us)/1000))) \
           , (WAIT1_NofCyclesUs(((us)%1000), WAIT1_INSTR_CLOCK_HZ)==0) ? (void)0 : \
             WAIT1_WAIT_C(WAIT1_NofCyclesUs(((us)%1000), WAIT1_INSTR_CLOCK_HZ)) \
+       /*lint -restore */\
        )
 /*
 ** ===================================================================
@@ -153,12 +164,14 @@ void WAIT1_Waitms(uint16_t ms);
 
 /* we are having a static clock configuration: implement as macro/inlined version */
 #define WAIT1_Waitns(ns)  \
+        /*lint -save -e(505,506,522) Constant value Boolean, Redundant left argument to comma. */\
        (  ((WAIT1_NofCyclesNs((ns), WAIT1_INSTR_CLOCK_HZ)==0)||(ns)==0) ? \
           (void)0 : \
           WAIT1_Waitus((ns)/1000) \
           , (WAIT1_NofCyclesNs((ns)%1000, WAIT1_INSTR_CLOCK_HZ)==0) ? \
               (void)0 : \
               WAIT1_WAIT_C(WAIT1_NofCyclesNs(((ns)%1000), WAIT1_INSTR_CLOCK_HZ)) \
+       /*lint -restore */\
        )
 /*
 ** ===================================================================
@@ -173,7 +186,7 @@ void WAIT1_Waitms(uint16_t ms);
 */
 
 #define WAIT1_WaitOSms(ms) \
-  vTaskDelay(ms/portTICK_RATE_MS)
+  vTaskDelay(ms/portTICK_PERIOD_MS)
 /*
 ** ===================================================================
 **     Method      :  WAIT1_WaitOSms (component Wait)

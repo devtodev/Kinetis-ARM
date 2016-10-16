@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : KL46P121M48SF4RM, Rev.2, Dec 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-03-26, 18:53, # CodeGen: 68
+**     Date/Time   : 2016-10-14, 15:30, # CodeGen: 74
 **     Abstract    :
 **
 **     Settings    :
@@ -449,6 +449,21 @@ PE_ISR(Cpu_ivINT_Reserved9)
 ** ===================================================================
 */
 PE_ISR(Cpu_ivINT_Reserved10)
+{
+  /* This code can be changed using the CPU component property "Build Options / Unhandled int code" */
+  PE_DEBUGHALT();
+}
+
+/*
+** ===================================================================
+**     Method      :  Cpu_Cpu_ivINT_SVCall (component MKL46Z256MC4)
+**
+**     Description :
+**         This ISR services an unused interrupt/exception vector.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+PE_ISR(Cpu_ivINT_SVCall)
 {
   /* This code can be changed using the CPU component property "Build Options / Unhandled int code" */
   PE_DEBUGHALT();
@@ -1067,6 +1082,8 @@ void PE_low_level_init(void)
                 ));
   /* NVIC_IPR1: PRI_6=0 */
   NVIC_IPR1 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_6(0xFF));
+  /* ### KinetisSDK "KSDK1" init code ... */
+  /* Write code here ... */
   /* ### CriticalSection "CS1" init code ... */
   /* ### GenericTimeDate "TimeDate" init code ... */
   TimeDate_Init();
@@ -1100,8 +1117,6 @@ void PE_low_level_init(void)
   TSK1_CreateTasks();
   /* ### Asynchro serial "BT" init code ... */
   BT_Init();
-  /* ### KinetisSDK "KSDK1" init code ... */
-  /* Write code here ... */
   /* ### Shell "CLS1" init code ... */
   CLS1_Init(); /* initialize shell */
   /* ### Timeout "TMOUT1" init code ... */

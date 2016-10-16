@@ -7,7 +7,7 @@
 **     Version     : Component 01.016, Driver 01.07, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-03-26, 18:53, # CodeGen: 68
+**     Date/Time   : 2016-10-14, 15:30, # CodeGen: 74
 **     Abstract    :
 **          This component encapsulates the internal I2C communication
 **          interface. The implementation of the interface is based
@@ -473,7 +473,7 @@ LDD_TError I2C0_MasterSendBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *Buffe
     }
   }
   /* {FreeRTOS RTOS Adapter} Critical section begin (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskENTER_CRITICAL();
+  EnterCritical();
   DeviceDataPrv->SerFlag |= MASTER_IN_PROGRES; /* Set flag "busy" */
   DeviceDataPrv->OutPtrM = (uint8_t *)BufferPtr; /* Save pointer to data for transmitting */
   DeviceDataPrv->OutLenM = Size;       /* Set the counter of output bufer's content */
@@ -499,7 +499,7 @@ LDD_TError I2C0_MasterSendBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *Buffe
     }
   }
   /* {FreeRTOS RTOS Adapter} Critical section ends (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskEXIT_CRITICAL();
+  ExitCritical();
   return ERR_OK;                       /* OK */
 }
 
@@ -578,7 +578,7 @@ LDD_TError I2C0_MasterReceiveBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *Bu
     }
   }
   /* {FreeRTOS RTOS Adapter} Critical section begin (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskENTER_CRITICAL();
+  EnterCritical();
   DeviceDataPrv->SerFlag |= MASTER_IN_PROGRES; /* Set flag "busy" */
   DeviceDataPrv->InpPtrM = (uint8_t *)BufferPtr; /* Save pointer to data for reception */
   DeviceDataPrv->InpLenM = Size;       /* Set the counter of input bufer's content */
@@ -599,7 +599,7 @@ LDD_TError I2C0_MasterReceiveBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *Bu
     }
   }
   /* {FreeRTOS RTOS Adapter} Critical section ends (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskEXIT_CRITICAL();
+  ExitCritical();
   return ERR_OK;                       /* OK */
 }
 
@@ -699,11 +699,11 @@ LDD_TError I2C0_GetError(LDD_TDeviceData *DeviceDataPtr, LDD_I2C_TErrorMask *Err
   I2C0_TDeviceData *DeviceDataPrv = (I2C0_TDeviceData *)DeviceDataPtr;
 
   /* {FreeRTOS RTOS Adapter} Critical section begin (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskENTER_CRITICAL();
+  EnterCritical();
   *ErrorMaskPtr = DeviceDataPrv->ErrorMask; /* Return last value of error mask */
   DeviceDataPrv->ErrorMask = 0x00U;
   /* {FreeRTOS RTOS Adapter} Critical section ends (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskEXIT_CRITICAL();
+  ExitCritical();
   return ERR_OK;
 }
 

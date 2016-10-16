@@ -4,14 +4,15 @@
 **     Project     : Ascensor
 **     Processor   : MKL46Z256VMC4
 **     Component   : CriticalSection
-**     Version     : Component 01.006, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.009, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-03-26, 18:53, # CodeGen: 68
+**     Date/Time   : 2016-10-14, 15:30, # CodeGen: 74
 **     Abstract    :
 **
 **     Settings    :
 **          Component name                                 : CS1
+**          SDK                                            : KSDK1
 **          Use Processor Expert Default                   : no
 **          Use FreeRTOS                                   : no
 **     Contents    :
@@ -20,7 +21,7 @@
 **         ExitCritical     - void CS1_ExitCritical(void);
 **
 **     License   : Open Source (LGPL)
-**     Copyright : Erich Styger, 2014, all rights reserved.
+**     Copyright : Erich Styger, 2014-2016, all rights reserved.
 **     Web       : www.mcuoneclipse.com
 **     This an open source software implementing a driver using Processor Expert.
 **     This is a free software and is opened for education, research and commercial developments under license policy of following terms:

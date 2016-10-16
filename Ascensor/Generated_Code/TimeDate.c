@@ -4,15 +4,16 @@
 **     Project     : Ascensor
 **     Processor   : MKL46Z256VMC4
 **     Component   : GenericTimeDate
-**     Version     : Component 01.027, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.028, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-03-26, 18:53, # CodeGen: 68
+**     Date/Time   : 2016-10-14, 15:30, # CodeGen: 74
 **     Abstract    :
 **         Software date/time module.
 **     Settings    :
 **          Component name                                 : TimeDate
 **          Critical Section                               : CS1
+**          SDK                                            : KSDK1
 **          Tick Time (ms)                                 : 10
 **          RTOS                                           : Disabled
 **          Shell                                          : Disabled
@@ -98,7 +99,7 @@ uint8_t TimeDate_SetTime(uint8_t Hour, uint8_t Min, uint8_t Sec, uint8_t Sec100)
   time.Min = Min;
   time.Sec = Sec;
   time.Sec100 = Sec100;
-  TimeDate_TimeToTicks(&time, &nofTicks);
+  (void)TimeDate_TimeToTicks(&time, &nofTicks);
   CS1_EnterCritical();
   tickCntr = nofTicks;
   CS1_ExitCritical();
@@ -120,7 +121,7 @@ uint8_t TimeDate_SetTime(uint8_t Hour, uint8_t Min, uint8_t Sec, uint8_t Sec100)
 */
 void TimeDate_AddTick(void)
 {
-  const uint8_t* ptr;                  /* Pointer to ULY/LY table */
+  const uint8_t *ptr;                  /* Pointer to ULY/LY table */
   CS1_CriticalVariable()
 
   CS1_EnterCritical();                 /* need exclusive access to tick counter */
@@ -329,13 +330,13 @@ uint8_t TimeDate_TicksToTime(uint32_t ticks, TIMEREC *Time)
 */
 uint8_t TimeDate_TimeToTicks(TIMEREC *Time, uint32_t *ticks)
 {
-  uint32_t tickCntr;
+  uint32_t cntr;
 
-  tickCntr = (3600UL*TimeDate_TICKS_PER_S*(uint32_t)Time->Hour)
+  cntr = (3600UL*TimeDate_TICKS_PER_S*(uint32_t)Time->Hour)
               + (60UL*TimeDate_TICKS_PER_S*(uint32_t)Time->Min)
               + (TimeDate_TICKS_PER_S*(uint32_t)Time->Sec)
               + ((TimeDate_TICKS_PER_S/100)*(uint32_t)Time->Sec100); /* Load given time re-calculated to TimeDate_TICK_TIME_MS ms ticks into software tick counter */
-  *ticks = tickCntr;
+  *ticks = cntr;
   return ERR_OK;
 }
 

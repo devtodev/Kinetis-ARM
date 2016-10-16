@@ -4,14 +4,15 @@
 **     Project     : Ascensor
 **     Processor   : MKL46Z256VMC4
 **     Component   : KinetisSDK
-**     Version     : Component 01.001, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.005, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-03-26, 18:53, # CodeGen: 68
+**     Date/Time   : 2016-10-14, 15:30, # CodeGen: 74
 **     Abstract    :
 **
 **     Settings    :
 **          Component name                                 : KSDK1
+**          SDK Version                                    : none
 **     Contents    :
 **         No public methods
 **
