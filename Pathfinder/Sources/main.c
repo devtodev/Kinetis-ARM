@@ -40,6 +40,12 @@
 #include "RGB_Blue.h"
 #include "BitIoLdd3.h"
 #include "TSK1.h"
+#include "MMA1.h"
+#include "WAIT1.h"
+#include "GI2C1.h"
+#include "TMOUT1.h"
+#include "CS1.h"
+#include "I2C0.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"

@@ -6,7 +6,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-16, 00:51, # CodeGen: 8
+**     Date/Time   : 2016-10-16, 02:50, # CodeGen: 21
 **     Abstract    :
 **
 **     Settings    :
@@ -71,6 +71,12 @@
 #include "RGB_Blue.h"
 #include "BitIoLdd3.h"
 #include "TSK1.h"
+#include "MMA1.h"
+#include "WAIT1.h"
+#include "GI2C1.h"
+#include "TMOUT1.h"
+#include "CS1.h"
+#include "I2C0.h"
 
 
 /*

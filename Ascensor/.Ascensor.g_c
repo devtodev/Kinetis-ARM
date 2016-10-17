@@ -560,7 +560,7 @@
     </GenFiles>
     <SignalListFile>Documentation\Ascensor_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>30</ProjectModificationStamp>
+    <ProjectModificationStamp>31</ProjectModificationStamp>
   </Options>
   <CpuID_75>
     <Generated>true</Generated>

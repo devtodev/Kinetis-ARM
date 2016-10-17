@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-16, 00:51, # CodeGen: 8
+**     Date/Time   : 2016-10-16, 02:50, # CodeGen: 21
 **     Abstract    :
 **
 **     Settings    :
@@ -253,6 +253,12 @@
 #include "RGB_Blue.h"
 #include "BitIoLdd3.h"
 #include "TSK1.h"
+#include "MMA1.h"
+#include "WAIT1.h"
+#include "GI2C1.h"
+#include "TMOUT1.h"
+#include "CS1.h"
+#include "I2C0.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -318,8 +324,9 @@ void __init_hardware(void)
   /* System clock initialization */
   /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=3,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
   SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x03)); /* Set the system prescalers to safe value */
-  /* SIM_SCGC5: PORTD=1,PORTB=1,PORTA=1 */
-  SIM_SCGC5 |= SIM_SCGC5_PORTD_MASK |
+  /* SIM_SCGC5: PORTE=1,PORTD=1,PORTB=1,PORTA=1 */
+  SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK |
+               SIM_SCGC5_PORTD_MASK |
                SIM_SCGC5_PORTB_MASK |
                SIM_SCGC5_PORTA_MASK;   /* Enable clock gate for ports to enable pin routing */
   if ((PMC_REGSC & PMC_REGSC_ACKISO_MASK) != 0x0U) {
@@ -447,6 +454,13 @@ void PE_low_level_init(void)
   (void)BitIoLdd3_Init(NULL);
   /* ### FreeRTOS_Tasks "TSK1" init code ... */
   TSK1_CreateTasks();
+  /* ### CriticalSection "CS1" init code ... */
+  /* ### Timeout "TMOUT1" init code ... */
+  TMOUT1_Init();
+  /* ### GenericI2C "GI2C1" init code ... */
+  GI2C1_Init();
+  /* ### MMA8451Q "MMA1" init code ... */
+  /* Write code here ... */
 }
   /* Flash configuration field */
   __attribute__ ((section (".cfmconfig"))) const uint8_t _cfm[0x10] = {

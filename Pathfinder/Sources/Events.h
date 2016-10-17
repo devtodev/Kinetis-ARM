@@ -43,6 +43,12 @@
 #include "RGB_Blue.h"
 #include "BitIoLdd3.h"
 #include "TSK1.h"
+#include "MMA1.h"
+#include "WAIT1.h"
+#include "GI2C1.h"
+#include "TMOUT1.h"
+#include "CS1.h"
+#include "I2C0.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -118,6 +124,34 @@ void FRTOS1_vApplicationMallocFailedHook(void);
 **     Description :
 **         If enabled, the RTOS will call this hook in case memory
 **         allocation failed.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void GI2C1_OnRequestBus(void);
+/*
+** ===================================================================
+**     Event       :  GI2C1_OnRequestBus (module Events)
+**
+**     Component   :  GI2C1 [GenericI2C]
+**     Description :
+**         User event which will be called before accessing the I2C bus.
+**         Useful for starting a critical section.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void GI2C1_OnReleaseBus(void);
+/*
+** ===================================================================
+**     Event       :  GI2C1_OnReleaseBus (module Events)
+**
+**     Component   :  GI2C1 [GenericI2C]
+**     Description :
+**         User event which will be called after accessing the I2C bus.
+**         Useful for ending a critical section.
 **     Parameters  : None
 **     Returns     : Nothing
 ** ===================================================================
