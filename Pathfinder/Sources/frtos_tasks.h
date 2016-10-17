@@ -1,3 +1,8 @@
+/**
+ * Proyecto Pathfinder
+ * Autor Carlos Miguens
+ *
+ */
 
 #ifndef __frtos_tasks_H
 #define __frtos_tasks_H

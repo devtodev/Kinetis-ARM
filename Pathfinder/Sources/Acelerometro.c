@@ -3,6 +3,7 @@
  *
  *  Created on: Mar 25, 2016
  *      Author: Carlos Miguens
+ * 		Proyecto Pathfinder
  */
 
 /* Registros para FreeFall Motion */
@@ -26,7 +27,7 @@
 #define ACCEL_ASLP_RATE0	  1 << 6
 #define ACCEL_ASLP_RATE1	  1 << 7
 
-#include "Acelerometro_driver.h"
+#include <Acelerometro.h>
 #include "MMA1.h"
 #include "GI2C1.h"
 #include "FreeRTOS.h"

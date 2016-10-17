@@ -3,6 +3,7 @@
  *
  *  Created on: Mar 25, 2016
  *      Author: Carlos Miguens
+ * 		Proyecto Pathfinder
  */
 
 #define ACCEL_NEUTRO   0

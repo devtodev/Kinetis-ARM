@@ -1,3 +1,8 @@
+/**
+ * Proyecto Pathfinder
+ * Autor Carlos Miguens
+ *
+ */
 
 /* Begin of <includes> initialization, DO NOT MODIFY LINES BELOW */
 
@@ -10,9 +15,9 @@
 #include "RGB_Blue.h"
 #include "RGB_Green.h"
 #include "RGB_Red.h"
-#include "Acelerometro_driver.h"
 #include "MMA1.h"
 #include "luces.h"
+#include "Acelerometro.h"
 
 #define ACCEL_ANTIREBOTE	30
 
@@ -29,16 +34,16 @@ static portTASK_FUNCTION(RadioTask, pvParameters) {
   vTaskDelete(RadioTask);
 }
 
-static portTASK_FUNCTION(MotorTask, pvParameters) {
+static portTASK_FUNCTION(SensorUltrasonidoTask, pvParameters) {
 
   /* Write your task initialization code here ... */
 
   for(;;) {
-	  vTaskDelay(777/portTICK_RATE_MS);
+	  vTaskDelay(100/portTICK_RATE_MS);
 
   }
   /* Destroy the task */
-  vTaskDelete(MotorTask);
+  vTaskDelete(SensorUltrasonidoTask);
 }
 
 
@@ -113,8 +118,8 @@ void CreateTasks(void) {
       /*lint +e527 */
   }
   if (FRTOS1_xTaskCreate(
-     MotorTask,  /* pointer to the task */
-      "MotorTask", /* task name for kernel awareness debugging */
+	  SensorUltrasonidoTask,  /* pointer to the task */
+      "SensorUltrasonidoTask", /* task name for kernel awareness debugging */
       configMINIMAL_STACK_SIZE, /* task stack size */
       (void*)NULL, /* optional task startup argument */
       tskIDLE_PRIORITY + 2,  /* initial priority */
