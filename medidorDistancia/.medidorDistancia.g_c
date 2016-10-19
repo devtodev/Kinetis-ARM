@@ -2,7 +2,7 @@
 <GenerationInfo_G_C>
   <Options>
     <ProjectName>medidorDistancia</ProjectName>
-    <ProjectDirectory>\home\karl\workspace.kds\medidorDistancia\</ProjectDirectory>
+    <ProjectDirectory>\home\karl\workspace.kds\Kinetis-ARM\medidorDistancia\</ProjectDirectory>
     <ProjectMainModuleName>main</ProjectMainModuleName>
     <DestEventsDirectory>Sources\</DestEventsDirectory>
     <DestDriversSubDirectory>..\Generated_Code\</DestDriversSubDirectory>

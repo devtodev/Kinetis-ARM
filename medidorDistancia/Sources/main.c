@@ -44,6 +44,8 @@ static void getUS100_Front(void) {
   UTIL1_Num16uToStrFormatted(buf, sizeof(buf), cm, ' ', 5);
 //  LCD1_WriteString((char*)buf);
 
+  cm = (cm==0)?500:cm;
+
   LEDR_Put(cm<10); /* red LED if object closer than 10 cm */
   LEDB_Put(cm>=10&&cm<=100); /* blue LED if object is in 10..100 cm range */
   LEDG_Put(cm>100); /* blue LED if object is in 10..100 cm range */

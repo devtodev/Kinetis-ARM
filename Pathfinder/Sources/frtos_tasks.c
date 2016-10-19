@@ -17,7 +17,7 @@
 #include "RGB_Red.h"
 #include "MMA1.h"
 #include "luces.h"
-#include "Acelerometro.h"
+#include "acelerometro.h"
 
 #define ACCEL_ANTIREBOTE	30
 
@@ -110,7 +110,7 @@ void CreateTasks(void) {
       "RadioTask", /* task name for kernel awareness debugging */
       configMINIMAL_STACK_SIZE, /* task stack size */
       (void*)NULL, /* optional task startup argument */
-      tskIDLE_PRIORITY + 1,  /* initial priority */
+      tskIDLE_PRIORITY + 2,  /* initial priority */
       (xTaskHandle*)NULL /* optional task handle to create */
     ) != pdPASS) {
       /*lint -e527 */
@@ -122,7 +122,7 @@ void CreateTasks(void) {
       "SensorUltrasonidoTask", /* task name for kernel awareness debugging */
       configMINIMAL_STACK_SIZE, /* task stack size */
       (void*)NULL, /* optional task startup argument */
-      tskIDLE_PRIORITY + 2,  /* initial priority */
+      tskIDLE_PRIORITY + 3,  /* initial priority */
       (xTaskHandle*)NULL /* optional task handle to create */
     ) != pdPASS) {
       /*lint -e527 */
@@ -134,7 +134,7 @@ void CreateTasks(void) {
       "AcelerometroTask", /* task name for kernel awareness debugging */
       configMINIMAL_STACK_SIZE , /* task stack size */
       (void*)NULL, /* optional task startup argument */
-      tskIDLE_PRIORITY + 3,  /* initial priority */
+      tskIDLE_PRIORITY + 1,  /* initial priority */
       (xTaskHandle*)NULL /* optional task handle to create */
     ) != pdPASS) {
       /*lint -e527 */

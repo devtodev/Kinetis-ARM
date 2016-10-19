@@ -6,7 +6,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-17, 18:54, # CodeGen: 26
+**     Date/Time   : 2016-10-18, 21:47, # CodeGen: 28
 **     Abstract    :
 **
 **     Settings    :
@@ -57,7 +57,6 @@
   #include "Cpu.h"
   #include "FRTOS1.h"
   #include "KSDK1.h"
-  #include "UTIL1.h"
   #include "RGB_Red.h"
   #include "BitIoLdd1.h"
   #include "RGB_Green.h"
@@ -66,11 +65,14 @@
   #include "BitIoLdd3.h"
   #include "TSK1.h"
   #include "MMA1.h"
-  #include "WAIT1.h"
   #include "GI2C1.h"
   #include "TMOUT1.h"
   #include "CS1.h"
   #include "I2C0.h"
+  #include "TRIG.h"
+  #include "TU1.h"
+  #include "UTIL1.h"
+  #include "WAIT1.h"
   #include "Events.h"
 
 
@@ -123,7 +125,7 @@
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1E  0x00000078   -   ivINT_UART2                   unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1F  0x0000007C   -   ivINT_ADC0                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x20  0x00000080   -   ivINT_CMP0                    unused by PE */
-    (tIsrFunc)&Cpu_Interrupt,          /* 0x21  0x00000084   -   ivINT_TPM0                    unused by PE */
+    (tIsrFunc)&TU1_Interrupt,          /* 0x21  0x00000084   2   ivINT_TPM0                    used by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x22  0x00000088   -   ivINT_TPM1                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x23  0x0000008C   -   ivINT_TPM2                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x24  0x00000090   -   ivINT_RTC                     unused by PE */

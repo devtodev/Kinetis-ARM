@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-17, 18:54, # CodeGen: 26
+**     Date/Time   : 2016-10-18, 21:47, # CodeGen: 28
 **     Abstract    :
 **
 **     Settings    :
@@ -245,7 +245,6 @@
 #include "FreeRTOS.h" /* FreeRTOS interface */
 #include "FRTOS1.h"
 #include "KSDK1.h"
-#include "UTIL1.h"
 #include "RGB_Red.h"
 #include "BitIoLdd1.h"
 #include "RGB_Green.h"
@@ -254,11 +253,14 @@
 #include "BitIoLdd3.h"
 #include "TSK1.h"
 #include "MMA1.h"
-#include "WAIT1.h"
 #include "GI2C1.h"
 #include "TMOUT1.h"
 #include "CS1.h"
 #include "I2C0.h"
+#include "TRIG.h"
+#include "TU1.h"
+#include "UTIL1.h"
+#include "WAIT1.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
