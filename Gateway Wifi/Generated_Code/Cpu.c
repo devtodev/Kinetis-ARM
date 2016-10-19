@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : KL46P121M48SF4RM, Rev.2, Dec 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-03-24, 20:26, # CodeGen: 47
+**     Date/Time   : 2016-10-19, 12:49, # CodeGen: 50
 **     Abstract    :
 **
 **     Settings    :
@@ -286,6 +286,7 @@
 #include "FRTOS1.h"
 #include "BT.h"
 #include "ASerialLdd2.h"
+#include "KSDK1.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -1064,6 +1065,8 @@ void PE_low_level_init(void)
                 ));
   /* NVIC_IPR1: PRI_6=0 */
   NVIC_IPR1 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_6(0xFF));
+  /* ### KinetisSDK "KSDK1" init code ... */
+  /* Write code here ... */
   /* ### CriticalSection "CS1" init code ... */
   /* ### GenericTimeDate "TimeDate" init code ... */
   TimeDate_Init();

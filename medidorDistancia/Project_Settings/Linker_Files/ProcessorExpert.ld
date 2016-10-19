@@ -4,13 +4,13 @@
 /*##                                   */
 /*##     Filename  : ProcessorExpert.ld */
 /*##                                   */
-/*##     Project   : medidorDistancias */
+/*##     Project   : medidorDistancia  */
 /*##                                   */
 /*##     Processor : MKL25Z128VLK4     */
 /*##                                   */
 /*##     Compiler  : GNU C Compiler    */
 /*##                                   */
-/*##     Date/Time : 2016-10-18, 21:48, # CodeGen: 5 */
+/*##     Date/Time : 2016-10-19, 12:19, # CodeGen: 5 */
 /*##                                   */
 /*##     Abstract  :                   */
 /*##                                   */

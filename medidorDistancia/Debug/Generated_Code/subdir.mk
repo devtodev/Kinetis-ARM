@@ -16,8 +16,10 @@ C_SRCS += \
 ../Generated_Code/LEDpin2.c \
 ../Generated_Code/LEDpin3.c \
 ../Generated_Code/PE_LDD.c \
-../Generated_Code/TRIG.c \
-../Generated_Code/TU1.c \
+../Generated_Code/TRIG_US_Back.c \
+../Generated_Code/TRIG_US_front.c \
+../Generated_Code/TU_US_back.c \
+../Generated_Code/TU_US_front.c \
 ../Generated_Code/UTIL1.c \
 ../Generated_Code/Vectors.c \
 ../Generated_Code/WAIT1.c 
@@ -35,8 +37,10 @@ OBJS += \
 ./Generated_Code/LEDpin2.o \
 ./Generated_Code/LEDpin3.o \
 ./Generated_Code/PE_LDD.o \
-./Generated_Code/TRIG.o \
-./Generated_Code/TU1.o \
+./Generated_Code/TRIG_US_Back.o \
+./Generated_Code/TRIG_US_front.o \
+./Generated_Code/TU_US_back.o \
+./Generated_Code/TU_US_front.o \
 ./Generated_Code/UTIL1.o \
 ./Generated_Code/Vectors.o \
 ./Generated_Code/WAIT1.o 
@@ -54,8 +58,10 @@ C_DEPS += \
 ./Generated_Code/LEDpin2.d \
 ./Generated_Code/LEDpin3.d \
 ./Generated_Code/PE_LDD.d \
-./Generated_Code/TRIG.d \
-./Generated_Code/TU1.d \
+./Generated_Code/TRIG_US_Back.d \
+./Generated_Code/TRIG_US_front.d \
+./Generated_Code/TU_US_back.d \
+./Generated_Code/TU_US_front.d \
 ./Generated_Code/UTIL1.d \
 ./Generated_Code/Vectors.d \
 ./Generated_Code/WAIT1.d 
@@ -65,7 +71,7 @@ C_DEPS += \
 Generated_Code/%.o: ../Generated_Code/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross ARM C Compiler'
-	arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/karl/workspace.kds/Kinetis-ARM/medidorDistancia/Static_Code/PDD" -I"/home/karl/workspace.kds/Kinetis-ARM/medidorDistancia/Static_Code/IO_Map" -I"/home/karl/workspace.kds/Kinetis-ARM/medidorDistancia/Sources" -I"/home/karl/workspace.kds/Kinetis-ARM/medidorDistancia/Generated_Code" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/charly/workspace/medidorDistancia/Static_Code/PDD" -I"/home/charly/workspace/medidorDistancia/Static_Code/IO_Map" -I"/home/charly/workspace/medidorDistancia/Sources" -I"/home/charly/workspace/medidorDistancia/Generated_Code" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

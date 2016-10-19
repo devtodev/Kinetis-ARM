@@ -7,7 +7,7 @@
 **     Version     : Component 01.106, Driver 01.15, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-03-24, 20:26, # CodeGen: 47
+**     Date/Time   : 2016-10-19, 12:49, # CodeGen: 50
 **     Abstract    :
 **          This embedded component implements an access to an on-chip flash memory.
 **          Using this component the flash memory could be written to, erased,
@@ -577,7 +577,7 @@ void IntFlashLdd1_GetError(LDD_TDeviceData *DeviceDataPtr, LDD_FLASH_TErrorStatu
 
   /* copy of information from internal status structure to the output error status structure */
   /* {FreeRTOS RTOS Adapter} Critical section begin (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskENTER_CRITICAL();
+  EnterCritical();
   OperationStatus->CurrentOperation = DeviceDataPrv->CurrentOperation; /* Copy the Current operation type to the output structure */
   OperationStatus->CurrentCommand = DeviceDataPrv->CurrentCommand; /* Copy the Current command type to the output structure */
   OperationStatus->CurrentErrorFlags = DeviceDataPrv->CurrentErrorFlags; /* Copy the Current error flags to the output structure */
@@ -585,7 +585,7 @@ void IntFlashLdd1_GetError(LDD_TDeviceData *DeviceDataPtr, LDD_FLASH_TErrorStatu
   OperationStatus->CurrentDataPtr = DeviceDataPrv->CurrentDataPtr; /* Copy the Current input/output data pointer to the output structure */
   OperationStatus->CurrentDataSize = DeviceDataPrv->CurrentDataSize; /* Copy the Current input/output data size to the output structure */
   /* {FreeRTOS RTOS Adapter} Critical section ends (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskEXIT_CRITICAL();
+  ExitCritical();
 }
 
 /*
@@ -628,10 +628,10 @@ static void SafeRoutineCaller(void)
   /* Copy the safe routine's code to a buffer on the stack */
   *(LDD_FLASH_TSafeRoutine *)(void *)SafeRoutinePtr = *(LDD_FLASH_TSafeRoutine *)(void *)&SafeRoutine;
   /* {FreeRTOS RTOS Adapter} Critical section begin (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskENTER_CRITICAL();
+  EnterCritical();
   ((LDD_FLASH_TSafeRoutinePtr)((uint32_t)(SafeRoutinePtr) | 1U))(); /* Run the Safe routine */
   /* {FreeRTOS RTOS Adapter} Critical section ends (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
-  taskEXIT_CRITICAL();
+  ExitCritical();
 }
 
 /*

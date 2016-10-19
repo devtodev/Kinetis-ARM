@@ -4,14 +4,15 @@
 **     Project     : Gateway Wifi
 **     Processor   : MKL46Z256VMC4
 **     Component   : CriticalSection
-**     Version     : Component 01.006, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.008, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-03-24, 20:26, # CodeGen: 47
+**     Date/Time   : 2016-10-19, 12:49, # CodeGen: 50
 **     Abstract    :
 **
 **     Settings    :
 **          Component name                                 : CS1
+**          SDK                                            : KSDK1
 **          Use Processor Expert Default                   : no
 **          Use FreeRTOS                                   : no
 **     Contents    :

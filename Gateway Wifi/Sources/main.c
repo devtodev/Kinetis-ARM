@@ -32,6 +32,7 @@
 #include "Events.h"
 #include "BT.h"
 #include "ASerialLdd2.h"
+#include "KSDK1.h"
 #include "SegLCD1.h"
 #include "TI1.h"
 #include "ESP8266.h"

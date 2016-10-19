@@ -4,14 +4,15 @@
 **     Project     : Gateway Wifi
 **     Processor   : MKL46Z256VMC4
 **     Component   : CriticalSection
-**     Version     : Component 01.006, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.008, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-03-24, 20:26, # CodeGen: 47
+**     Date/Time   : 2016-10-19, 12:49, # CodeGen: 50
 **     Abstract    :
 **
 **     Settings    :
 **          Component name                                 : CS1
+**          SDK                                            : KSDK1
 **          Use Processor Expert Default                   : no
 **          Use FreeRTOS                                   : no
 **     Contents    :
@@ -44,15 +45,17 @@
 
 /* MODULE CS1. */
 
-/* Include shared modules, which are used for whole project */
-#include "PE_Types.h"
-#include "PE_Error.h"
-#include "PE_Const.h"
-#include "IO_Map.h"
 /* Include inherited beans */
+#include "KSDK1.h"
 
-#include "Cpu.h"
-
+#if KSDK1_SDK_VERSION_USED == KSDK1_KSDK1_SDK_VERSION_NONE
+/* Include shared modules, which are used for whole project */
+  #include "PE_Types.h"
+  #include "PE_Error.h"
+  #include "PE_Const.h"
+  #include "IO_Map.h"
+  #include "Cpu.h"
+#endif
 
 /* workaround macros for wrong EnterCritical()/ExitCritical() in the low level drivers. Will be removed once PEx is fixed */
 #define CS1_CriticalVariableDrv() \
@@ -77,12 +80,14 @@
 
 #define CS1_EnterCritical() \
   do {                                  \
+    /*lint -save  -esym(529,cpuSR) Symbol 'cpuSR' not subsequently referenced. */\
     __asm (                             \
     "mrs   r0, PRIMASK     \n\t"        \
     "cpsid i               \n\t"        \
     "strb r0, %[output]   \n\t"         \
     : [output] "=m" (cpuSR) :: "r0");   \
     __asm ("" ::: "memory");            \
+    /*lint -restore Symbol 'cpuSR' not subsequently referenced. */\
   } while(0)
 
 /*

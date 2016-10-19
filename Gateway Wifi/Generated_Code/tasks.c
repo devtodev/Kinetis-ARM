@@ -1082,7 +1082,7 @@ StackType_t *pxTopOfStack;
 
 	UBaseType_t uxTaskPriorityGet( TaskHandle_t xTask )
 	{
-	TCB_t *pxTCB;
+  	TCB_t *pxTCB;
 	UBaseType_t uxReturn;
 
 		taskENTER_CRITICAL();
@@ -1649,7 +1649,7 @@ BaseType_t xReturn;
 	}
 }
 /*-----------------------------------------------------------*/
-
+#if INCLUDE_vTaskEndScheduler /* << EST */
 void vTaskEndScheduler( void )
 {
 	/* Stop the scheduler interrupts and call the portable scheduler end
@@ -1659,6 +1659,7 @@ void vTaskEndScheduler( void )
 	xSchedulerRunning = pdFALSE;
 	vPortEndScheduler();
 }
+#endif
 /*----------------------------------------------------------*/
 
 void vTaskSuspendAll( void )
@@ -3357,8 +3358,7 @@ TCB_t *pxNewTCB;
 #if (INCLUDE_pxTaskGetStackStart == 1)
 	uint8_t* pxTaskGetStackStart( TaskHandle_t xTask)
 	{
-	TCB_t *pxTCB;
-	UBaseType_t uxReturn;
+  	TCB_t *pxTCB;
 
 		pxTCB = prvGetTCBFromHandle( xTask );
 		return ( uint8_t * ) pxTCB->pxStack;

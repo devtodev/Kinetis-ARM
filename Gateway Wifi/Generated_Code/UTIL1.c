@@ -4,14 +4,15 @@
 **     Project     : Gateway Wifi
 **     Processor   : MKL46Z256VMC4
 **     Component   : Utility
-**     Version     : Component 01.111, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.119, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-03-24, 20:26, # CodeGen: 47
+**     Date/Time   : 2016-10-19, 12:49, # CodeGen: 50
 **     Abstract    :
 **          Contains various utility functions.
 **     Settings    :
 **          Component name                                 : UTIL1
+**          SDK                                            : KSDK1
 **     Contents    :
 **         strcpy                  - void UTIL1_strcpy(uint8_t *dst, size_t dstSize, const unsigned char *src);
 **         strcat                  - void UTIL1_strcat(uint8_t *dst, size_t dstSize, const unsigned char *src);
@@ -43,33 +44,33 @@
 **         strcatNum32Hex          - void UTIL1_strcatNum32Hex(uint8_t *dst, size_t dstSize, uint32_t num);
 **         strcatNum32sDotValue100 - void UTIL1_strcatNum32sDotValue100(uint8_t *dst, size_t dstSize, int32_t num);
 **         IsLeapYear              - bool UTIL1_IsLeapYear(uint16_t year);
-**         WeekDay                 - byte UTIL1_WeekDay(uint16_t year, uint8_t month, uint8_t day);
-**         ReadEscapedName         - byte UTIL1_ReadEscapedName(const unsigned char *filename, uint8_t *destname,...
-**         xatoi                   - byte UTIL1_xatoi(const unsigned char **str, int32_t *res);
-**         ScanDate                - byte UTIL1_ScanDate(const unsigned char **str, uint8_t *day, uint8_t *month,...
-**         ScanTime                - byte UTIL1_ScanTime(const unsigned char **str, uint8_t *hour, uint8_t...
-**         ScanDecimal8uNumber     - byte UTIL1_ScanDecimal8uNumber(const unsigned char **str, uint8_t *val);
-**         ScanDecimal8sNumber     - byte UTIL1_ScanDecimal8sNumber(const unsigned char **str, signed char *val);
-**         ScanDecimal16uNumber    - byte UTIL1_ScanDecimal16uNumber(const unsigned char **str, uint16_t *val);
-**         ScanDecimal16sNumber    - byte UTIL1_ScanDecimal16sNumber(const unsigned char **str, int16_t *val);
-**         ScanDecimal32uNumber    - byte UTIL1_ScanDecimal32uNumber(const unsigned char **str, uint32_t *val);
+**         WeekDay                 - uint8_t UTIL1_WeekDay(uint16_t year, uint8_t month, uint8_t day);
+**         ReadEscapedName         - uint8_t UTIL1_ReadEscapedName(const unsigned char *filename, uint8_t...
+**         xatoi                   - uint8_t UTIL1_xatoi(const unsigned char **str, int32_t *res);
+**         ScanDate                - uint8_t UTIL1_ScanDate(const unsigned char **str, uint8_t *day, uint8_t...
+**         ScanTime                - uint8_t UTIL1_ScanTime(const unsigned char **str, uint8_t *hour, uint8_t...
+**         ScanDecimal8uNumber     - uint8_t UTIL1_ScanDecimal8uNumber(const unsigned char **str, uint8_t *val);
+**         ScanDecimal8sNumber     - uint8_t UTIL1_ScanDecimal8sNumber(const unsigned char **str, signed char *val);
+**         ScanDecimal16uNumber    - uint8_t UTIL1_ScanDecimal16uNumber(const unsigned char **str, uint16_t *val);
+**         ScanDecimal16sNumber    - uint8_t UTIL1_ScanDecimal16sNumber(const unsigned char **str, int16_t *val);
+**         ScanDecimal32uNumber    - uint8_t UTIL1_ScanDecimal32uNumber(const unsigned char **str, uint32_t *val);
 **         ScanDecimal32sNumber    - uint8_t UTIL1_ScanDecimal32sNumber(const unsigned char **str, int32_t *val);
 **         ScanDecimal32sDotNumber - uint8_t UTIL1_ScanDecimal32sDotNumber(const unsigned char **str, int32_t...
-**         ScanHex8uNumber         - byte UTIL1_ScanHex8uNumber(const unsigned char **str, uint8_t *val);
-**         ScanHex8uNumberNoPrefix - byte UTIL1_ScanHex8uNumberNoPrefix(const unsigned char **str, uint8_t *val);
-**         ScanHex16uNumber        - byte UTIL1_ScanHex16uNumber(const unsigned char **str, uint16_t *val);
+**         ScanHex8uNumber         - uint8_t UTIL1_ScanHex8uNumber(const unsigned char **str, uint8_t *val);
+**         ScanHex8uNumberNoPrefix - uint8_t UTIL1_ScanHex8uNumberNoPrefix(const unsigned char **str, uint8_t *val);
+**         ScanHex16uNumber        - uint8_t UTIL1_ScanHex16uNumber(const unsigned char **str, uint16_t *val);
 **         ScanHex32uNumber        - uint8_t UTIL1_ScanHex32uNumber(const unsigned char **str, uint32_t *val);
 **         ScanSeparatedNumbers    - uint8_t UTIL1_ScanSeparatedNumbers(const unsigned char **str, uint8_t...
 **         ScanDoubleQuotedString  - uint8_t UTIL1_ScanDoubleQuotedString(const uint8_t **cmd, uint8_t *buf,...
 **         strcmp                  - int16_t UTIL1_strcmp(const char *, const char *);
 **         strncmp                 - int16_t UTIL1_strncmp(const char *, const char *, size_t size);
 **         strFind                 - int16_t UTIL1_strFind(uint8_t *str, uint8_t *subStr);
-**         strtailcmp              - byte UTIL1_strtailcmp(uint8_t *str, uint8_t *tail);
-**         strlen                  - word UTIL1_strlen(const char *);
-**         strCutTail              - byte UTIL1_strCutTail(uint8_t *str, uint8_t *tail);
+**         strtailcmp              - uint8_t UTIL1_strtailcmp(const uint8_t *str, const uint8_t *tail);
+**         strlen                  - uint16_t UTIL1_strlen(const char *);
+**         strCutTail              - uint8_t UTIL1_strCutTail(uint8_t *str, uint8_t *tail);
 **
 **     License   :  Open Source (LGPL)
-**     Copyright : (c) Copyright Erich Styger, 2014-2015, all rights reserved.
+**     Copyright : (c) Copyright Erich Styger, 2014-2016, all rights reserved.
 **     xatoi(): Copyright (C) 2010, ChaN, all right reserved. (see copyright notice and license at the function implementation).
 **     This an open source software implementing utility functions using Processor Expert.
 **     This is a free software and is opened for education,  research and commercial developments under license policy of following terms:
@@ -342,7 +343,6 @@ void UTIL1_Num16sToStr(uint8_t *dst, size_t dstSize, int16_t val)
   }
   if (sign && dstSize > 0){
     ptr[i++] = '-';
-    dstSize--;
   }
   for(j=0; j<(i/2); j++) { /* swap buffer */
     tmp = ptr[j];
@@ -1037,7 +1037,6 @@ void UTIL1_Num32sToStr(uint8_t *dst, size_t dstSize, int32_t val)
   }
   if (sign && dstSize > 0){
     ptr[i++] = '-';
-    dstSize--;
   }
   for(j=0; j<(i/2); j++) { /* swap buffer */
     tmp = ptr[j];
@@ -1446,7 +1445,6 @@ uint8_t UTIL1_ScanTime(const unsigned char **str, uint8_t *hour, uint8_t *minute
             if (SCAN_IS_DIGIT(*p)) {
               if (SCAN_IS_DIGIT(*(p+1))) { /* ,hh format */
                 *hSecond = (uint8_t)((*p-'0')*10 + *(p+1)-'0');
-                p++; p++;
                 return ERR_OK;
               } else { /* ,z format */
                 *hSecond = (uint8_t)((*p-'0')*10);
@@ -2038,7 +2036,7 @@ uint8_t UTIL1_ScanHex8uNumberNoPrefix(const unsigned char **str, uint8_t *val)
 **         ---             - returns 0 if tail matches, -1 otherwise
 ** ===================================================================
 */
-uint8_t UTIL1_strtailcmp(uint8_t *str, uint8_t *tail)
+uint8_t UTIL1_strtailcmp(const uint8_t *str, const uint8_t *tail)
 {
   int i, j;
 
@@ -2115,7 +2113,7 @@ void UTIL1_strcatNum32sDotValue100(uint8_t *dst, size_t dstSize, int32_t num)
   if (num<0) {
     num = -num;
   }
-  UTIL1_strcatNum16uFormatted(dst, dstSize, (uint16_t)(num%100), '0', 2);
+  UTIL1_strcatNum16uFormatted(dst, dstSize, (uint16_t)((unsigned)num%100U), '0', 2);
 }
 
 /*

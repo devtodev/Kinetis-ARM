@@ -24,7 +24,7 @@
 #include "PE_Const.h"
 #include "IO_Map.h"
 #include "WAIT1.h"
-#include "TRIG.h"
+#include "TRIG_US_front.h"
 #include "LEDR.h"
 #include "LEDpin1.h"
 #include "BitIoLdd1.h"
@@ -34,8 +34,10 @@
 #include "LEDB.h"
 #include "LEDpin3.h"
 #include "BitIoLdd3.h"
-#include "TU1.h"
+#include "TU_US_front.h"
 #include "KSDK1.h"
+#include "TRIG_US_Back.h"
+#include "TU_US_back.h"
 #include "UTIL1.h"
 #include "PE_LDD.h"
 
@@ -55,12 +57,12 @@ void Cpu_OnNMIINT(void);
 */
 
 
-void TU1_OnChannel0(LDD_TUserData *UserDataPtr);
+void TU_US_front_OnChannel0(LDD_TUserData *UserDataPtr);
 /*
 ** ===================================================================
-**     Event       :  TU1_OnChannel0 (module Events)
+**     Event       :  TU_US_front_OnChannel0 (module Events)
 **
-**     Component   :  TU1 [TimerUnit_LDD]
+**     Component   :  TU_US_front [TimerUnit_LDD]
 **     Description :
 **         Called if compare register match the counter registers or
 **         capture register has a new content. OnChannel0 event and
@@ -76,12 +78,12 @@ void TU1_OnChannel0(LDD_TUserData *UserDataPtr);
 ** ===================================================================
 */
 
-void TU1_OnCounterRestart(LDD_TUserData *UserDataPtr);
+void TU_US_front_OnCounterRestart(LDD_TUserData *UserDataPtr);
 /*
 ** ===================================================================
-**     Event       :  TU1_OnCounterRestart (module Events)
+**     Event       :  TU_US_front_OnCounterRestart (module Events)
 **
-**     Component   :  TU1 [TimerUnit_LDD]
+**     Component   :  TU_US_front [TimerUnit_LDD]
 **     Description :
 **         Called if counter overflow/underflow or counter is
 **         reinitialized by modulo or compare register matching.
@@ -96,6 +98,48 @@ void TU1_OnCounterRestart(LDD_TUserData *UserDataPtr);
 **     Returns     : Nothing
 ** ===================================================================
 */
+
+/*
+** ===================================================================
+**     Event       :  TU_US_back_OnCounterRestart (module Events)
+**
+**     Component   :  TU_US_back [TimerUnit_LDD]
+*/
+/*!
+**     @brief
+**         Called if counter overflow/underflow or counter is
+**         reinitialized by modulo or compare register matching.
+**         OnCounterRestart event and Timer unit must be enabled. See
+**         [SetEventMask] and [GetEventMask] methods. This event is
+**         available only if a [Interrupt] is enabled.
+**     @param
+**         UserDataPtr     - Pointer to the user or
+**                           RTOS specific data. The pointer passed as
+**                           the parameter of Init method.
+*/
+/* ===================================================================*/
+void TU_US_back_OnCounterRestart(LDD_TUserData *UserDataPtr);
+
+/*
+** ===================================================================
+**     Event       :  TU_US_back_OnChannel0 (module Events)
+**
+**     Component   :  TU_US_back [TimerUnit_LDD]
+*/
+/*!
+**     @brief
+**         Called if compare register match the counter registers or
+**         capture register has a new content. OnChannel0 event and
+**         Timer unit must be enabled. See [SetEventMask] and
+**         [GetEventMask] methods. This event is available only if a
+**         [Interrupt] is enabled.
+**     @param
+**         UserDataPtr     - Pointer to the user or
+**                           RTOS specific data. The pointer passed as
+**                           the parameter of Init method.
+*/
+/* ===================================================================*/
+void TU_US_back_OnChannel0(LDD_TUserData *UserDataPtr);
 
 /* END Events */
 #endif /* __Events_H*/
