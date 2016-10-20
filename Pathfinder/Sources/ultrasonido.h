@@ -5,5 +5,5 @@
  *      Author: Carlos Miguens
  */
 
-void getDistanceFront();
-void getDistanceBack();
+int getDistanceFront();
+int getDistanceBack();
