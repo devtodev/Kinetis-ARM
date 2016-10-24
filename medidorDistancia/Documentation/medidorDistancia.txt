@@ -54,13 +54,14 @@ Module "UTIL1"     (component Utility)
    - UTIL1_strcat -Same as normal strcat, but safe as it does not write beyond the buffer.
    - UTIL1_strcatPad -Same as normal strcat, but safe as it does not write beyond the buffer. The buffer will be filled with a 
                 pad character for a given length.
-   - UTIL1_chcat -Adds a single character to a zero byte terminated buffer. It cares about buffer overflow.
+   - UTIL1_chcat -Adds a single character to a zero byte terminated string buffer. It cares about buffer overflow.
    - UTIL1_Num8sToStr -Converts a signed 8bit value into a string.
    - UTIL1_Num8uToStr -Converts an unsigned 8bit value into a string.
    - UTIL1_Num16sToStr -Converts a signed 16bit value into a string.
    - UTIL1_Num16uToStr -Converts a signed 16bit value into a string.
    - UTIL1_Num32uToStr -Converts an unsigned 32bit value into a string.
    - UTIL1_Num32sToStr -Converts a signed 32bit value into a string.
+   - UTIL1_NumFloatToStr -Converts a float value into a string.
    - UTIL1_Num16sToStrFormatted -Converts a 16bit signed value to string.
    - UTIL1_Num16uToStrFormatted -Converts a 16bit unsigned value to string.
    - UTIL1_Num32uToStrFormatted -Converts a 32bit unsigned value to string.
@@ -75,12 +76,14 @@ Module "UTIL1"     (component Utility)
    - UTIL1_strcatNum16sFormatted -Appends a 16bit signed value to a string buffer in a formatted way.
    - UTIL1_strcatNum32uFormatted -Appends a 32bit unsigned value to a string buffer in a formatted way.
    - UTIL1_strcatNum32sFormatted -Appends a 32bit signed value to a string buffer in a formatted way.
-   - UTIL1_strcatNum8Hex -Appends a 8bit unsigned value to a buffer as hex number (without a 0x prefix).
-   - UTIL1_strcatNum16Hex -Appends a 16bit unsigned value to a buffer as hex number (without a 0x prefix).
-   - UTIL1_strcatNum24Hex -Appends a 32bit unsigned value to a buffer as hex number (without a 0x prefix). Only 24bits are used.
-   - UTIL1_strcatNum32Hex -Appends a 16bit unsigned value to a buffer as hex number (without a 0x prefix).
-   - UTIL1_strcatNum32sDotValue100 -Appends a 32bit signed value to a buffer. The value is in 1/100 units.  For example for the 
-                value -13456 it will append the string "-134.56"
+   - UTIL1_strcatNum8Hex -Appends a 8bit unsigned value to a string buffer as hex number (without a 0x prefix).
+   - UTIL1_strcatNum16Hex -Appends a 16bit unsigned value to a string buffer as hex number (without a 0x prefix).
+   - UTIL1_strcatNum24Hex -Appends a 32bit unsigned value to a string buffer as hex number (without a 0x prefix). Only 24bits 
+                are used.
+   - UTIL1_strcatNum32Hex -Appends a 16bit unsigned value to a string buffer as hex number (without a 0x prefix).
+   - UTIL1_strcatNum32sDotValue100 -Appends a 32bit signed value to a string buffer. The value is in 1/100 units.  For example 
+                for the value -13456 it will append the string "-134.56"
+   - UTIL1_strcatNumFloat -Converts a float value into a string.
    - UTIL1_IsLeapYear -Returns true if a given year is a leap year
    - UTIL1_WeekDay -Returns the weekday for a given date >= 1.Jan.1900
    - UTIL1_ReadEscapedName -Scans an escaped name from a string. This is useful e.g. for double quoted file names.
@@ -109,6 +112,12 @@ Module "UTIL1"     (component Utility)
    - UTIL1_strlen -Wrapper to the standard strlen() function.
    - UTIL1_strCutTail -Removes a tailing substring from a string. The string passed will be modified (the tail is cut by 
                 writing a zero byte to the string!)
+   - UTIL1_GetValue16LE -Returns a 16bit Little Endian value from memory
+   - UTIL1_GetValue24LE -Returns a 24bit Little Endian value from memory
+   - UTIL1_GetValue32LE -Returns a 32bit Little Endian value from memory
+   - UTIL1_SetValue16LE -Stores a 16bit value in memory as Little Endian
+   - UTIL1_SetValue24LE -Stores a 24bit value in memory as Little Endian
+   - UTIL1_SetValue32LE -Stores a 32bit value in memory as Little Endian
 
 Module "LEDR"      (component LED)
    - LEDR_On -This turns the LED on.

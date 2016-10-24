@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-18, 21:47, # CodeGen: 28
+**     Date/Time   : 2016-10-21, 19:33, # CodeGen: 32
 **     Abstract    :
 **
 **     Settings    :
@@ -257,8 +257,6 @@
 #include "TMOUT1.h"
 #include "CS1.h"
 #include "I2C0.h"
-#include "TRIG.h"
-#include "TU1.h"
 #include "UTIL1.h"
 #include "WAIT1.h"
 #include "PE_Types.h"

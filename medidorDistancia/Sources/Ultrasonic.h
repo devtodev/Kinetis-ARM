@@ -3,7 +3,8 @@
  *
  *  Created on: Dec 30, 2012
  *      Author: Erich Styger
- *      Driver for the HC-SR04 and FRDM-KL25Z board
+ *      	    Carlos Miguens
+ *      Driver for two US100 and FRDM-KL25Z board
  */
 
 #ifndef ULTRASONIC_H_

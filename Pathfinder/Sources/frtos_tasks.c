@@ -21,17 +21,14 @@
 
 #define ACCEL_ANTIREBOTE	30
 
-static portTASK_FUNCTION(RadioTask, pvParameters) {
+static portTASK_FUNCTION(MotorTask, pvParameters) {
 
   /* Write your task initialization code here ... */
-
   for(;;) {
-
-	  vTaskDelay(1000/portTICK_RATE_MS);
 
   }
   /* Destroy the task */
-  vTaskDelete(RadioTask);
+  vTaskDelete(MotorTask);
 }
 
 static portTASK_FUNCTION(SensorUltrasonidoTask, pvParameters) {
@@ -106,8 +103,8 @@ static portTASK_FUNCTION(AcelerometroTask, pvParameters) {
 
 void CreateTasks(void) {
   if (FRTOS1_xTaskCreate(
-     RadioTask,  /* pointer to the task */
-      "RadioTask", /* task name for kernel awareness debugging */
+      MotorTask,  /* pointer to the task */
+      "MotorTask", /* task name for kernel awareness debugging */
       configMINIMAL_STACK_SIZE, /* task stack size */
       (void*)NULL, /* optional task startup argument */
       tskIDLE_PRIORITY + 2,  /* initial priority */

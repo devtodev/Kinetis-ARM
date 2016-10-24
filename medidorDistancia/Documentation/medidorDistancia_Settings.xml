@@ -273,6 +273,7 @@ PE_DEBUGHALT();
       <Num16uToStr v="generate code" />
       <Num32uToStr v="generate code" />
       <Num32sToStr v="generate code" />
+      <NumFloatToStr v="generate code" />
       <Num16sToStrFormatted v="generate code" />
       <Num16uToStrFormatted v="generate code" />
       <Num32uToStrFormatted v="generate code" />
@@ -292,6 +293,7 @@ PE_DEBUGHALT();
       <strcatNum24Hex v="generate code" />
       <strcatNum32Hex v="generate code" />
       <strcatNum32sDotValue100 v="generate code" />
+      <strcatNumFloat v="generate code" />
       <IsLeapYear v="generate code" />
       <WeekDay v="generate code" />
       <ReadEscapedName v="generate code" />
@@ -317,6 +319,12 @@ PE_DEBUGHALT();
       <strtailcmp v="generate code" />
       <strlen v="generate code" />
       <strCutTail v="generate code" />
+      <GetValue16LE v="generate code" />
+      <GetValue24LE v="generate code" />
+      <GetValue32LE v="generate code" />
+      <SetValue16LE v="generate code" />
+      <SetValue24LE v="generate code" />
+      <SetValue32LE v="generate code" />
     </Methods>
     <Events>
       <EmptySection_DummyValue />

@@ -6,7 +6,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-18, 21:47, # CodeGen: 28
+**     Date/Time   : 2016-10-21, 19:33, # CodeGen: 32
 **     Abstract    :
 **
 **     Settings    :
@@ -75,8 +75,6 @@
 #include "TMOUT1.h"
 #include "CS1.h"
 #include "I2C0.h"
-#include "TRIG.h"
-#include "TU1.h"
 #include "UTIL1.h"
 #include "WAIT1.h"
 

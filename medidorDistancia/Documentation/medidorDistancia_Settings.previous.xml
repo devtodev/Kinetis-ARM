@@ -669,7 +669,7 @@ PE_DEBUGHALT();
         <group name="Channel 0">
           <enumgroup name="Mode" v="Capture">
             <Capture v="TPM1_C1V" />
-            <Capture_input_pin v="ADC0_SE9/TSI0_CH6/PTB1/I2C0_SDA/TPM1_CH1" />
+            <Capture_input_pin v="PTA13/TPM1_CH1" />
             <Edge v="both edges" />
             <Maximum_time_of_event v="25.00001792 ms" />
             <boolgroup name="Interrupt" v="Enabled">

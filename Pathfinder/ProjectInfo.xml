@@ -46,7 +46,6 @@
       <Path>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/</Path>
       <Path>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Project_Settings/Startup_Code/</Path>
       <Path>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/</Path>
-      <Path>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/drivers/</Path>
     </SourceCodePaths>
   </PATHS>
   <FILES>
@@ -66,9 +65,7 @@
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/RGB_Green.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/RGB_Red.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TMOUT1.c</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TRIG.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TSK1.c</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TU1.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/UTIL1.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/Vectors.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/WAIT1.c</PathName>
@@ -87,7 +84,6 @@
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Project_Settings/Startup_Code/startup.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/Events.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/acelerometro.c</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/drivers/Ultrasonic.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/frtos_tasks.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/luces.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/main.c</PathName>
@@ -117,9 +113,7 @@
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/RGB_Red.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/StackMacros.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TMOUT1.h</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TRIG.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TSK1.h</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TU1.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/UTIL1.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/WAIT1.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/croutine.h</PathName>
@@ -137,7 +131,6 @@
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/timers.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/Events.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/acelerometro.h</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/drivers/Ultrasonic.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/frtos_tasks.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/luces.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/motor.h</PathName>
