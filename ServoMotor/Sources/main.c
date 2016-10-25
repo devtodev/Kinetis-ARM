@@ -56,15 +56,18 @@ int main(void)
 
 	/* Write your code here */
 
+	SERVO1_Init();
 	for(;;) {
-	  for (SERVO1_position = 0; SERVO1_position <= 255; SERVO1_position++)
-	  {
-		    for(SERVO1_position=0;SERVO1_position<=255;SERVO1_position++) {
-		      SERVO1_SetPos(SERVO1_position);
-		      WAIT1_Waitms(1);
-		    }
-	  }
-
+		for (SERVO1_position = 0; SERVO1_position <= 255; SERVO1_position++)
+		  {
+			      SERVO1_PWMusToPos8(SERVO1_position);
+			      WAIT1_Waitms(25);
+		  }
+		for (SERVO1_position = 255; SERVO1_position >= 0; SERVO1_position--)
+		  {
+			      SERVO1_PWMusToPos8(SERVO1_position);
+			      WAIT1_Waitms(25);
+		  }
 	}
 
 	/*** Don't write any code pass this line, or it will be deleted during code generation. ***/
