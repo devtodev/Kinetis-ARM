@@ -2,11 +2,11 @@
 <PE_PROJECT_SETTINGS_DOCUMENTATION>
   <PE_product_version v="version 10.5 for Freescale Microcontrollers" />
   <PE_core_version v="Processor Expert Version 0521" />
-  <CPU_Bean name="Cpu" type="MKL25Z128LK4">
+  <CPU_Bean name="Cpu" type="MKL46Z256LL4">
     <Enabled v="Y" />
     <Properties>
       <Component_name v="Cpu" />
-      <CPU_type v="MKL25Z32VLK4" />
+      <CPU_type v="MKL46Z256VLL4" />
       <Initialization_priority v="interrupts enabled" />
       <Watchdog_disable v="yes" />
       <group name="Internal peripherals">
@@ -15,14 +15,106 @@
       <group name="Low power mode settings">
         <EmptySection_DummyValue />
       </group>
-      <list name="Clock configurations" v="1">
+      <list name="Clock configurations" v="5">
         <group name="Clock configuration 0">
           <boolgroup name="Very low power mode" v="Disabled" />
           <enumgroup name="Clock source setting" v="configuration 0">
+            <MCG_mode v="PEE" />
+            <MCG_output__MHz_ v="96" />
+            <MCGIRCLK_clock__MHz_ v="0.032768" />
+            <OSCERCLK_clock__MHz_ v="8" />
+            <ERCLK32K__clock__MHz_ v="0.001" />
+            <MCGFFCLK__kHz_ v="31.25" />
+          </enumgroup>
+          <group name="System clocks">
+            <Core_clock_prescaler v="Auto select" />
+            <Core_clock v="48" />
+            <Bus_clock_prescaler v="Auto select" />
+            <Bus_clock v="24" />
+            <enumgroup name="PLL/FLL clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="48" />
+            </enumgroup>
+            <enumgroup name="TPM clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="48" />
+            </enumgroup>
+          </group>
+        </group>
+        <group name="Clock configuration 1">
+          <boolgroup name="Very low power mode" v="Disabled" />
+          <enumgroup name="Clock source setting" v="configuration 1">
+            <MCG_mode v="PEE" />
+            <MCG_output__MHz_ v="100" />
+            <MCGIRCLK_clock__MHz_ v="0.032768" />
+            <OSCERCLK_clock__MHz_ v="8" />
+            <ERCLK32K__clock__MHz_ v="0.001" />
+            <MCGFFCLK__kHz_ v="31.25" />
+          </enumgroup>
+          <group name="System clocks">
+            <Core_clock_prescaler v="Auto select" />
+            <Core_clock v="33.333333333333" />
+            <Bus_clock_prescaler v="Auto select" />
+            <Bus_clock v="16.666666666666" />
+            <enumgroup name="PLL/FLL clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="50" />
+            </enumgroup>
+            <enumgroup name="TPM clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="50" />
+            </enumgroup>
+          </group>
+        </group>
+        <group name="Clock configuration 2">
+          <boolgroup name="Very low power mode" v="Disabled" />
+          <enumgroup name="Clock source setting" v="configuration 2">
+            <MCG_mode v="BLPI" />
+            <MCG_output__MHz_ v="0.032768000000" />
+            <MCGIRCLK_clock__MHz_ v="0.032768" />
+            <OSCERCLK_clock__MHz_ v="8" />
+            <ERCLK32K__clock__MHz_ v="0.001" />
+            <MCGFFCLK__kHz_ v="0" />
+          </enumgroup>
+          <group name="System clocks">
+            <Core_clock_prescaler v="Auto select" />
+            <Core_clock v="0.032768000000" />
+            <Bus_clock_prescaler v="Auto select" />
+            <Bus_clock v="0.032768000000" />
+            <enumgroup name="PLL/FLL clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="0" />
+            </enumgroup>
+            <enumgroup name="TPM clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="8" />
+            </enumgroup>
+          </group>
+        </group>
+        <group name="Clock configuration 3">
+          <boolgroup name="Very low power mode" v="Disabled" />
+          <enumgroup name="Clock source setting" v="configuration 3">
+            <MCG_mode v="BLPE" />
+            <MCG_output__MHz_ v="8" />
+            <MCGIRCLK_clock__MHz_ v="0.032768" />
+            <OSCERCLK_clock__MHz_ v="8" />
+            <ERCLK32K__clock__MHz_ v="0.001" />
+            <MCGFFCLK__kHz_ v="31.25" />
+          </enumgroup>
+          <group name="System clocks">
+            <Core_clock_prescaler v="Auto select" />
+            <Core_clock v="4" />
+            <Bus_clock_prescaler v="Auto select" />
+            <Bus_clock v="1" />
+            <enumgroup name="PLL/FLL clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="0" />
+            </enumgroup>
+            <enumgroup name="TPM clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="8" />
+            </enumgroup>
+          </group>
+        </group>
+        <group name="Clock configuration 4">
+          <boolgroup name="Very low power mode" v="Disabled" />
+          <enumgroup name="Clock source setting" v="configuration 4">
             <MCG_mode v="FEI" />
             <MCG_output__MHz_ v="20.971520000000" />
             <MCGIRCLK_clock__MHz_ v="0.032768" />
-            <OSCERCLK_clock__MHz_ v="0" />
+            <OSCERCLK_clock__MHz_ v="8" />
             <ERCLK32K__clock__MHz_ v="0.001" />
             <MCGFFCLK__kHz_ v="32.768" />
           </enumgroup>
@@ -32,10 +124,10 @@
             <Bus_clock_prescaler v="Auto select" />
             <Bus_clock v="20.971520000000" />
             <enumgroup name="PLL/FLL clock selection" v="Auto select">
-              <Clock_frequency__MHz_ v="20.971520000000" />
+              <Clock_frequency__MHz_ v="24" />
             </enumgroup>
             <enumgroup name="TPM clock selection" v="Auto select">
-              <Clock_frequency__MHz_ v="20.971520000000" />
+              <Clock_frequency__MHz_ v="24" />
             </enumgroup>
           </group>
         </group>
@@ -73,7 +165,7 @@ PE_DEBUGHALT();
         <Add_startup_file v="yes" />
       </group>
       <boolgroup name="Generate linker file" v="yes">
-        <Stack_size v="256" />
+        <Stack_size v="1024" />
         <Heap_size v="0" />
         <Set_memory_segments_to_default v="Click to set default &amp;gt;" />
         <Default_memory_for_interrupts v="INTERNAL FLASH" />
@@ -96,15 +188,15 @@ PE_DEBUGHALT();
               <Name v="m_text" />
               <Qualifier v="RX" />
               <Address v="1040" />
-              <Size v="31728" />
+              <Size v="261104" />
             </boolgroup>
           </group>
           <group name="MemoryArea3">
             <boolgroup name="ROM/RAM Area" v="Enabled">
               <Name v="m_data" />
               <Qualifier v="RW" />
-              <Address v="536869888" />
-              <Size v="4096" />
+              <Address v="536862720" />
+              <Size v="32768" />
             </boolgroup>
           </group>
         </list>
@@ -128,9 +220,9 @@ PE_DEBUGHALT();
           <Template v="PWM" />
           <Properties>
             <Component_name v="Pwm1" />
-            <PWM_or_PPG_device v="TPM0_C0V" />
+            <PWM_or_PPG_device v="TPM0_C4V" />
             <Duty_compare v="" />
-            <Output_pin v="PTD0/SPI0_PCS0/TPM0_CH0" />
+            <Output_pin v="LCD_P44/PTD4/LLWU_P14/SPI1_PCS0/UART2_RX/TPM0_CH4" />
             <Counter v="TPM0_CNT" />
             <boolgroup name="Interrupt service/event" v="Disabled" />
             <Period v="20 ms" />
@@ -153,8 +245,8 @@ PE_DEBUGHALT();
                 <Properties>
                   <Component_name v="PwmLdd1" />
                   <Period_device v="TPM0_MOD" />
-                  <Duty_device v="TPM0_C0V" />
-                  <Output_pin v="PTD0/SPI0_PCS0/TPM0_CH0" />
+                  <Duty_device v="TPM0_C4V" />
+                  <Output_pin v="LCD_P44/PTD4/LLWU_P14/SPI1_PCS0/UART2_RX/TPM0_CH4" />
                   <Counter v="TPM0_CNT" />
                   <boolgroup name="Interrupt service/event" v="Disabled" />
                   <Period v="20 ms" />
@@ -260,12 +352,12 @@ PE_DEBUGHALT();
       <list name="Channel list" v="1">
         <group name="Channel 0">
           <enumgroup name="Mode" v="Compare">
-            <Compare v="TPM0_C0V" />
+            <Compare v="TPM0_C4V" />
             <Offset v="1.5 ms" />
             <enumgroup name="Output on compare" v="Set">
               <Output_on_overrun v="Clear" />
               <Initial_state v="Low" />
-              <Output_pin v="PTD0/SPI0_PCS0/TPM0_CH0" />
+              <Output_pin v="LCD_P44/PTD4/LLWU_P14/SPI1_PCS0/UART2_RX/TPM0_CH4" />
             </enumgroup>
             <boolgroup name="Interrupt" v="Disabled" />
           </enumgroup>

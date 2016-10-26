@@ -6,11 +6,11 @@
 /*##                                   */
 /*##     Project   : ServoMotor        */
 /*##                                   */
-/*##     Processor : MKL25Z32VLK4      */
+/*##     Processor : MKL46Z256VLL4     */
 /*##                                   */
 /*##     Compiler  : GNU C Compiler    */
 /*##                                   */
-/*##     Date/Time : 2016-10-21, 19:06, # CodeGen: 0 */
+/*##     Date/Time : 2016-10-24, 16:53, # CodeGen: 3 */
 /*##                                   */
 /*##     Abstract  :                   */
 /*##                                   */
@@ -28,18 +28,18 @@
 ENTRY(__thumb_startup)
 
 /* Highest address of the user mode stack */
-_estack = 0x20000C00;    /* end of m_data */
+_estack = 0x20006000;    /* end of m_data */
 __SP_INIT = _estack;
 __stack = _estack;
 
 /* Generate a link error if heap and stack don't fit into RAM */
 __heap_size = 0x00;                    /* required amount of heap  */
-__stack_size = 0x0100;                 /* required amount of stack */
+__stack_size = 0x0400;                 /* required amount of stack */
 
 MEMORY {
   m_interrupts (RX) : ORIGIN = 0x00000000, LENGTH = 0x000000C0
-  m_text      (RX) : ORIGIN = 0x00000410, LENGTH = 0x00007BF0
-  m_data      (RW) : ORIGIN = 0x1FFFFC00, LENGTH = 0x00001000
+  m_text      (RX) : ORIGIN = 0x00000410, LENGTH = 0x0003FBF0
+  m_data      (RW) : ORIGIN = 0x1FFFE000, LENGTH = 0x00008000
   m_cfmprotrom  (RX) : ORIGIN = 0x00000400, LENGTH = 0x00000010
 }
 

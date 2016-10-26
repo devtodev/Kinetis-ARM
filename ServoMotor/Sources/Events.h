@@ -1,7 +1,7 @@
 /* ###################################################################
 **     Filename    : Events.h
 **     Project     : ServoMotor
-**     Processor   : MKL25Z32VLK4
+**     Processor   : MKL46Z256VLL4
 **     Component   : Events
 **     Version     : Driver 01.00
 **     Compiler    : GNU C Compiler

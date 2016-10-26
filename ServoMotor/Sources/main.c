@@ -1,7 +1,7 @@
 /* ###################################################################
 **     Filename    : main.c
 **     Project     : ServoMotor
-**     Processor   : MKL25Z32VLK4
+**     Processor   : MKL46Z256VLL4
 **     Version     : Driver 01.01
 **     Compiler    : GNU C Compiler
 **     Date/Time   : 2016-10-21, 19:06, # CodeGen: 0
@@ -56,13 +56,18 @@ int main(void)
 
 	/* Write your code here */
 
+	SERVO1_Init();
 	for(;;) {
-	  for (SERVO1_position = 0; SERVO1_position <= 255; SERVO1_position++)
-	  {
-		  SERVO1_SetPos(SERVO1_position);
-		  WAIT1_Waitms(10);
-	  }
-
+		for (SERVO1_position = 0; SERVO1_position <= 255; SERVO1_position++)
+		  {
+			      SERVO1_PWMusToPos8(SERVO1_position);
+			      WAIT1_Waitms(25);
+		  }
+		for (SERVO1_position = 255; SERVO1_position >= 0; SERVO1_position--)
+		  {
+			      SERVO1_PWMusToPos8(SERVO1_position);
+			      WAIT1_Waitms(25);
+		  }
 	}
 
 	/*** Don't write any code pass this line, or it will be deleted during code generation. ***/
