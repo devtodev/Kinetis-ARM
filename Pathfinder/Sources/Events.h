@@ -1,7 +1,7 @@
 /* ###################################################################
 **     Filename    : Events.h
 **     Project     : Pathfinder
-**     Processor   : MKL25Z128VLK4
+**     Processor   : MKL46Z256VLL4
 **     Component   : Events
 **     Version     : Driver 01.00
 **     Compiler    : GNU C Compiler
@@ -36,12 +36,6 @@
 #include "FRTOS1.h"
 #include "KSDK1.h"
 #include "UTIL1.h"
-#include "RGB_Red.h"
-#include "BitIoLdd1.h"
-#include "RGB_Green.h"
-#include "BitIoLdd2.h"
-#include "RGB_Blue.h"
-#include "BitIoLdd3.h"
 #include "TSK1.h"
 #include "MMA1.h"
 #include "WAIT1.h"

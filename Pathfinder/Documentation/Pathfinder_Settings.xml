@@ -2,11 +2,11 @@
 <PE_PROJECT_SETTINGS_DOCUMENTATION>
   <PE_product_version v="version 10.5 for Freescale Microcontrollers" />
   <PE_core_version v="Processor Expert Version 0521" />
-  <CPU_Bean name="Cpu" type="MKL25Z128LK4">
+  <CPU_Bean name="Cpu" type="MKL46Z256LL4">
     <Enabled v="Y" />
     <Properties>
       <Component_name v="Cpu" />
-      <CPU_type v="MKL25Z128VLK4" />
+      <CPU_type v="MKL46Z256VLL4" />
       <Initialization_priority v="interrupts enabled" />
       <Watchdog_disable v="yes" />
       <group name="Internal peripherals">
@@ -15,14 +15,106 @@
       <group name="Low power mode settings">
         <EmptySection_DummyValue />
       </group>
-      <list name="Clock configurations" v="1">
+      <list name="Clock configurations" v="5">
         <group name="Clock configuration 0">
           <boolgroup name="Very low power mode" v="Disabled" />
           <enumgroup name="Clock source setting" v="configuration 0">
+            <MCG_mode v="PEE" />
+            <MCG_output__MHz_ v="96" />
+            <MCGIRCLK_clock__MHz_ v="0.032768" />
+            <OSCERCLK_clock__MHz_ v="8" />
+            <ERCLK32K__clock__MHz_ v="0.001" />
+            <MCGFFCLK__kHz_ v="31.25" />
+          </enumgroup>
+          <group name="System clocks">
+            <Core_clock_prescaler v="Auto select" />
+            <Core_clock v="48" />
+            <Bus_clock_prescaler v="Auto select" />
+            <Bus_clock v="24" />
+            <enumgroup name="PLL/FLL clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="48" />
+            </enumgroup>
+            <enumgroup name="TPM clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="48" />
+            </enumgroup>
+          </group>
+        </group>
+        <group name="Clock configuration 1">
+          <boolgroup name="Very low power mode" v="Disabled" />
+          <enumgroup name="Clock source setting" v="configuration 1">
+            <MCG_mode v="PEE" />
+            <MCG_output__MHz_ v="100" />
+            <MCGIRCLK_clock__MHz_ v="0.032768" />
+            <OSCERCLK_clock__MHz_ v="8" />
+            <ERCLK32K__clock__MHz_ v="0.001" />
+            <MCGFFCLK__kHz_ v="31.25" />
+          </enumgroup>
+          <group name="System clocks">
+            <Core_clock_prescaler v="Auto select" />
+            <Core_clock v="33.333333333333" />
+            <Bus_clock_prescaler v="Auto select" />
+            <Bus_clock v="16.666666666666" />
+            <enumgroup name="PLL/FLL clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="50" />
+            </enumgroup>
+            <enumgroup name="TPM clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="50" />
+            </enumgroup>
+          </group>
+        </group>
+        <group name="Clock configuration 2">
+          <boolgroup name="Very low power mode" v="Disabled" />
+          <enumgroup name="Clock source setting" v="configuration 2">
+            <MCG_mode v="BLPI" />
+            <MCG_output__MHz_ v="0.032768000000" />
+            <MCGIRCLK_clock__MHz_ v="0.032768" />
+            <OSCERCLK_clock__MHz_ v="8" />
+            <ERCLK32K__clock__MHz_ v="0.001" />
+            <MCGFFCLK__kHz_ v="0" />
+          </enumgroup>
+          <group name="System clocks">
+            <Core_clock_prescaler v="Auto select" />
+            <Core_clock v="0.032768000000" />
+            <Bus_clock_prescaler v="Auto select" />
+            <Bus_clock v="0.032768000000" />
+            <enumgroup name="PLL/FLL clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="0" />
+            </enumgroup>
+            <enumgroup name="TPM clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="8" />
+            </enumgroup>
+          </group>
+        </group>
+        <group name="Clock configuration 3">
+          <boolgroup name="Very low power mode" v="Disabled" />
+          <enumgroup name="Clock source setting" v="configuration 3">
+            <MCG_mode v="BLPE" />
+            <MCG_output__MHz_ v="8" />
+            <MCGIRCLK_clock__MHz_ v="0.032768" />
+            <OSCERCLK_clock__MHz_ v="8" />
+            <ERCLK32K__clock__MHz_ v="0.001" />
+            <MCGFFCLK__kHz_ v="31.25" />
+          </enumgroup>
+          <group name="System clocks">
+            <Core_clock_prescaler v="Auto select" />
+            <Core_clock v="4" />
+            <Bus_clock_prescaler v="Auto select" />
+            <Bus_clock v="1" />
+            <enumgroup name="PLL/FLL clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="0" />
+            </enumgroup>
+            <enumgroup name="TPM clock selection" v="Auto select">
+              <Clock_frequency__MHz_ v="8" />
+            </enumgroup>
+          </group>
+        </group>
+        <group name="Clock configuration 4">
+          <boolgroup name="Very low power mode" v="Disabled" />
+          <enumgroup name="Clock source setting" v="configuration 4">
             <MCG_mode v="FEI" />
             <MCG_output__MHz_ v="20.971520000000" />
             <MCGIRCLK_clock__MHz_ v="0.032768" />
-            <OSCERCLK_clock__MHz_ v="0" />
+            <OSCERCLK_clock__MHz_ v="8" />
             <ERCLK32K__clock__MHz_ v="0.001" />
             <MCGFFCLK__kHz_ v="32.768" />
           </enumgroup>
@@ -32,10 +124,10 @@
             <Bus_clock_prescaler v="Auto select" />
             <Bus_clock v="20.971520000000" />
             <enumgroup name="PLL/FLL clock selection" v="Auto select">
-              <Clock_frequency__MHz_ v="20.971520000000" />
+              <Clock_frequency__MHz_ v="24" />
             </enumgroup>
             <enumgroup name="TPM clock selection" v="Auto select">
-              <Clock_frequency__MHz_ v="20.971520000000" />
+              <Clock_frequency__MHz_ v="24" />
             </enumgroup>
           </group>
         </group>
@@ -96,15 +188,15 @@ PE_DEBUGHALT();
               <Name v="m_text" />
               <Qualifier v="RX" />
               <Address v="1040" />
-              <Size v="130032" />
+              <Size v="261104" />
             </boolgroup>
           </group>
           <group name="MemoryArea3">
             <boolgroup name="ROM/RAM Area" v="Enabled">
               <Name v="m_data" />
               <Qualifier v="RW" />
-              <Address v="536866816" />
-              <Size v="16384" />
+              <Address v="536862720" />
+              <Size v="32768" />
             </boolgroup>
           </group>
         </list>
@@ -359,195 +451,6 @@ PE_DEBUGHALT();
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="RGB_Red" type="BitIO">
-    <Enabled v="Y" />
-    <Properties>
-      <Component_name v="RGB_Red" />
-      <Pin_for_I_O v="TSI0_CH11/PTB18/TPM2_CH0" />
-      <inhrbean type="BitIO_LDD">
-        <Enabled v="Y" />
-        <Template v="BitIO_LDD" />
-        <Properties>
-          <Component_name v="BitIoLdd1" />
-          <Pin_for_I_O v="TSI0_CH11/PTB18/TPM2_CH0" />
-          <Direction v="Input/Output" />
-          <group name="Initialization">
-            <Init__direction v="Output" />
-            <Init__value v="0" />
-            <Auto_initialization v="yes" />
-          </group>
-          <Safe_mode v="yes" />
-        </Properties>
-        <Methods>
-          <Init v="generate code" />
-          <Deinit v="don&amp;apos;t generate code" />
-          <GetDir v="don&amp;apos;t generate code" />
-          <SetDir v="generate code" />
-          <SetInput v="don&amp;apos;t generate code" />
-          <SetOutput v="don&amp;apos;t generate code" />
-          <GetVal v="generate code" />
-          <PutVal v="generate code" />
-          <ClrVal v="generate code" />
-          <SetVal v="generate code" />
-          <NegVal v="generate code" />
-          <ConnectPin v="don&amp;apos;t generate code" />
-          <GetRawVal v="don&amp;apos;t generate code" />
-        </Methods>
-        <Events>
-          <EmptySection_DummyValue />
-        </Events>
-      </inhrbean>
-      <Direction v="Input/Output" />
-      <group name="Initialization">
-        <Init__direction v="Output" />
-        <Init__value v="0" />
-      </group>
-      <Safe_mode v="yes" />
-      <Optimization_for v="speed" />
-    </Properties>
-    <Methods>
-      <GetDir v="don&amp;apos;t generate code" />
-      <SetDir v="generate code" />
-      <SetInput v="don&amp;apos;t generate code" />
-      <SetOutput v="don&amp;apos;t generate code" />
-      <GetVal v="generate code" />
-      <PutVal v="generate code" />
-      <ClrVal v="generate code" />
-      <SetVal v="generate code" />
-      <NegVal v="generate code" />
-      <ConnectPin v="don&amp;apos;t generate code" />
-      <GetRawVal v="don&amp;apos;t generate code" />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
-  <Bean name="RGB_Green" type="BitIO">
-    <Enabled v="Y" />
-    <Properties>
-      <Component_name v="RGB_Green" />
-      <Pin_for_I_O v="TSI0_CH12/PTB19/TPM2_CH1" />
-      <inhrbean type="BitIO_LDD">
-        <Enabled v="Y" />
-        <Template v="BitIO_LDD" />
-        <Properties>
-          <Component_name v="BitIoLdd2" />
-          <Pin_for_I_O v="TSI0_CH12/PTB19/TPM2_CH1" />
-          <Direction v="Input/Output" />
-          <group name="Initialization">
-            <Init__direction v="Output" />
-            <Init__value v="0" />
-            <Auto_initialization v="yes" />
-          </group>
-          <Safe_mode v="yes" />
-        </Properties>
-        <Methods>
-          <Init v="generate code" />
-          <Deinit v="don&amp;apos;t generate code" />
-          <GetDir v="don&amp;apos;t generate code" />
-          <SetDir v="generate code" />
-          <SetInput v="don&amp;apos;t generate code" />
-          <SetOutput v="don&amp;apos;t generate code" />
-          <GetVal v="generate code" />
-          <PutVal v="generate code" />
-          <ClrVal v="generate code" />
-          <SetVal v="generate code" />
-          <NegVal v="generate code" />
-          <ConnectPin v="don&amp;apos;t generate code" />
-          <GetRawVal v="don&amp;apos;t generate code" />
-        </Methods>
-        <Events>
-          <EmptySection_DummyValue />
-        </Events>
-      </inhrbean>
-      <Direction v="Input/Output" />
-      <group name="Initialization">
-        <Init__direction v="Output" />
-        <Init__value v="0" />
-      </group>
-      <Safe_mode v="yes" />
-      <Optimization_for v="speed" />
-    </Properties>
-    <Methods>
-      <GetDir v="don&amp;apos;t generate code" />
-      <SetDir v="generate code" />
-      <SetInput v="don&amp;apos;t generate code" />
-      <SetOutput v="don&amp;apos;t generate code" />
-      <GetVal v="generate code" />
-      <PutVal v="generate code" />
-      <ClrVal v="generate code" />
-      <SetVal v="generate code" />
-      <NegVal v="generate code" />
-      <ConnectPin v="don&amp;apos;t generate code" />
-      <GetRawVal v="don&amp;apos;t generate code" />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
-  <Bean name="RGB_Blue" type="BitIO">
-    <Enabled v="Y" />
-    <Properties>
-      <Component_name v="RGB_Blue" />
-      <Pin_for_I_O v="ADC0_SE5b/PTD1/SPI0_SCK/TPM0_CH1" />
-      <inhrbean type="BitIO_LDD">
-        <Enabled v="Y" />
-        <Template v="BitIO_LDD" />
-        <Properties>
-          <Component_name v="BitIoLdd3" />
-          <Pin_for_I_O v="ADC0_SE5b/PTD1/SPI0_SCK/TPM0_CH1" />
-          <Direction v="Input/Output" />
-          <group name="Initialization">
-            <Init__direction v="Output" />
-            <Init__value v="0" />
-            <Auto_initialization v="yes" />
-          </group>
-          <Safe_mode v="yes" />
-        </Properties>
-        <Methods>
-          <Init v="generate code" />
-          <Deinit v="don&amp;apos;t generate code" />
-          <GetDir v="don&amp;apos;t generate code" />
-          <SetDir v="generate code" />
-          <SetInput v="don&amp;apos;t generate code" />
-          <SetOutput v="don&amp;apos;t generate code" />
-          <GetVal v="generate code" />
-          <PutVal v="generate code" />
-          <ClrVal v="generate code" />
-          <SetVal v="generate code" />
-          <NegVal v="generate code" />
-          <ConnectPin v="don&amp;apos;t generate code" />
-          <GetRawVal v="don&amp;apos;t generate code" />
-        </Methods>
-        <Events>
-          <EmptySection_DummyValue />
-        </Events>
-      </inhrbean>
-      <Direction v="Input/Output" />
-      <group name="Initialization">
-        <Init__direction v="Output" />
-        <Init__value v="0" />
-      </group>
-      <Safe_mode v="yes" />
-      <Optimization_for v="speed" />
-    </Properties>
-    <Methods>
-      <GetDir v="don&amp;apos;t generate code" />
-      <SetDir v="generate code" />
-      <SetInput v="don&amp;apos;t generate code" />
-      <SetOutput v="don&amp;apos;t generate code" />
-      <GetVal v="generate code" />
-      <PutVal v="generate code" />
-      <ClrVal v="generate code" />
-      <SetVal v="generate code" />
-      <NegVal v="generate code" />
-      <ConnectPin v="don&amp;apos;t generate code" />
-      <GetRawVal v="don&amp;apos;t generate code" />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
   <Bean name="TSK1" type="FreeRTOS_Tasks">
     <Enabled v="Y" />
     <Properties>
@@ -750,13 +653,13 @@ PE_DEBUGHALT();
           <High_drive_select v="Disabled" />
           <Input_Glitch_filter v="0" />
         </group>
-        <Internal_frequency__multiplier_factor_ v="20.97152 MHz" />
+        <Internal_frequency__multiplier_factor_ v="24 MHz" />
         <Bits_0_2_of_Frequency_divider_register v="111" />
         <Bits_3_5_of_Frequency_divider_register v="011" />
-        <SCL_frequency v="87.381 kHz" />
-        <SDA_Hold v="1.574 us" />
-        <SCL_start_Hold v="5.627 us" />
-        <SCL_stop_Hold v="5.77 us" />
+        <SCL_frequency v="100 kHz" />
+        <SDA_Hold v="1.375 us" />
+        <SCL_start_Hold v="4.917 us" />
+        <SCL_stop_Hold v="5.042 us" />
         <boolgroup name="Control acknowledge bit" v="Disabled" />
         <boolgroup name="Low timeout" v="Disabled" />
       </group>
@@ -775,6 +678,7 @@ PE_DEBUGHALT();
           <OnSlaveSmBusCallAddr v="Disabled" />
           <OnSlaveSmBusAlertResponse v="Disabled" />
           <OnError v="Disabled" />
+          <OnBusStartDetected v="Disabled" />
           <OnBusStopDetected v="Disabled" />
         </group>
       </group>
@@ -831,6 +735,7 @@ PE_DEBUGHALT();
       <event name="OnSlaveSmBusCallAddr" v="don&amp;apos;t generate code" />
       <event name="OnSlaveSmBusAlertResponse" v="don&amp;apos;t generate code" />
       <event name="OnError" v="don&amp;apos;t generate code" />
+      <event name="OnBusStartDetected" v="don&amp;apos;t generate code" />
       <event name="OnBusStopDetected" v="don&amp;apos;t generate code" />
     </Events>
   </Bean>

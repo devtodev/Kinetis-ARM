@@ -1,7 +1,7 @@
 /* ###################################################################
 **     Filename    : main.c
 **     Project     : Pathfinder
-**     Processor   : MKL25Z128VLK4
+**     Processor   : MKL46Z256VLL4
 **     Version     : Driver 01.01
 **     Compiler    : GNU C Compiler
 **     Date/Time   : 2016-10-15, 23:40, # CodeGen: 0
@@ -33,12 +33,6 @@
 #include "FRTOS1.h"
 #include "KSDK1.h"
 #include "UTIL1.h"
-#include "RGB_Red.h"
-#include "BitIoLdd1.h"
-#include "RGB_Green.h"
-#include "BitIoLdd2.h"
-#include "RGB_Blue.h"
-#include "BitIoLdd3.h"
 #include "TSK1.h"
 #include "MMA1.h"
 #include "WAIT1.h"

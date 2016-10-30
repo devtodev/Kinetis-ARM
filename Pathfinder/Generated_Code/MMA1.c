@@ -3,12 +3,12 @@
 **     Filename    : MMA1.c
 **     CDE edition : Standard
 **     Project     : Pathfinder
-**     Processor   : MKL25Z128VLK4
+**     Processor   : MKL46Z256VLL4
 **     Component   : MMA8451Q
 **     Version     : Component 01.036, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-16, 02:50, # CodeGen: 21
+**     Date/Time   : 2016-10-30, 12:34, # CodeGen: 33
 **     Abstract    :
 **         Implements a Driver for the MMA8451 accelerometer from Freescale.
 **     Settings    :

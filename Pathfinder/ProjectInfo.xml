@@ -24,15 +24,15 @@
 -->
 <export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ProjectInfoDescription.xsd">
   <PROCESSOR>
-    <DeviceID>MKL25Z128xxx4</DeviceID>
+    <DeviceID>MKL46Z256xxx4</DeviceID>
     <CoreNum>1</CoreNum>
     <Cores>
       <Core>
         <CoreSet>Cortex-M0+</CoreSet>
       </Core>
     </Cores>
-    <SRAMsize>16k</SRAMsize>
-    <FLASHsize>128k</FLASHsize>
+    <SRAMsize>32k</SRAMsize>
+    <FLASHsize>256k</FLASHsize>
   </PROCESSOR>
   <PATHS>
     <LinkerCommandFile>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Project_Settings/Linker_Files/ProcessorExpert.ld</LinkerCommandFile>
@@ -50,9 +50,6 @@
   </PATHS>
   <FILES>
     <GeneratedCs>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/BitIoLdd1.c</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/BitIoLdd2.c</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/BitIoLdd3.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/CS1.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/Cpu.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/FRTOS1.c</PathName>
@@ -61,9 +58,6 @@
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/KSDK1.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/MMA1.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/PE_LDD.c</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/RGB_Blue.c</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/RGB_Green.c</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/RGB_Red.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TMOUT1.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TSK1.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/UTIL1.c</PathName>
@@ -85,15 +79,11 @@
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/Events.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/acelerometro.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/frtos_tasks.c</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/luces.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/main.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/motor.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/ultrasonido.c</PathName>
     </GeneratedCs>
     <GeneratedHs>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/BitIoLdd1.h</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/BitIoLdd2.h</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/BitIoLdd3.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/CS1.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/Cpu.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/FRTOS1.h</PathName>
@@ -108,9 +98,6 @@
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/PE_Error.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/PE_LDD.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/PE_Types.h</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/RGB_Blue.h</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/RGB_Green.h</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/RGB_Red.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/StackMacros.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TMOUT1.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TSK1.h</PathName>
@@ -132,10 +119,9 @@
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/Events.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/acelerometro.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/frtos_tasks.h</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/luces.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/motor.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/ultrasonido.h</PathName>
-      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Static_Code/IO_Map/MKL25Z4.h</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Static_Code/IO_Map/MKL46Z4.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Static_Code/PDD/ADC_PDD.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Static_Code/PDD/CMP_PDD.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Static_Code/PDD/COP_PDD.h</PathName>

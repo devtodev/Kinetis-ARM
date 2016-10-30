@@ -1,7 +1,7 @@
 /* ###################################################################
 **     Filename    : Events.c
 **     Project     : Pathfinder
-**     Processor   : MKL25Z128VLK4
+**     Processor   : MKL46Z256VLL4
 **     Component   : Events
 **     Version     : Driver 01.00
 **     Compiler    : GNU C Compiler

@@ -12,11 +12,7 @@
 
 /* End <includes> initialization, DO NOT MODIFY LINES ABOVE */
 
-#include "RGB_Blue.h"
-#include "RGB_Green.h"
-#include "RGB_Red.h"
 #include "MMA1.h"
-#include "luces.h"
 #include "acelerometro.h"
 
 #define ACCEL_ANTIREBOTE	30
@@ -25,6 +21,7 @@ static portTASK_FUNCTION(MotorTask, pvParameters) {
 
   /* Write your task initialization code here ... */
   for(;;) {
+	  vTaskDelay(100/portTICK_RATE_MS);
 
   }
   /* Destroy the task */
@@ -75,7 +72,7 @@ static portTASK_FUNCTION(AcelerometroTask, pvParameters) {
 				{
 					// poner en cola mensaje de quieto
 					cambioEstado = 0;
-					luces_setApagar();
+					//luces_setApagar();
 				}
 			}
 			if ((movimiento.x> ACCEL_ANTIREBOTE)&&
@@ -86,7 +83,7 @@ static portTASK_FUNCTION(AcelerometroTask, pvParameters) {
 				if (cambioEstado == 0)
 				{
 					cambioEstado = 1;
-					luces_setBlanco();
+					//luces_setBlanco();
 				}
 			}
 
@@ -107,7 +104,7 @@ void CreateTasks(void) {
       "MotorTask", /* task name for kernel awareness debugging */
       configMINIMAL_STACK_SIZE, /* task stack size */
       (void*)NULL, /* optional task startup argument */
-      tskIDLE_PRIORITY + 2,  /* initial priority */
+      tskIDLE_PRIORITY + 3,  /* initial priority */
       (xTaskHandle*)NULL /* optional task handle to create */
     ) != pdPASS) {
       /*lint -e527 */
@@ -131,7 +128,7 @@ void CreateTasks(void) {
       "AcelerometroTask", /* task name for kernel awareness debugging */
       configMINIMAL_STACK_SIZE , /* task stack size */
       (void*)NULL, /* optional task startup argument */
-      tskIDLE_PRIORITY + 1,  /* initial priority */
+      tskIDLE_PRIORITY + 3,  /* initial priority */
       (xTaskHandle*)NULL /* optional task handle to create */
     ) != pdPASS) {
       /*lint -e527 */
