@@ -50,6 +50,8 @@
   </PATHS>
   <FILES>
     <GeneratedCs>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/ASerialLdd1.c</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/BT.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/CS1.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/Cpu.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/FRTOS1.c</PathName>
@@ -88,6 +90,8 @@
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/ultrasonido.c</PathName>
     </GeneratedCs>
     <GeneratedHs>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/ASerialLdd1.h</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/BT.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/CS1.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/Cpu.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/FRTOS1.h</PathName>

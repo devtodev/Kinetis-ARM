@@ -25,6 +25,7 @@
 - \subpage I2C0
 - \subpage SERVO1_TimerUnit
 - \subpage PwmLdd1
+- \subpage ASerialLdd1
 
 */
 

@@ -6,7 +6,7 @@
 **     Version     : Component 01.002, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-03-24, 20:26, # CodeGen: 47
+**     Date/Time   : 2016-10-30, 17:55, # CodeGen: 53
 **     Abstract    :
 **
 **     Settings    :

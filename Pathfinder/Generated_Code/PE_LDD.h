@@ -6,7 +6,7 @@
 **     Version     : Component 01.003, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-30, 12:44, # CodeGen: 34
+**     Date/Time   : 2016-10-30, 17:15, # CodeGen: 36
 **     Abstract    :
 **
 **     Settings    :
@@ -75,6 +75,8 @@
 #include "Pwm1.h"
 #include "PwmLdd1.h"
 #include "SERVO1_TimerUnit.h"
+#include "BT.h"
+#include "ASerialLdd1.h"
 
 
 /*

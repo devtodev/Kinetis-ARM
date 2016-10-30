@@ -6,7 +6,7 @@
 **     Version     : Component 01.002, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-19, 12:49, # CodeGen: 50
+**     Date/Time   : 2016-10-30, 17:55, # CodeGen: 53
 **     Abstract    :
 **
 **     Settings    :
@@ -85,9 +85,9 @@
 #include "BitIoLdd8.h"
 #include "TSK1.h"
 #include "FRTOS1.h"
+#include "KSDK1.h"
 #include "BT.h"
 #include "ASerialLdd2.h"
-#include "KSDK1.h"
 
 
 /*

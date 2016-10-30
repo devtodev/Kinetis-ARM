@@ -19,6 +19,7 @@ C_SRCS += \
 ../Generated_Code/FRTOS1.c \
 ../Generated_Code/Flash.c \
 ../Generated_Code/IntFlashLdd1.c \
+../Generated_Code/KSDK1.c \
 ../Generated_Code/PE_LDD.c \
 ../Generated_Code/SW1.c \
 ../Generated_Code/SW2.c \
@@ -62,6 +63,7 @@ OBJS += \
 ./Generated_Code/FRTOS1.o \
 ./Generated_Code/Flash.o \
 ./Generated_Code/IntFlashLdd1.o \
+./Generated_Code/KSDK1.o \
 ./Generated_Code/PE_LDD.o \
 ./Generated_Code/SW1.o \
 ./Generated_Code/SW2.o \
@@ -105,6 +107,7 @@ C_DEPS += \
 ./Generated_Code/FRTOS1.d \
 ./Generated_Code/Flash.d \
 ./Generated_Code/IntFlashLdd1.d \
+./Generated_Code/KSDK1.d \
 ./Generated_Code/PE_LDD.d \
 ./Generated_Code/SW1.d \
 ./Generated_Code/SW2.d \
@@ -137,7 +140,7 @@ C_DEPS += \
 Generated_Code/%.o: ../Generated_Code/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross ARM C Compiler'
-	arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/charly/workspace/Gateway Wifi/Static_Code/PDD" -I"/home/charly/workspace/Gateway Wifi/Static_Code/IO_Map" -I"/home/charly/workspace/Gateway Wifi/Sources" -I"/home/charly/workspace/Gateway Wifi/Generated_Code" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/karl/workspace.kds/Kinetis-ARM/Gateway Wifi/Static_Code/PDD" -I"/home/karl/workspace.kds/Kinetis-ARM/Gateway Wifi/Static_Code/IO_Map" -I"/home/karl/workspace.kds/Kinetis-ARM/Gateway Wifi/Sources" -I"/home/karl/workspace.kds/Kinetis-ARM/Gateway Wifi/Generated_Code" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

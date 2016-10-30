@@ -43,6 +43,8 @@
 #include "Pwm1.h"
 #include "PwmLdd1.h"
 #include "SERVO1_TimerUnit.h"
+#include "BT.h"
+#include "ASerialLdd1.h"
 #include "GI2C1.h"
 #include "TMOUT1.h"
 #include "CS1.h"
@@ -154,6 +156,82 @@ void GI2C1_OnReleaseBus(void);
 **     Returns     : Nothing
 ** ===================================================================
 */
+
+/*
+** ===================================================================
+**     Event       :  BT_OnError (module Events)
+**
+**     Component   :  BT [AsynchroSerial]
+**     Description :
+**         This event is called when a channel error (not the error
+**         returned by a given method) occurs. The errors can be read
+**         using <GetError> method.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void BT_OnError(void);
+
+/*
+** ===================================================================
+**     Event       :  BT_OnRxChar (module Events)
+**
+**     Component   :  BT [AsynchroSerial]
+**     Description :
+**         This event is called after a correct character is received.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled and either the <Receiver>
+**         property is enabled or the <SCI output mode> property (if
+**         supported) is set to Single-wire mode.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void BT_OnRxChar(void);
+
+/*
+** ===================================================================
+**     Event       :  BT_OnTxChar (module Events)
+**
+**     Component   :  BT [AsynchroSerial]
+**     Description :
+**         This event is called after a character is transmitted.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void BT_OnTxChar(void);
+
+/*
+** ===================================================================
+**     Event       :  BT_OnFullRxBuf (module Events)
+**
+**     Component   :  BT [AsynchroSerial]
+**     Description :
+**         This event is called when the input buffer is full;
+**         i.e. after reception of the last character 
+**         that was successfully placed into input buffer.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void BT_OnFullRxBuf(void);
+
+/*
+** ===================================================================
+**     Event       :  BT_OnFreeTxBuf (module Events)
+**
+**     Component   :  BT [AsynchroSerial]
+**     Description :
+**         This event is called after the last character in output
+**         buffer is transmitted.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void BT_OnFreeTxBuf(void);
 
 /* END Events */
 

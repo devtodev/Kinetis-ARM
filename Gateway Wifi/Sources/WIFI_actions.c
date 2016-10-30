@@ -296,7 +296,7 @@ void spotsParse()
 	xSemaphoreGive(xSemaphoreWifiRefresh);
 }
 
-bool SSIDStoredVisible()
+int SSIDStoredVisible()
 {
 	char opcion[MENUMAXLENGHT];
 	int i = 0;

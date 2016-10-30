@@ -4,15 +4,16 @@
 **     Project     : Gateway Wifi
 **     Processor   : MKL46Z256VMC4
 **     Component   : GenericTimeDate
-**     Version     : Component 01.027, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.028, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-19, 12:49, # CodeGen: 50
+**     Date/Time   : 2016-10-30, 13:55, # CodeGen: 51
 **     Abstract    :
 **         Software date/time module.
 **     Settings    :
 **          Component name                                 : TimeDate
 **          Critical Section                               : CS1
+**          SDK                                            : KSDK1
 **          Tick Time (ms)                                 : 10
 **          RTOS                                           : Disabled
 **          Shell                                          : Disabled

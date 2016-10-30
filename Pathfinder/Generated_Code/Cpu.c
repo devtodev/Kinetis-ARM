@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : KL46P121M48SF4RM, Rev.2, Dec 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-30, 12:44, # CodeGen: 34
+**     Date/Time   : 2016-10-30, 17:15, # CodeGen: 36
 **     Abstract    :
 **
 **     Settings    :
@@ -497,6 +497,8 @@
 #include "Pwm1.h"
 #include "PwmLdd1.h"
 #include "SERVO1_TimerUnit.h"
+#include "BT.h"
+#include "ASerialLdd1.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -1807,6 +1809,8 @@ void PE_low_level_init(void)
   (void)PwmLdd1_Init(NULL);
   /* ### Servo "SERVO1" init code ... */
   SERVO1_Init();
+  /* ### Asynchro serial "BT" init code ... */
+  BT_Init();
 }
   /* Flash configuration field */
   __attribute__ ((section (".cfmconfig"))) const uint8_t _cfm[0x10] = {

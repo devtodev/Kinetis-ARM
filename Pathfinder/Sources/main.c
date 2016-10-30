@@ -40,6 +40,8 @@
 #include "Pwm1.h"
 #include "PwmLdd1.h"
 #include "SERVO1_TimerUnit.h"
+#include "BT.h"
+#include "ASerialLdd1.h"
 #include "GI2C1.h"
 #include "TMOUT1.h"
 #include "CS1.h"

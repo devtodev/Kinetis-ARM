@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : KL46P121M48SF4RM, Rev.2, Dec 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-19, 12:49, # CodeGen: 50
+**     Date/Time   : 2016-10-30, 17:55, # CodeGen: 53
 **     Abstract    :
 **
 **     Settings    :
@@ -284,9 +284,9 @@
 #include "BitIoLdd8.h"
 #include "TSK1.h"
 #include "FRTOS1.h"
+#include "KSDK1.h"
 #include "BT.h"
 #include "ASerialLdd2.h"
-#include "KSDK1.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -432,6 +432,21 @@ PE_ISR(Cpu_ivINT_Reserved9)
 ** ===================================================================
 */
 PE_ISR(Cpu_ivINT_Reserved10)
+{
+  /* This code can be changed using the CPU component property "Build Options / Unhandled int code" */
+  PE_DEBUGHALT();
+}
+
+/*
+** ===================================================================
+**     Method      :  Cpu_Cpu_ivINT_SVCall (component MKL46Z256MC4)
+**
+**     Description :
+**         This ISR services an unused interrupt/exception vector.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+PE_ISR(Cpu_ivINT_SVCall)
 {
   /* This code can be changed using the CPU component property "Build Options / Unhandled int code" */
   PE_DEBUGHALT();
