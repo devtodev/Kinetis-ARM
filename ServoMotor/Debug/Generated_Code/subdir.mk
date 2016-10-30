@@ -41,7 +41,7 @@ C_DEPS += \
 Generated_Code/%.o: ../Generated_Code/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross ARM C Compiler'
-	arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/karl/temp/Kinetis-ARM/ServoMotor/Static_Code/PDD" -I"/home/karl/temp/Kinetis-ARM/ServoMotor/Static_Code/IO_Map" -I"/home/karl/temp/Kinetis-ARM/ServoMotor/Sources" -I"/home/karl/temp/Kinetis-ARM/ServoMotor/Generated_Code" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/karl/workspace.kds/Kinetis-ARM/ServoMotor/Static_Code/PDD" -I"/home/karl/workspace.kds/Kinetis-ARM/ServoMotor/Static_Code/IO_Map" -I"/home/karl/workspace.kds/Kinetis-ARM/ServoMotor/Sources" -I"/home/karl/workspace.kds/Kinetis-ARM/ServoMotor/Generated_Code" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

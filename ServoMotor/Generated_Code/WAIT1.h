@@ -7,7 +7,7 @@
 **     Version     : Component 01.069, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-24, 16:53, # CodeGen: 3
+**     Date/Time   : 2016-10-30, 12:23, # CodeGen: 9
 **     Abstract    :
 **          Implements busy waiting routines.
 **     Settings    :
@@ -54,7 +54,7 @@
 /* Include inherited beans */
 #include "KSDK1.h"
 
-#if KSDK1_SDK_VERSION_USED == KSDK1_KSDK1_SDK_VERSION_NONE
+#if KSDK1_SDK_VERSION_USED == KSDK1_SDK_VERSION_NONE
 /* Include shared modules, which are used for whole project */
   #include "PE_Types.h"
   #include "PE_Error.h"
@@ -68,7 +68,7 @@ extern "C" {
 #endif
 
 
-#if KSDK1_SDK_VERSION_USED != KSDK1_KSDK1_SDK_VERSION_NONE
+#if KSDK1_SDK_VERSION_USED != KSDK1_SDK_VERSION_NONE
   extern uint32_t SystemCoreClock; /* clock frequency variable defined system_<device>.h of the SDK */
   #define WAIT1_INSTR_CLOCK_HZ       SystemCoreClock  /* core clock frequency in Hz */
 #else
