@@ -23,6 +23,8 @@
 
 \page page_components Components 
 - \subpage I2C0
+- \subpage SERVO1_TimerUnit
+- \subpage PwmLdd1
 
 */
 

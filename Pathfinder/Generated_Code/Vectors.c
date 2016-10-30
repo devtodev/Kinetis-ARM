@@ -6,7 +6,7 @@
 **     Version     : Component 01.003, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-30, 12:34, # CodeGen: 33
+**     Date/Time   : 2016-10-30, 12:44, # CodeGen: 34
 **     Abstract    :
 **
 **     Settings    :
@@ -65,6 +65,10 @@
   #include "I2C0.h"
   #include "UTIL1.h"
   #include "WAIT1.h"
+  #include "SERVO1.h"
+  #include "Pwm1.h"
+  #include "PwmLdd1.h"
+  #include "SERVO1_TimerUnit.h"
   #include "Events.h"
 
 

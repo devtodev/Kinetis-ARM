@@ -18,10 +18,19 @@
 #define ACCEL_ANTIREBOTE	30
 
 static portTASK_FUNCTION(MotorTask, pvParameters) {
-
+	uint16_t SERVO1_position;
   /* Write your task initialization code here ... */
   for(;;) {
-	  vTaskDelay(100/portTICK_RATE_MS);
+		for (SERVO1_position = 0; SERVO1_position <= 255; SERVO1_position++)
+		  {
+			      SERVO1_SetPos(SERVO1_position);
+			      vTaskDelay(25/portTICK_RATE_MS);
+		  }
+		for (SERVO1_position = 255; SERVO1_position >= 0; SERVO1_position--)
+		  {
+				  SERVO1_SetPos(SERVO1_position);
+				  vTaskDelay(25/portTICK_RATE_MS);
+		  }
 
   }
   /* Destroy the task */

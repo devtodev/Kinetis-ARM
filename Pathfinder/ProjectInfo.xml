@@ -58,6 +58,10 @@
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/KSDK1.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/MMA1.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/PE_LDD.c</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/Pwm1.c</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/PwmLdd1.c</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/SERVO1.c</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/SERVO1_TimerUnit.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TMOUT1.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TSK1.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/UTIL1.c</PathName>
@@ -98,6 +102,10 @@
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/PE_Error.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/PE_LDD.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/PE_Types.h</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/Pwm1.h</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/PwmLdd1.h</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/SERVO1.h</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/SERVO1_TimerUnit.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/StackMacros.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TMOUT1.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TSK1.h</PathName>

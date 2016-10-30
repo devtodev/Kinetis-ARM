@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : KL46P121M48SF4RM, Rev.2, Dec 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-30, 12:34, # CodeGen: 33
+**     Date/Time   : 2016-10-30, 12:44, # CodeGen: 34
 **     Abstract    :
 **
 **     Settings    :
@@ -493,6 +493,10 @@
 #include "I2C0.h"
 #include "UTIL1.h"
 #include "WAIT1.h"
+#include "SERVO1.h"
+#include "Pwm1.h"
+#include "PwmLdd1.h"
+#include "SERVO1_TimerUnit.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -1641,8 +1645,10 @@ void __init_hardware(void)
   /* System clock initialization */
   /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=3,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
   SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x03)); /* Set the system prescalers to safe value */
-  /* SIM_SCGC5: PORTE=1,PORTA=1 */
-  SIM_SCGC5 |= (SIM_SCGC5_PORTE_MASK | SIM_SCGC5_PORTA_MASK); /* Enable clock gate for ports to enable pin routing */
+  /* SIM_SCGC5: PORTE=1,PORTD=1,PORTA=1 */
+  SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK |
+               SIM_SCGC5_PORTD_MASK |
+               SIM_SCGC5_PORTA_MASK;   /* Enable clock gate for ports to enable pin routing */
   if ((PMC_REGSC & PMC_REGSC_ACKISO_MASK) != 0x0U) {
     /* PMC_REGSC: ACKISO=1 */
     PMC_REGSC |= PMC_REGSC_ACKISO_MASK; /* Release IO pads after wakeup from VLLS mode. */
@@ -1797,6 +1803,10 @@ void PE_low_level_init(void)
   GI2C1_Init();
   /* ### MMA8451Q "MMA1" init code ... */
   /* Write code here ... */
+  /* ### PWM_LDD "PwmLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)PwmLdd1_Init(NULL);
+  /* ### Servo "SERVO1" init code ... */
+  SERVO1_Init();
 }
   /* Flash configuration field */
   __attribute__ ((section (".cfmconfig"))) const uint8_t _cfm[0x10] = {

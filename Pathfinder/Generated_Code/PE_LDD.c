@@ -6,7 +6,7 @@
 **     Version     : Component 01.003, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-30, 12:34, # CodeGen: 33
+**     Date/Time   : 2016-10-30, 12:44, # CodeGen: 34
 **     Abstract    :
 **
 **     Settings    :
@@ -69,7 +69,9 @@
 ** Array of initialized device structures of LDD components.
 ** ===========================================================================
 */
-LDD_TDeviceData *PE_LDD_DeviceDataList[1] = {
+LDD_TDeviceData *PE_LDD_DeviceDataList[3] = {
+    NULL,
+    NULL,
     NULL
   };
 
@@ -194,6 +196,8 @@ bool PE_PeripheralUsed(uint32_t PrphBaseAddress)
   switch (PrphBaseAddress) {
     /* Base address allocated by peripheral(s) I2C0 */
     case 0x40066000UL:
+    /* Base address allocated by peripheral(s) TPM0 */
+    case 0x40038000UL:
       result = TRUE;
       break;
     default:
@@ -221,6 +225,14 @@ void LDD_SetClockConfiguration(LDD_TClockConfiguration ClockConfiguration)
   /* Component I2C0 (I2C_LDD). */
   if (PE_LDD_DeviceDataList[PE_LDD_COMPONENT_I2C0_ID] != NULL) {
     I2C0_SetClockConfiguration(PE_LDD_DeviceDataList[PE_LDD_COMPONENT_I2C0_ID], ClockConfiguration);
+  }
+  /* Component SERVO1_TimerUnit (TimerUnit_LDD). */
+  if (PE_LDD_DeviceDataList[PE_LDD_COMPONENT_SERVO1_TimerUnit_ID] != NULL) {
+    SERVO1_TimerUnit_SetClockConfiguration(PE_LDD_DeviceDataList[PE_LDD_COMPONENT_SERVO1_TimerUnit_ID], ClockConfiguration);
+  }
+  /* Component PwmLdd1 (PWM_LDD). */
+  if (PE_LDD_DeviceDataList[PE_LDD_COMPONENT_PwmLdd1_ID] != NULL) {
+    PwmLdd1_SetClockConfiguration(PE_LDD_DeviceDataList[PE_LDD_COMPONENT_PwmLdd1_ID], ClockConfiguration);
   }
 }
 
