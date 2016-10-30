@@ -52,7 +52,7 @@ all: ServoMotor.elf secondary-outputs
 ServoMotor.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross ARM C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/charly/workspace.kds/Kinetis-ARM/ServoMotor/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"/home/charly/workspace.kds/Kinetis-ARM/ServoMotor/Project_Settings/Linker_Files" -Wl,-Map,"ServoMotor.map" -specs=nano.specs -specs=nosys.specs -o "ServoMotor.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/karl/temp/Kinetis-ARM/ServoMotor/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"/home/karl/temp/Kinetis-ARM/ServoMotor/Project_Settings/Linker_Files" -Wl,-Map,"ServoMotor.map" -specs=nano.specs -specs=nosys.specs -o "ServoMotor.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
