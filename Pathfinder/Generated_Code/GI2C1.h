@@ -7,12 +7,12 @@
 **     Version     : Component 01.028, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-30, 12:34, # CodeGen: 33
+**     Date/Time   : 2016-10-31, 20:17, # CodeGen: 37
 **     Abstract    :
 **         This component implements a generic I2C driver wrapper to work both with LDD and non-LDD I2C components.
 **     Settings    :
 **          Component name                                 : GI2C1
-**          Wait                                           : WAIT1
+**          Wait                                           : WAIT2
 **          Support STOP_NOSTART                           : no
 **          Write Buffer Size                              : 16
 **          non-LDD I2C                                    : Disabled
@@ -91,7 +91,7 @@
 #include "PE_Const.h"
 #include "IO_Map.h"
 /* Include inherited beans */
-#include "WAIT1.h"
+#include "WAIT2.h"
 #include "I2C0.h"
 #include "TMOUT1.h"
 #include "FRTOS1.h"

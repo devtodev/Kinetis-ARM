@@ -6,7 +6,7 @@
 **     Version     : Component 01.003, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-30, 17:15, # CodeGen: 36
+**     Date/Time   : 2016-10-31, 20:17, # CodeGen: 37
 **     Abstract    :
 **
 **     Settings    :
@@ -77,6 +77,11 @@
 #include "SERVO1_TimerUnit.h"
 #include "BT.h"
 #include "ASerialLdd1.h"
+#include "TRIG_US_front.h"
+#include "WAIT2.h"
+#include "TU_US_front.h"
+#include "TRIG_US_Back.h"
+#include "TU_US_back.h"
 
 
 /*

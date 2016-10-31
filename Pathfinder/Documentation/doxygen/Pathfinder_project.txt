@@ -26,6 +26,10 @@
 - \subpage SERVO1_TimerUnit
 - \subpage PwmLdd1
 - \subpage ASerialLdd1
+- \subpage TRIG_US_front
+- \subpage TU_US_front
+- \subpage TRIG_US_Back
+- \subpage TU_US_back
 
 */
 

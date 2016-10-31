@@ -8,14 +8,14 @@
 **     Version     : Component 01.036, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-30, 12:34, # CodeGen: 33
+**     Date/Time   : 2016-10-31, 20:17, # CodeGen: 37
 **     Abstract    :
 **         Implements a Driver for the MMA8451 accelerometer from Freescale.
 **     Settings    :
 **          Component Name                                 : MMA1
 **          Slave Address                                  : 1D
 **          I2C Bus                                        : GI2C1
-**          Wait                                           : WAIT1
+**          Wait                                           : WAIT2
 **          Constant Offsets                               : Enabled
 **            X offset                                     : -488
 **            Y offset                                     : 336
@@ -584,7 +584,7 @@ uint8_t MMA1_Disable(void)
   if ((val&MMA1_ACTIVE_BIT_MASK)==0) {
     return ERR_OK; /* already disabled */
   }
-  WAIT1_Waitms(1); /* for unknown reasons, need to wait for 1 ms after reading the register */
+  WAIT2_Waitms(1); /* for unknown reasons, need to wait for 1 ms after reading the register */
   val &= ~MMA1_ACTIVE_BIT_MASK; /* disable device */
   return GI2C1_WriteByteAddress8(MMA1_I2C_ADDR, MMA1_CTRL_REG_1, val);
 }
@@ -697,7 +697,7 @@ uint8_t MMA1_SwReset(void)
   if (res!=ERR_OK) {
     return res;
   }
-  WAIT1_Waitms(1); /* wait for one ms after sending the software reset */
+  WAIT2_Waitms(1); /* wait for one ms after sending the software reset */
   return ERR_OK;
 }
 

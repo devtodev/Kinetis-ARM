@@ -8,14 +8,14 @@
 **     Version     : Component 01.036, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-30, 12:34, # CodeGen: 33
+**     Date/Time   : 2016-10-31, 20:17, # CodeGen: 37
 **     Abstract    :
 **         Implements a Driver for the MMA8451 accelerometer from Freescale.
 **     Settings    :
 **          Component Name                                 : MMA1
 **          Slave Address                                  : 1D
 **          I2C Bus                                        : GI2C1
-**          Wait                                           : WAIT1
+**          Wait                                           : WAIT2
 **          Constant Offsets                               : Enabled
 **            X offset                                     : -488
 **            Y offset                                     : 336
@@ -83,7 +83,7 @@
 #include "IO_Map.h"
 /* Include inherited components */
 #include "GI2C1.h"
-#include "WAIT1.h"
+#include "WAIT2.h"
 
 #include "Cpu.h"
 

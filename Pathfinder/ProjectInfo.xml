@@ -65,10 +65,15 @@
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/SERVO1.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/SERVO1_TimerUnit.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TMOUT1.c</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TRIG_US_Back.c</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TRIG_US_front.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TSK1.c</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TU_US_back.c</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TU_US_front.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/UTIL1.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/Vectors.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/WAIT1.c</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/WAIT2.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/croutine.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/event_groups.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/heap_1.c</PathName>
@@ -82,6 +87,7 @@
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/tasks.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/timers.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Project_Settings/Startup_Code/startup.c</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/BT_actions.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/Events.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/acelerometro.c</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/frtos_tasks.c</PathName>
@@ -112,9 +118,14 @@
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/SERVO1_TimerUnit.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/StackMacros.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TMOUT1.h</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TRIG_US_Back.h</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TRIG_US_front.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TSK1.h</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TU_US_back.h</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/TU_US_front.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/UTIL1.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/WAIT1.h</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/WAIT2.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/croutine.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/deprecated_definitions.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/event_groups.h</PathName>
@@ -128,6 +139,7 @@
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/semphr.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/task.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/timers.h</PathName>
+      <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/BT_actions.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/Events.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/acelerometro.h</PathName>
       <PathName>/home/karl/workspace.kds/Kinetis-ARM/Pathfinder/Sources/frtos_tasks.h</PathName>

@@ -6,7 +6,7 @@
 **     Version     : Component 01.003, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-30, 17:15, # CodeGen: 36
+**     Date/Time   : 2016-10-31, 20:17, # CodeGen: 37
 **     Abstract    :
 **
 **     Settings    :
@@ -69,7 +69,11 @@
 ** Array of initialized device structures of LDD components.
 ** ===========================================================================
 */
-LDD_TDeviceData *PE_LDD_DeviceDataList[4] = {
+LDD_TDeviceData *PE_LDD_DeviceDataList[8] = {
+    NULL,
+    NULL,
+    NULL,
+    NULL,
     NULL,
     NULL,
     NULL,
@@ -201,6 +205,14 @@ bool PE_PeripheralUsed(uint32_t PrphBaseAddress)
     case 0x40038000UL:
     /* Base address allocated by peripheral(s) UART0 */
     case 0x4006A000UL:
+    /* Base address allocated by peripheral(s) PTE */
+    case 0x400FF100UL:
+    /* Base address allocated by peripheral(s) TPM2 */
+    case 0x4003A000UL:
+    /* Base address allocated by peripheral(s) PTB */
+    case 0x400FF040UL:
+    /* Base address allocated by peripheral(s) TPM1 */
+    case 0x40039000UL:
       result = TRUE;
       break;
     default:
@@ -240,6 +252,14 @@ void LDD_SetClockConfiguration(LDD_TClockConfiguration ClockConfiguration)
   /* Component ASerialLdd1 (Serial_LDD). */
   if (PE_LDD_DeviceDataList[PE_LDD_COMPONENT_ASerialLdd1_ID] != NULL) {
     ASerialLdd1_SetClockConfiguration(PE_LDD_DeviceDataList[PE_LDD_COMPONENT_ASerialLdd1_ID], ClockConfiguration);
+  }
+  /* Component TU_US_front (TimerUnit_LDD). */
+  if (PE_LDD_DeviceDataList[PE_LDD_COMPONENT_TU_US_front_ID] != NULL) {
+    TU_US_front_SetClockConfiguration(PE_LDD_DeviceDataList[PE_LDD_COMPONENT_TU_US_front_ID], ClockConfiguration);
+  }
+  /* Component TU_US_back (TimerUnit_LDD). */
+  if (PE_LDD_DeviceDataList[PE_LDD_COMPONENT_TU_US_back_ID] != NULL) {
+    TU_US_back_SetClockConfiguration(PE_LDD_DeviceDataList[PE_LDD_COMPONENT_TU_US_back_ID], ClockConfiguration);
   }
   BT_SetClockConfiguration(ClockConfiguration);
 }
