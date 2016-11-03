@@ -13,9 +13,10 @@
 /* End <includes> initialization, DO NOT MODIFY LINES ABOVE */
 
 #include "MMA1.h"
-#include "acelerometro.h"
-#include "BT_actions.h"
-#include "Ultrasonic.h"
+#include "drivers/acelerometro.h"
+#include "drivers/BT_actions.h"
+#include "middleware/Distance.h"
+#include "middleware/servoMotor.h"
 
 #define ACCEL_ANTIREBOTE	30
 
@@ -23,41 +24,30 @@
 
 static portTASK_FUNCTION(MotorTask, pvParameters) {
 	uint16_t SERVO1_position;
-  /* Write your task initialization code here ... */
-  for(;;) {
-		for (SERVO1_position = 1; SERVO1_position <= 255; SERVO1_position++)
-		  {
-			      SERVO1_SetPos(SERVO1_position);
-			      vTaskDelay(20/portTICK_RATE_MS);
-		  }
-		vTaskDelay(10000/portTICK_RATE_MS);
-		for (SERVO1_position = 255; SERVO1_position >= 1; SERVO1_position--)
-		  {
-				  SERVO1_SetPos(SERVO1_position);
-				  vTaskDelay(20/portTICK_RATE_MS);
-		  }
-		vTaskDelay(7000/portTICK_RATE_MS);
-  }
-  /* Destroy the task */
-  vTaskDelete(MotorTask);
-}
 
+	servoInit();
+	for(;;) {
+		setServoOnRight();
+		vTaskDelay(300/portTICK_RATE_MS);
+		setServoOnCenter();
+		vTaskDelay(300/portTICK_RATE_MS);
+		setServoOnLeft();
+		vTaskDelay(300/portTICK_RATE_MS);
+		setServoOnCenter();
+		vTaskDelay(300/portTICK_RATE_MS);
+	}
+
+	vTaskDelete(MotorTask);
+}
+#define BUFFERDISTANCESIZE 5
 static portTASK_FUNCTION(SensorUltrasonidoTask, pvParameters) {
 
   /* Write your task initialization code here ... */
   char bufferText[20];
-  int distanceFront;
-  US_Init();
+  Distance_init();
   for(;;) {
-	    distanceFront = getDistanceFront();
-	    if (distanceFront != 0)
-	    {
-			UTIL1_Num16uToStr(bufferText, 20, distanceFront);
-			BT_showString(bufferText);
-			BT_showString("\r\n");
-	    }
-		vTaskDelay(30/portTICK_RATE_MS);
-
+	    Distance_doMeaseure();
+		vTaskDelay(10/portTICK_RATE_MS);
   }
   /* Destroy the task */
   vTaskDelete(SensorUltrasonidoTask);
@@ -138,7 +128,7 @@ void CreateTasks(void) {
   if (FRTOS1_xTaskCreate(
 	  SensorUltrasonidoTask,  /* pointer to the task */
       "SensorUltrasonidoTask", /* task name for kernel awareness debugging */
-      configMINIMAL_STACK_SIZE, /* task stack size */
+      configMINIMAL_STACK_SIZE+200, /* task stack size */
       (void*)NULL, /* optional task startup argument */
       tskIDLE_PRIORITY + 3,  /* initial priority */
       (xTaskHandle*)NULL /* optional task handle to create */

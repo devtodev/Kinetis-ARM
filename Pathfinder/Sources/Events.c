@@ -28,7 +28,7 @@
 
 #include "Cpu.h"
 #include "Events.h"
-#include "Ultrasonic.h"
+#include "drivers/Ultrasonic.h"
 
 #ifdef __cplusplus
 extern "C" {

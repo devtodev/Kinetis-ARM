@@ -46,6 +46,8 @@
       <Path>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/</Path>
       <Path>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Project_Settings/Startup_Code/</Path>
       <Path>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/</Path>
+      <Path>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/drivers/</Path>
+      <Path>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/middleware/</Path>
     </SourceCodePaths>
   </PATHS>
   <FILES>
@@ -84,13 +86,14 @@
       <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/tasks.c</PathName>
       <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/timers.c</PathName>
       <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Project_Settings/Startup_Code/startup.c</PathName>
-      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/BT_actions.c</PathName>
       <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/Events.c</PathName>
-      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/Ultrasonic.c</PathName>
-      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/acelerometro.c</PathName>
+      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/drivers/BT_actions.c</PathName>
+      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/drivers/Ultrasonic.c</PathName>
+      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/drivers/acelerometro.c</PathName>
       <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/frtos_tasks.c</PathName>
       <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/main.c</PathName>
-      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/motor.c</PathName>
+      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/middleware/motor.c</PathName>
+      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/middleware/servoMotor.c</PathName>
     </GeneratedCs>
     <GeneratedHs>
       <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/ASerialLdd1.h</PathName>
@@ -133,12 +136,13 @@
       <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/semphr.h</PathName>
       <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/task.h</PathName>
       <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Generated_Code/timers.h</PathName>
-      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/BT_actions.h</PathName>
       <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/Events.h</PathName>
-      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/Ultrasonic.h</PathName>
-      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/acelerometro.h</PathName>
+      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/drivers/BT_actions.h</PathName>
+      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/drivers/Ultrasonic.h</PathName>
+      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/drivers/acelerometro.h</PathName>
       <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/frtos_tasks.h</PathName>
-      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/motor.h</PathName>
+      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/middleware/motor.h</PathName>
+      <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Sources/middleware/servoMotor.h</PathName>
       <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Static_Code/IO_Map/MKL46Z4.h</PathName>
       <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Static_Code/PDD/ADC_PDD.h</PathName>
       <PathName>/home/charly/workspace.kds/Kinetis-ARM/Pathfinder/Static_Code/PDD/CMP_PDD.h</PathName>

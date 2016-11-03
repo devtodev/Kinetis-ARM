@@ -55,22 +55,22 @@
       <File Name="Static_Code/PDD/PORT_PDD.h" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="1048576" />
       <File Name="Generated_Code/ASerialLdd1.c" FileDate="2016-11-03, 11:53:03" FileAge="1478184783000" FileType="45637" CompNumb="31" />
       <File Name="Static_Code/PDD/UART0_PDD.h" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="1048576" />
-      <File Name="Documentation/medidorDistancia_SIGNALS.txt" FileDate="2016-11-03, 12:41:53" FileAge="1478187713000" FileType="3072" />
+      <File Name="Documentation/medidorDistancia_SIGNALS.txt" FileDate="2016-11-03, 15:37:07" FileAge="1478198227000" FileType="3072" />
       <File Name="Static_Code/PDD/FTFA_PDD.h" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="1048576" />
       <File Name="Generated_Code/TU1.h" FileDate="2016-11-03, 12:41:53" FileAge="1478187713000" FileType="45637" CompNumb="28" />
-      <File Name="Static_Code/PDD/UART_PDD.h" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="1048576" />
       <File Name="Documentation/medidorDistancia_Settings.xml" FileDate="2016-11-03, 12:41:54" FileAge="1478187714000" FileType="3072" />
+      <File Name="Static_Code/PDD/UART_PDD.h" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="1048576" />
       <File Name="Documentation/medidorDistancia.txt" FileDate="2016-11-03, 11:53:03" FileAge="1478184783000" FileType="3072" />
-      <File Name="Generated_Code/Vectors.c" FileDate="2016-11-03, 12:41:53" FileAge="1478187713000" FileType="45637" CompNumb="25" />
-      <File Name="Generated_Code/TU1.c" FileDate="2016-11-03, 12:41:53" FileAge="1478187713000" FileType="45637" CompNumb="28" />
       <File Name="Static_Code/PDD/SAI_PDD.h" FileDate="1969-12-31, 20:59:59" FileAge="-1" FileType="1048576" />
+      <File Name="Generated_Code/TU1.c" FileDate="2016-11-03, 12:41:53" FileAge="1478187713000" FileType="45637" CompNumb="28" />
+      <File Name="Generated_Code/Vectors.c" FileDate="2016-11-03, 12:41:53" FileAge="1478187713000" FileType="45637" CompNumb="25" />
       <File Name="Static_Code/PDD/PDD_Types.h" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="1048576" CompNumb="25" />
-      <File Name="Static_Code/PDD/I2C_PDD.h" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="1048576" />
       <File Name="Static_Code/PDD/RTC_PDD.h" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="1048576" />
+      <File Name="Static_Code/PDD/I2C_PDD.h" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="1048576" />
       <File Name="ProjectInfo.xml" FileDate="2016-11-03, 11:53:03" FileAge="1478184783000" FileType="45637" />
       <File Name="Static_Code/PDD/CMP_PDD.h" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="1048576" />
-      <File Name="Documentation/doxygen/TU1_component.txt" FileDate="2016-11-03, 12:41:53" FileAge="1478187713000" FileType="45637" CompNumb="28" />
       <File Name="Static_Code/PDD/SPI_PDD.h" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="1048576" />
+      <File Name="Documentation/doxygen/TU1_component.txt" FileDate="2016-11-03, 12:41:53" FileAge="1478187713000" FileType="45637" CompNumb="28" />
       <File Name="Static_Code/PDD/LCD_PDD.h" FileDate="1969-12-31, 20:59:59" FileAge="-1" FileType="1048576" />
       <File Name="Static_Code/PDD/USB_PDD.h" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="1048576" />
       <File Name="Documentation/doxygen/pex.css" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="16384" CompNumb="25" />
@@ -79,17 +79,17 @@
       <File Name="Static_Code/IO_Map/MKL46Z4.h" FileDate="2016-11-03, 11:00:59" FileAge="1478181659000" FileType="1048576" CompNumb="25" />
       <File Name="Generated_Code/UTIL1.h" FileDate="2016-11-03, 11:01:00" FileAge="1478181660000" FileType="45637" CompNumb="29" />
       <File Name="Documentation/doxygen/pex.doxyfile" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="45637" CompNumb="25" />
-      <File Name="Generated_Code/UTIL1.c" FileDate="2016-11-03, 11:01:00" FileAge="1478181660000" FileType="45637" CompNumb="29" />
       <File Name="Documentation/doxygen/medidorDistancia_project.txt" FileDate="2016-11-03, 11:53:03" FileAge="1478184783000" FileType="45637" CompNumb="25" />
-      <File Name="Static_Code/PDD/PIT_PDD.h" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="1048576" />
+      <File Name="Generated_Code/UTIL1.c" FileDate="2016-11-03, 11:01:00" FileAge="1478181660000" FileType="45637" CompNumb="29" />
       <File Name="Documentation/doxygen/TRIG_component.txt" FileDate="2016-11-03, 11:53:03" FileAge="1478184783000" FileType="45637" CompNumb="26" />
+      <File Name="Static_Code/PDD/PIT_PDD.h" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="1048576" />
       <File Name="Documentation/doxygen/RoutingReport_component.txt" FileDate="2016-11-01, 12:29:47" FileAge="1478014187000" FileType="45637" CompNumb="25" />
       <File Name="Generated_Code/PE_Const.h" FileDate="2016-11-03, 11:01:00" FileAge="1478181660000" FileType="45637" />
       <File Name="Generated_Code/PE_Types.h" FileDate="2016-11-03, 11:53:03" FileAge="1478184783000" FileType="45637" />
       <File Name="Generated_Code/BT.h" FileDate="2016-11-03, 11:53:03" FileAge="1478184783000" FileType="45637" CompNumb="30" />
-      <File Name="Generated_Code/TRIG.h" FileDate="2016-11-03, 11:53:03" FileAge="1478184783000" FileType="45637" CompNumb="26" />
       <File Name="Generated_Code/PE_Error.h" FileDate="2016-11-03, 11:01:00" FileAge="1478181660000" FileType="45637" />
+      <File Name="Generated_Code/TRIG.h" FileDate="2016-11-03, 11:53:03" FileAge="1478184783000" FileType="45637" CompNumb="26" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>33</CodeGenReference>
+  <CodeGenReference>34</CodeGenReference>
 </CodeGenerationInfo>
