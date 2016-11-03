@@ -15,6 +15,7 @@
 #include "MMA1.h"
 #include "acelerometro.h"
 #include "BT_actions.h"
+#include "Ultrasonic.h"
 
 #define ACCEL_ANTIREBOTE	30
 
@@ -27,15 +28,15 @@ static portTASK_FUNCTION(MotorTask, pvParameters) {
 		for (SERVO1_position = 1; SERVO1_position <= 255; SERVO1_position++)
 		  {
 			      SERVO1_SetPos(SERVO1_position);
-			      vTaskDelay(25/portTICK_RATE_MS);
+			      vTaskDelay(20/portTICK_RATE_MS);
 		  }
 		vTaskDelay(10000/portTICK_RATE_MS);
 		for (SERVO1_position = 255; SERVO1_position >= 1; SERVO1_position--)
 		  {
 				  SERVO1_SetPos(SERVO1_position);
-				  vTaskDelay(25/portTICK_RATE_MS);
+				  vTaskDelay(20/portTICK_RATE_MS);
 		  }
-		vTaskDelay(10000/portTICK_RATE_MS);
+		vTaskDelay(7000/portTICK_RATE_MS);
   }
   /* Destroy the task */
   vTaskDelete(MotorTask);
@@ -44,9 +45,18 @@ static portTASK_FUNCTION(MotorTask, pvParameters) {
 static portTASK_FUNCTION(SensorUltrasonidoTask, pvParameters) {
 
   /* Write your task initialization code here ... */
-
+  char bufferText[20];
+  int distanceFront;
+  US_Init();
   for(;;) {
-	  vTaskDelay(100/portTICK_RATE_MS);
+	    distanceFront = getDistanceFront();
+	    if (distanceFront != 0)
+	    {
+			UTIL1_Num16uToStr(bufferText, 20, distanceFront);
+			BT_showString(bufferText);
+			BT_showString("\r\n");
+	    }
+		vTaskDelay(30/portTICK_RATE_MS);
 
   }
   /* Destroy the task */

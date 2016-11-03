@@ -7,14 +7,14 @@
 **     Version     : Component 01.164, Driver 01.11, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-11-03, 11:52, # CodeGen: 29
+**     Date/Time   : 2016-11-03, 12:41, # CodeGen: 32
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
 **     Settings    :
 **          Component name                                 : TU1
-**          Module name                                    : TPM0
-**          Counter                                        : TPM0_CNT
+**          Module name                                    : TPM2
+**          Counter                                        : TPM2_CNT
 **          Counter direction                              : Up
 **          Counter width                                  : 16 bits
 **          Value type                                     : Optimal
@@ -23,18 +23,18 @@
 **          Counter restart                                : On-overrun
 **            Overrun period                               : 25 ms
 **            Interrupt                                    : Enabled
-**              Interrupt                                  : INT_TPM0
+**              Interrupt                                  : INT_TPM2
 **              Interrupt priority                         : medium priority
 **          Channel list                                   : 1
 **            Channel 0                                    : 
 **              Mode                                       : Capture
-**                Capture                                  : TPM0_C4V
-**                Capture input pin                        : PTA7/TPM0_CH4
+**                Capture                                  : TPM2_C0V
+**                Capture input pin                        : ADC0_DP3/ADC0_SE3/PTE22/TPM2_CH0/UART2_TX
 **                Capture input signal                     : US_Echo_D2
 **                Edge                                     : both edges
 **                Maximum time of event                    : 25.00001792 ms
 **                Interrupt                                : Enabled
-**                  Interrupt                              : INT_TPM0
+**                  Interrupt                              : INT_TPM2
 **                  Interrupt priority                     : medium priority
 **          Initialization                                 : 
 **            Enabled in init. code                        : yes
@@ -141,7 +141,7 @@ extern "C" {
 #define TU1_COUNTER_WIDTH  0x10U       /* Counter width in bits  */
 #define TU1_COUNTER_DIR    DIR_UP      /* Direction of counting */
 /*! Peripheral base address of a device allocated by the component. This constant can be used directly in PDD macros. */
-#define TU1_PRPH_BASE_ADDRESS  0x40038000U
+#define TU1_PRPH_BASE_ADDRESS  0x4003A000U
   
 /* Methods configuration constants - generated for all enabled component's methods */
 #define TU1_Init_METHOD_ENABLED        /*!< Init method of the component TU1 is enabled (generated) */

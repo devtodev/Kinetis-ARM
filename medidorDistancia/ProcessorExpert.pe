@@ -3,7 +3,7 @@
   <Header>
     <Name>medidorDistancia</Name>
     <SavedBy>karl</SavedBy>
-    <ModificationStamp>13</ModificationStamp>
+    <ModificationStamp>14</ModificationStamp>
     <Date>2016-10-17</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.12.2.RT7_b1550-0615</PEversion>
@@ -29,7 +29,7 @@
     <UseExistingModules>true</UseExistingModules>
     <RenamePeripheries>false</RenamePeripheries>
     <Autodependency>true</Autodependency>
-    <ProjectCompNumb>33</ProjectCompNumb>
+    <ProjectCompNumb>38</ProjectCompNumb>
     <DelUnusedPreviouslyGenFiles>true</DelUnusedPreviouslyGenFiles>
     <GeneratedCodeFrozen>false</GeneratedCodeFrozen>
     <AssignInitComponentNameToPrph>true</AssignInitComponentNameToPrph>
@@ -52,7 +52,7 @@
     <ComponentUUID>com.freescale.processorexpert.processor.mkl46z256ll4</ComponentUUID>
     <BeanType>MKL46Z256LL4</BeanType>
     <Name>Cpu</Name>
-    <CompNumb>32</CompNumb>
+    <CompNumb>25</CompNumb>
     <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
     <IconName>CPU_CHIP2</IconName>
@@ -1527,7 +1527,7 @@
         <ItemSymbol>Intperiphgrp</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Expanded>true</Expanded>
+        <Expanded>false</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>SharedADC0</ItemSymbol>
@@ -6609,7 +6609,7 @@
     <CompNumb>1</CompNumb>
     <NodeName>FLASH</NodeName>
     <CnfgEnabled>true</CnfgEnabled>
-    <TargetCPU>32</TargetCPU>
+    <TargetCPU>25</TargetCPU>
     <ConfigurationComment lines_count="0" />
     <BoolList_FpgaConfig>
       <Count>0</Count>
@@ -6628,7 +6628,7 @@
       <Value4>true</Value4>
       <ItemId5>30</ItemId5>
       <Value5>true</Value5>
-      <ItemId6>32</ItemId6>
+      <ItemId6>25</ItemId6>
       <Value6>true</Value6>
     </BoolList_BeanConfig>
     <BoolList_TaskConfig>
@@ -7272,14 +7272,14 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>MainModule</ItemSymbol>
-        <Value>TPM0</Value>
+        <Value>TPM2</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
         <ItemSymbol>Counter</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>TPM0_CNT</Value>
+        <Value>TPM2_CNT</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
@@ -7434,7 +7434,7 @@
         <ItemSymbol>Overrundevice</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>TPM0_Free</Value>
+        <Value>TPM2_Free</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
@@ -7532,7 +7532,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>CounterInt</ItemSymbol>
-        <Value>INT_TPM0</Value>
+        <Value>INT_TPM2</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>CounterInitPriority</ItemSymbol>
@@ -7622,7 +7622,7 @@
         <ItemSymbol>CaptureRegister0</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>TPM0_C4V</Value>
+        <Value>TPM2_C0V</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
@@ -7643,7 +7643,7 @@
         <ItemSymbol>ChanCapInpPin0</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>PTA7/TPM0_CH4</Value>
+        <Value>ADC0_DP3/ADC0_SE3/PTE22/TPM2_CH0/UART2_TX</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
@@ -7749,7 +7749,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ChannelCmpIntVector0</ItemSymbol>
-        <Value />
+        <Value>INT_TPM2</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>ChannelCmpIntPriority0</ItemSymbol>
@@ -7760,7 +7760,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ChannelCapIntVector0</ItemSymbol>
-        <Value>INT_TPM0</Value>
+        <Value>INT_TPM2</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>ChannelCapIntPriority0</ItemSymbol>

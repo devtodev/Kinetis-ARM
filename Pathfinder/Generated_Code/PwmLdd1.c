@@ -7,7 +7,7 @@
 **     Version     : Component 01.014, Driver 01.03, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-30, 12:44, # CodeGen: 34
+**     Date/Time   : 2016-11-03, 14:11, # CodeGen: 39
 **     Abstract    :
 **          This component implements a pulse-width modulation generator
 **          that generates signal with variable duty and fixed cycle.
@@ -117,7 +117,7 @@ typedef PwmLdd1_TDeviceData *PwmLdd1_TDeviceDataPtr; /* Pointer to the device da
 /* {FreeRTOS RTOS Adapter} Static object used for simulation of dynamic driver memory allocation */
 static PwmLdd1_TDeviceData DeviceDataPrv__DEFAULT_RTOS_ALLOC;
 
-#define CHANNEL 0x00U
+#define CHANNEL 0x01U
 /* Internal method prototypes */
 static void SetRatio(LDD_TDeviceData *DeviceDataPtr);
 /*
@@ -316,7 +316,7 @@ LDD_TError PwmLdd1_SetDutyUS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time)
   if (Time > 0x4E20U) {                /* Is the given value out of range? */
     return ERR_PARAM_RANGE;            /* If yes then error */
   }
-  rtval = Time * 3.2768F;              /* Multiply given value and actual clock configuration coefficient */
+  rtval = Time * 3.276787500048F;      /* Multiply given value and actual clock configuration coefficient */
   if (rtval > 0xFFFFUL) {              /* Is the result greater than 65535 ? */
     DeviceDataPrv->RatioStore = 0xFFFFU; /* If yes then use maximal possible value */
   }
@@ -367,7 +367,7 @@ LDD_TError PwmLdd1_SetDutyMS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time)
   if (Time > 0x14U) {                  /* Is the given value out of range? */
     return ERR_PARAM_RANGE;            /* If yes then error */
   }
-  rtval = Time * 3276.8F;              /* Multiply given value and actual clock configuration coefficient */
+  rtval = Time * 3276.787500038724F;   /* Multiply given value and actual clock configuration coefficient */
   if (rtval > 0xFFFFUL) {              /* Is the result greater than 65535 ? */
     DeviceDataPrv->RatioStore = 0xFFFFU; /* If yes then use maximal possible value */
   }

@@ -7,7 +7,7 @@
 **     Version     : Component 01.164, Driver 01.11, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-30, 12:44, # CodeGen: 34
+**     Date/Time   : 2016-11-03, 14:11, # CodeGen: 39
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -27,6 +27,12 @@
 **          Channel list                                   : 2
 **            Channel 0                                    : 
 **              Mode                                       : Compare
+**                Compare                                  : TPM0_C0V
+**                Offset                                   : 1.365312 ms
+**                Output on compare                        : Disconnect
+**                Interrupt                                : Disabled
+**            Channel 1                                    : 
+**              Mode                                       : Compare
 **                Compare                                  : TPM0_C4V
 **                Offset                                   : 1.365333 ms
 **                Output on compare                        : Set
@@ -34,12 +40,6 @@
 **                  Initial state                          : Low
 **                  Output pin                             : LCD_P44/PTD4/LLWU_P14/SPI1_PCS0/UART2_RX/TPM0_CH4
 **                  Output pin signal                      : 
-**                Interrupt                                : Disabled
-**            Channel 1                                    : 
-**              Mode                                       : Compare
-**                Compare                                  : TPM0_C0V
-**                Offset                                   : 1.365312 ms
-**                Output on compare                        : Disconnect
 **                Interrupt                                : Disabled
 **          Initialization                                 : 
 **            Enabled in init. code                        : yes
@@ -141,17 +141,17 @@ extern "C" {
 #define __BWUserType_SERVO1_TimerUnit_TValueType
   typedef uint16_t SERVO1_TimerUnit_TValueType ; /* Type for data parameters of methods */
 #endif
-#define SERVO1_TimerUnit_CNT_INP_FREQ_U_0 0x002DC6C0UL /* Counter input frequency in Hz */
-#define SERVO1_TimerUnit_CNT_INP_FREQ_U_0_CFG_0 0x002DC6C0UL /* Counter input frequency in Hz for Clock configuration 0 */
-#define SERVO1_TimerUnit_CNT_INP_FREQ_R_0 3000003.000003F /* Counter input frequency in Hz */
-#define SERVO1_TimerUnit_CNT_INP_FREQ_R_0_CFG_0 3000003.000003F /* Counter input frequency in Hz for Clock configuration 0 */
+#define SERVO1_TimerUnit_CNT_INP_FREQ_U_0 0x00280000UL /* Counter input frequency in Hz */
+#define SERVO1_TimerUnit_CNT_INP_FREQ_U_0_CFG_0 0x00280000UL /* Counter input frequency in Hz for Clock configuration 0 */
+#define SERVO1_TimerUnit_CNT_INP_FREQ_R_0 2621438.120953155F /* Counter input frequency in Hz */
+#define SERVO1_TimerUnit_CNT_INP_FREQ_R_0_CFG_0 2621438.120953155F /* Counter input frequency in Hz for Clock configuration 0 */
 #define SERVO1_TimerUnit_CNT_INP_FREQ_COUNT 0U /* Count of predefined counter input frequencies */
-#define SERVO1_TimerUnit_PERIOD_TICKS 0xEA60UL /* Initialization value of period in 'counter ticks' */
+#define SERVO1_TimerUnit_PERIOD_TICKS 0xCCCDUL /* Initialization value of period in 'counter ticks' */
 #define SERVO1_TimerUnit_NUMBER_OF_CHANNELS 0x02U /* Count of predefined channels */
 #define SERVO1_TimerUnit_COUNTER_WIDTH 0x10U /* Counter width in bits  */
 #define SERVO1_TimerUnit_COUNTER_DIR DIR_UP /* Direction of counting */
-#define SERVO1_TimerUnit_OFFSET_0_TICKS 0x1000ul /* Initialization value of offset as 'counter ticks' for channel 0 */
-#define SERVO1_TimerUnit_OFFSET_1_TICKS 0x1000ul /* Initialization value of offset as 'counter ticks' for channel 1 */
+#define SERVO1_TimerUnit_OFFSET_0_TICKS 0x0DFBul /* Initialization value of offset as 'counter ticks' for channel 0 */
+#define SERVO1_TimerUnit_OFFSET_1_TICKS 0x0DFBul /* Initialization value of offset as 'counter ticks' for channel 1 */
 /*! Peripheral base address of a device allocated by the component. This constant can be used directly in PDD macros. */
 #define SERVO1_TimerUnit_PRPH_BASE_ADDRESS  0x40038000U
   

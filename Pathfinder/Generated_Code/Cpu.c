@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : KL46P121M48SF4RM, Rev.2, Dec 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-31, 20:17, # CodeGen: 37
+**     Date/Time   : 2016-11-03, 14:29, # CodeGen: 41
 **     Abstract    :
 **
 **     Settings    :
@@ -48,25 +48,24 @@
 **                  ERCLK32K clock source                  : Auto select
 **                  ERCLK32K. clock [MHz]                  : 0.001
 **                MCG settings                             : 
-**                  MCG mode                               : PEE
-**                  MCG output clock                       : PLL clock
-**                  MCG output [MHz]                       : 96
+**                  MCG mode                               : FEI
+**                  MCG output clock                       : FLL clock
+**                  MCG output [MHz]                       : 20.97152
 **                  MCG external ref. clock [MHz]          : 8
 **                  Clock monitor                          : Disabled
 **                  FLL settings                           : 
-**                    FLL module                           : Disabled
-**                    FLL output [MHz]                     : 0
-**                    MCGFFCLK clock [kHz]                 : 31.25
-**                    Reference clock source               : External clock
-**                      Reference clock divider            : Auto select
-**                    FLL reference clock [kHz]            : 31.25
+**                    FLL module                           : Enabled
+**                    FLL output [MHz]                     : 20.97152
+**                    MCGFFCLK clock [kHz]                 : 32.768
+**                    Reference clock source               : Slow internal clock
+**                    FLL reference clock [kHz]            : 32.768
 **                    Multiplication factor                : Auto select
 **                  PLL 0 settings                         : 
-**                    PLL module                           : Enabled
+**                    PLL module                           : Disabled
 **                    PLL module in Stop                   : Disabled
-**                    PLL output [MHz]                     : 96
+**                    PLL output [MHz]                     : 0
 **                    Reference clock divider              : Auto select
-**                    PLL reference clock [MHz]            : 4
+**                    PLL reference clock [MHz]            : 1
 **                    Multiplication factor                : Auto select
 **                    Loss of lock interrupt               : Disabled
 **              Clock source setting 1                     : 
@@ -183,17 +182,18 @@
 **                  ERCLK32K clock source                  : Auto select
 **                  ERCLK32K. clock [MHz]                  : 0.001
 **                MCG settings                             : 
-**                  MCG mode                               : FEI
-**                  MCG output clock                       : FLL clock
-**                  MCG output [MHz]                       : 20.97152
+**                  MCG mode                               : PEE
+**                  MCG output clock                       : PLL clock
+**                  MCG output [MHz]                       : 48
 **                  MCG external ref. clock [MHz]          : 8
 **                  Clock monitor                          : Disabled
 **                  FLL settings                           : 
-**                    FLL module                           : Enabled
-**                    FLL output [MHz]                     : 20.97152
-**                    MCGFFCLK clock [kHz]                 : 32.768
-**                    Reference clock source               : Slow internal clock
-**                    FLL reference clock [kHz]            : 32.768
+**                    FLL module                           : Disabled
+**                    FLL output [MHz]                     : 0
+**                    MCGFFCLK clock [kHz]                 : 31.25
+**                    Reference clock source               : External clock
+**                      Reference clock divider            : Auto select
+**                    FLL reference clock [kHz]            : 31.25
 **                    Multiplication factor                : Auto select
 **                  PLL 0 settings                         : 
 **                    PLL module                           : Enabled
@@ -331,21 +331,21 @@
 **              __RTC_CLKIN                                : 0.032768
 **              Very low power mode                        : Disabled
 **              Clock source setting                       : configuration 0
-**                MCG mode                                 : PEE
-**                MCG output [MHz]                         : 96
+**                MCG mode                                 : FEI
+**                MCG output [MHz]                         : 20.97152
 **                MCGIRCLK clock [MHz]                     : 0.032768
 **                OSCERCLK clock [MHz]                     : 8
 **                ERCLK32K. clock [MHz]                    : 0.001
-**                MCGFFCLK [kHz]                           : 31.25
+**                MCGFFCLK [kHz]                           : 32.768
 **              System clocks                              : 
 **                Core clock prescaler                     : Auto select
-**                Core clock                               : 48
+**                Core clock                               : 20.97152
 **                Bus clock prescaler                      : Auto select
-**                Bus clock                                : 24
+**                Bus clock                                : 20.97152
 **                PLL/FLL clock selection                  : Auto select
-**                  Clock frequency [MHz]                  : 48
+**                  Clock frequency [MHz]                  : 20.97152
 **                TPM clock selection                      : Auto select
-**                  Clock frequency [MHz]                  : 48
+**                  Clock frequency [MHz]                  : 20.97152
 **            Clock configuration 1                        : 
 **              __IRC_32kHz                                : 0.032768
 **              __IRC_4MHz                                 : 2
@@ -419,17 +419,17 @@
 **              __RTC_CLKIN                                : 0.032768
 **              Very low power mode                        : Disabled
 **              Clock source setting                       : configuration 4
-**                MCG mode                                 : FEI
-**                MCG output [MHz]                         : 20.97152
+**                MCG mode                                 : PEE
+**                MCG output [MHz]                         : 48
 **                MCGIRCLK clock [MHz]                     : 0.032768
 **                OSCERCLK clock [MHz]                     : 8
 **                ERCLK32K. clock [MHz]                    : 0.001
-**                MCGFFCLK [kHz]                           : 32.768
+**                MCGFFCLK [kHz]                           : 31.25
 **              System clocks                              : 
 **                Core clock prescaler                     : Auto select
-**                Core clock                               : 20.97152
+**                Core clock                               : 48
 **                Bus clock prescaler                      : Auto select
-**                Bus clock                                : 20.97152
+**                Bus clock                                : 24
 **                PLL/FLL clock selection                  : Auto select
 **                  Clock frequency [MHz]                  : 24
 **                TPM clock selection                      : Auto select
@@ -492,18 +492,15 @@
 #include "CS1.h"
 #include "I2C0.h"
 #include "UTIL1.h"
-#include "WAIT1.h"
 #include "SERVO1.h"
 #include "Pwm1.h"
 #include "PwmLdd1.h"
 #include "SERVO1_TimerUnit.h"
 #include "BT.h"
 #include "ASerialLdd1.h"
-#include "TRIG_US_front.h"
-#include "WAIT2.h"
-#include "TU_US_front.h"
-#include "TRIG_US_Back.h"
-#include "TU_US_back.h"
+#include "TRIG.h"
+#include "TU1.h"
+#include "WAIT1.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -696,30 +693,6 @@ PE_ISR(Cpu_Interrupt)
 static void Cpu_SetMCGModePEE(uint8_t CLKMode)
 {
   switch (CLKMode) {
-    case 0U:
-      /* Switch to PEE Mode */
-      /* OSC0_CR: ERCLKEN=1,??=0,EREFSTEN=0,??=0,SC2P=0,SC4P=0,SC8P=0,SC16P=0 */
-      OSC0_CR = OSC_CR_ERCLKEN_MASK;
-      /* MCG_C1: CLKS=0,FRDIV=3,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
-      MCG_C1 = (MCG_C1_CLKS(0x00) | MCG_C1_FRDIV(0x03) | MCG_C1_IRCLKEN_MASK);
-      /* MCG_C2: LOCRE0=0,RANGE0=2,HGO0=0,EREFS0=1,LP=0,IRCS=0 */
-      MCG_C2 = (uint8_t)((MCG_C2 & (uint8_t)~(uint8_t)(
-                MCG_C2_LOCRE0_MASK |
-                MCG_C2_RANGE0(0x01) |
-                MCG_C2_HGO0_MASK |
-                MCG_C2_LP_MASK |
-                MCG_C2_IRCS_MASK
-               )) | (uint8_t)(
-                MCG_C2_RANGE0(0x02) |
-                MCG_C2_EREFS0_MASK
-               ));
-      /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=1 */
-      MCG_C5 = MCG_C5_PRDIV0(0x01);
-      /* MCG_C6: LOLIE0=0,PLLS=1,CME0=0,VDIV0=0 */
-      MCG_C6 = (MCG_C6_PLLS_MASK | MCG_C6_VDIV0(0x00));
-      while((MCG_S & 0x0CU) != 0x0CU) { /* Wait until output of the PLL is selected */
-      }
-      break;
     case 1U:
       /* Switch to PEE Mode */
       /* OSC0_CR: ERCLKEN=1,??=0,EREFSTEN=0,??=0,SC2P=0,SC4P=0,SC8P=0,SC16P=0 */
@@ -741,6 +714,30 @@ static void Cpu_SetMCGModePEE(uint8_t CLKMode)
       MCG_C5 = MCG_C5_PRDIV0(0x01);
       /* MCG_C6: LOLIE0=0,PLLS=1,CME0=0,VDIV0=1 */
       MCG_C6 = (MCG_C6_PLLS_MASK | MCG_C6_VDIV0(0x01));
+      while((MCG_S & 0x0CU) != 0x0CU) { /* Wait until output of the PLL is selected */
+      }
+      break;
+    case 4U:
+      /* Switch to PEE Mode */
+      /* OSC0_CR: ERCLKEN=1,??=0,EREFSTEN=0,??=0,SC2P=0,SC4P=0,SC8P=0,SC16P=0 */
+      OSC0_CR = OSC_CR_ERCLKEN_MASK;
+      /* MCG_C1: CLKS=0,FRDIV=3,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
+      MCG_C1 = (MCG_C1_CLKS(0x00) | MCG_C1_FRDIV(0x03) | MCG_C1_IRCLKEN_MASK);
+      /* MCG_C2: LOCRE0=0,RANGE0=2,HGO0=0,EREFS0=1,LP=0,IRCS=0 */
+      MCG_C2 = (uint8_t)((MCG_C2 & (uint8_t)~(uint8_t)(
+                MCG_C2_LOCRE0_MASK |
+                MCG_C2_RANGE0(0x01) |
+                MCG_C2_HGO0_MASK |
+                MCG_C2_LP_MASK |
+                MCG_C2_IRCS_MASK
+               )) | (uint8_t)(
+                MCG_C2_RANGE0(0x02) |
+                MCG_C2_EREFS0_MASK
+               ));
+      /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=3 */
+      MCG_C5 = MCG_C5_PRDIV0(0x03);
+      /* MCG_C6: LOLIE0=0,PLLS=1,CME0=0,VDIV0=0 */
+      MCG_C6 = (MCG_C6_PLLS_MASK | MCG_C6_VDIV0(0x00));
       while((MCG_S & 0x0CU) != 0x0CU) { /* Wait until output of the PLL is selected */
       }
       break;
@@ -778,8 +775,8 @@ static void Cpu_SetMCGModePBE(uint8_t CLKMode)
                 MCG_C2_RANGE0(0x02) |
                 MCG_C2_EREFS0_MASK
                ));
-      /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=1 */
-      MCG_C5 = MCG_C5_PRDIV0(0x01);
+      /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=2 */
+      MCG_C5 = MCG_C5_PRDIV0(0x02);
       /* MCG_C6: LOLIE0=0,PLLS=1,CME0=0,VDIV0=0 */
       MCG_C6 = (MCG_C6_PLLS_MASK | MCG_C6_VDIV0(0x00));
       while((MCG_S & 0x0CU) != 0x08U) { /* Wait until external reference clock is selected as MCG output */
@@ -964,8 +961,8 @@ static void Cpu_SetMCGModeFBE(uint8_t CLKMode)
       MCG_C1 = (MCG_C1_CLKS(0x02) | MCG_C1_FRDIV(0x03) | MCG_C1_IRCLKEN_MASK);
       /* MCG_C4: DMX32=0,DRST_DRS=0 */
       MCG_C4 &= (uint8_t)~(uint8_t)((MCG_C4_DMX32_MASK | MCG_C4_DRST_DRS(0x03)));
-      /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=1 */
-      MCG_C5 = MCG_C5_PRDIV0(0x01);
+      /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=0 */
+      MCG_C5 = MCG_C5_PRDIV0(0x00);
       /* MCG_C6: LOLIE0=0,PLLS=0,CME0=0,VDIV0=0 */
       MCG_C6 = MCG_C6_VDIV0(0x00);
       while((MCG_S & MCG_S_IREFST_MASK) != 0x00U) { /* Check that the source of the FLL reference clock is the external reference clock. */
@@ -1078,8 +1075,6 @@ static void Cpu_SetMCGModeFBE(uint8_t CLKMode)
       MCG_C4 &= (uint8_t)~(uint8_t)((MCG_C4_DMX32_MASK | MCG_C4_DRST_DRS(0x03)));
       /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=3 */
       MCG_C5 = MCG_C5_PRDIV0(0x03);
-      /* MCG_C5: PLLCLKEN0=1 */
-      MCG_C5 |= MCG_C5_PLLCLKEN0_MASK; /* Enable the PLL */
       /* MCG_C6: LOLIE0=0,PLLS=0,CME0=0,VDIV0=0 */
       MCG_C6 = MCG_C6_VDIV0(0x00);
       while((MCG_S & MCG_S_IREFST_MASK) != 0x00U) { /* Check that the source of the FLL reference clock is the external reference clock. */
@@ -1166,8 +1161,8 @@ static void Cpu_SetMCGModeFBI(uint8_t CLKMode)
       MCG_C4 &= (uint8_t)~(uint8_t)((MCG_C4_DMX32_MASK | MCG_C4_DRST_DRS(0x03)));
       /* OSC0_CR: ERCLKEN=1,??=0,EREFSTEN=0,??=0,SC2P=0,SC4P=0,SC8P=0,SC16P=0 */
       OSC0_CR = OSC_CR_ERCLKEN_MASK;
-      /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=1 */
-      MCG_C5 = MCG_C5_PRDIV0(0x01);
+      /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=0 */
+      MCG_C5 = MCG_C5_PRDIV0(0x00);
       /* MCG_C6: LOLIE0=0,PLLS=0,CME0=0,VDIV0=0 */
       MCG_C6 = MCG_C6_VDIV0(0x00);
       while((MCG_S & MCG_S_IREFST_MASK) == 0x00U) { /* Check that the source of the FLL reference clock is the internal reference clock. */
@@ -1292,8 +1287,6 @@ static void Cpu_SetMCGModeFBI(uint8_t CLKMode)
       OSC0_CR = OSC_CR_ERCLKEN_MASK;
       /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=3 */
       MCG_C5 = MCG_C5_PRDIV0(0x03);
-      /* MCG_C5: PLLCLKEN0=1 */
-      MCG_C5 |= MCG_C5_PLLCLKEN0_MASK; /* Enable the PLL */
       /* MCG_C6: LOLIE0=0,PLLS=0,CME0=0,VDIV0=0 */
       MCG_C6 = MCG_C6_VDIV0(0x00);
       while((MCG_S & MCG_S_IREFST_MASK) == 0x00U) { /* Check that the source of the FLL reference clock is the internal reference clock. */
@@ -1318,7 +1311,7 @@ static void Cpu_SetMCGModeFBI(uint8_t CLKMode)
 static void Cpu_SetMCGModeFEI(uint8_t CLKMode)
 {
   switch (CLKMode) {
-    case 4U:
+    case 0U:
       /* Switch to FEI Mode */
       /* MCG_C1: CLKS=0,FRDIV=0,IREFS=1,IRCLKEN=1,IREFSTEN=0 */
       MCG_C1 = MCG_C1_CLKS(0x00) |
@@ -1340,10 +1333,8 @@ static void Cpu_SetMCGModeFEI(uint8_t CLKMode)
       MCG_C4 &= (uint8_t)~(uint8_t)((MCG_C4_DMX32_MASK | MCG_C4_DRST_DRS(0x03)));
       /* OSC0_CR: ERCLKEN=1,??=0,EREFSTEN=0,??=0,SC2P=0,SC4P=0,SC8P=0,SC16P=0 */
       OSC0_CR = OSC_CR_ERCLKEN_MASK;
-      /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=3 */
-      MCG_C5 = MCG_C5_PRDIV0(0x03);
-      /* MCG_C5: PLLCLKEN0=1 */
-      MCG_C5 |= MCG_C5_PLLCLKEN0_MASK; /* Enable the PLL */
+      /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=0 */
+      MCG_C5 = MCG_C5_PRDIV0(0x00);
       /* MCG_C6: LOLIE0=0,PLLS=0,CME0=0,VDIV0=0 */
       MCG_C6 = MCG_C6_VDIV0(0x00);
       while((MCG_S & MCG_S_IREFST_MASK) == 0x00U) { /* Check that the source of the FLL reference clock is the internal reference clock. */
@@ -1373,7 +1364,7 @@ static void Cpu_SetMCG(uint8_t CLKMode)
 
   switch (CLKMode) {
     case 0U:
-      TargetMCGMode = MCG_MODE_PEE;
+      TargetMCGMode = MCG_MODE_FEI;
       break;
     case 1U:
       TargetMCGMode = MCG_MODE_PEE;
@@ -1385,7 +1376,7 @@ static void Cpu_SetMCG(uint8_t CLKMode)
       TargetMCGMode = MCG_MODE_BLPE;
       break;
     case 4U:
-      TargetMCGMode = MCG_MODE_FEI;
+      TargetMCGMode = MCG_MODE_PEE;
       break;
     default:
       break;
@@ -1499,14 +1490,13 @@ LDD_TError Cpu_SetClockConfiguration(LDD_TClockConfiguration ModeID)
       /* SIM_CLKDIV1: OUTDIV1=1,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=3,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
       SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x01) | SIM_CLKDIV1_OUTDIV4(0x03)); /* Set the system prescalers to safe value */
       Cpu_SetMCG(0U);                  /* Update clock source setting */
-      /* SIM_CLKDIV1: OUTDIV1=1,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=1,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
-      SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x01) | SIM_CLKDIV1_OUTDIV4(0x01)); /* Update system prescalers */
-      /* SIM_SOPT2: ??=0,PLLFLLSEL=1 */
-      SIM_SOPT2 = (uint32_t)((SIM_SOPT2 & (uint32_t)~(uint32_t)(
-                   0x00020000U
-                  )) | (uint32_t)(
-                   SIM_SOPT2_PLLFLLSEL_MASK
-                  ));                  /* Select PLL as a clock source for various peripherals */
+      /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
+      SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x00)); /* Update system prescalers */
+      /* SIM_SOPT2: ??=0,PLLFLLSEL=0 */
+      SIM_SOPT2 &= (uint32_t)~(uint32_t)(
+                    SIM_SOPT2_PLLFLLSEL_MASK |
+                    0x00020000U
+                   );                  /* Select FLL as a clock source for various peripherals */
       /* SIM_SOPT1: OSC32KSEL=3 */
       SIM_SOPT1 |= SIM_SOPT1_OSC32KSEL(0x03); /* LPO 1kHz oscillator drives 32 kHz clock for various peripherals */
       /* SIM_SOPT2: TPMSRC=1 */
@@ -1589,8 +1579,8 @@ LDD_TError Cpu_SetClockConfiguration(LDD_TClockConfiguration ModeID)
       /* SIM_CLKDIV1: OUTDIV1=1,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=3,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
       SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x01) | SIM_CLKDIV1_OUTDIV4(0x03)); /* Set the system prescalers to safe value */
       Cpu_SetMCG(4U);                  /* Update clock source setting */
-      /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
-      SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x00)); /* Update system prescalers */
+      /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=1,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
+      SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x01)); /* Update system prescalers */
       /* SIM_SOPT2: ??=0,PLLFLLSEL=1 */
       SIM_SOPT2 = (uint32_t)((SIM_SOPT2 & (uint32_t)~(uint32_t)(
                    0x00020000U
@@ -1661,14 +1651,10 @@ void __init_hardware(void)
     /* PMC_REGSC: ACKISO=1 */
     PMC_REGSC |= PMC_REGSC_ACKISO_MASK; /* Release IO pads after wakeup from VLLS mode. */
   }
-  /* SIM_CLKDIV1: OUTDIV1=1,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=1,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
-  SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x01) | SIM_CLKDIV1_OUTDIV4(0x01)); /* Update system prescalers */
-  /* SIM_SOPT2: ??=0,PLLFLLSEL=1 */
-  SIM_SOPT2 = (uint32_t)((SIM_SOPT2 & (uint32_t)~(uint32_t)(
-               0x00020000U
-              )) | (uint32_t)(
-               SIM_SOPT2_PLLFLLSEL_MASK
-              ));                      /* Select PLL as a clock source for various peripherals */
+  /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
+  SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x00)); /* Update system prescalers */
+  /* SIM_SOPT2: ??=0,PLLFLLSEL=0 */
+  SIM_SOPT2 &= (uint32_t)~(uint32_t)((SIM_SOPT2_PLLFLLSEL_MASK | 0x00020000U)); /* Select FLL as a clock source for various peripherals */
   /* SIM_SOPT1: OSC32KSEL=3 */
   SIM_SOPT1 |= SIM_SOPT1_OSC32KSEL(0x03); /* LPO 1kHz oscillator drives 32 kHz clock for various peripherals */
   /* SIM_SOPT2: TPMSRC=1 */
@@ -1681,7 +1667,12 @@ void __init_hardware(void)
   PORTA_PCR18 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
   /* PORTA_PCR19: ISF=0,MUX=0 */
   PORTA_PCR19 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
-  /* Switch to FBE Mode */
+  /* Switch to FEI Mode */
+  /* MCG_C1: CLKS=0,FRDIV=0,IREFS=1,IRCLKEN=1,IREFSTEN=0 */
+  MCG_C1 = MCG_C1_CLKS(0x00) |
+           MCG_C1_FRDIV(0x00) |
+           MCG_C1_IREFS_MASK |
+           MCG_C1_IRCLKEN_MASK;
   /* MCG_C2: LOCRE0=0,RANGE0=2,HGO0=0,EREFS0=1,LP=0,IRCS=0 */
   MCG_C2 = (uint8_t)((MCG_C2 & (uint8_t)~(uint8_t)(
             MCG_C2_LOCRE0_MASK |
@@ -1693,31 +1684,17 @@ void __init_hardware(void)
             MCG_C2_RANGE0(0x02) |
             MCG_C2_EREFS0_MASK
            ));
-  /* OSC0_CR: ERCLKEN=1,??=0,EREFSTEN=0,??=0,SC2P=0,SC4P=0,SC8P=0,SC16P=0 */
-  OSC0_CR = OSC_CR_ERCLKEN_MASK;
-  /* MCG_C1: CLKS=2,FRDIV=3,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
-  MCG_C1 = (MCG_C1_CLKS(0x02) | MCG_C1_FRDIV(0x03) | MCG_C1_IRCLKEN_MASK);
   /* MCG_C4: DMX32=0,DRST_DRS=0 */
   MCG_C4 &= (uint8_t)~(uint8_t)((MCG_C4_DMX32_MASK | MCG_C4_DRST_DRS(0x03)));
-  /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=1 */
-  MCG_C5 = MCG_C5_PRDIV0(0x01);
+  /* OSC0_CR: ERCLKEN=1,??=0,EREFSTEN=0,??=0,SC2P=0,SC4P=0,SC8P=0,SC16P=0 */
+  OSC0_CR = OSC_CR_ERCLKEN_MASK;
+  /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=0 */
+  MCG_C5 = MCG_C5_PRDIV0(0x00);
   /* MCG_C6: LOLIE0=0,PLLS=0,CME0=0,VDIV0=0 */
   MCG_C6 = MCG_C6_VDIV0(0x00);
-  while((MCG_S & MCG_S_IREFST_MASK) != 0x00U) { /* Check that the source of the FLL reference clock is the external reference clock. */
+  while((MCG_S & MCG_S_IREFST_MASK) == 0x00U) { /* Check that the source of the FLL reference clock is the internal reference clock. */
   }
-  while((MCG_S & 0x0CU) != 0x08U) {    /* Wait until external reference clock is selected as MCG output */
-  }
-  /* Switch to PBE Mode */
-  /* MCG_C6: LOLIE0=0,PLLS=1,CME0=0,VDIV0=0 */
-  MCG_C6 = (MCG_C6_PLLS_MASK | MCG_C6_VDIV0(0x00));
-  while((MCG_S & 0x0CU) != 0x08U) {    /* Wait until external reference clock is selected as MCG output */
-  }
-  while((MCG_S & MCG_S_LOCK0_MASK) == 0x00U) { /* Wait until locked */
-  }
-  /* Switch to PEE Mode */
-  /* MCG_C1: CLKS=0,FRDIV=3,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
-  MCG_C1 = (MCG_C1_CLKS(0x00) | MCG_C1_FRDIV(0x03) | MCG_C1_IRCLKEN_MASK);
-  while((MCG_S & 0x0CU) != 0x0CU) {    /* Wait until output of the PLL is selected */
+  while((MCG_S & 0x0CU) != 0x00U) {    /* Wait until output of the FLL is selected */
   }
   /*** End of PE initialization code after reset ***/
 

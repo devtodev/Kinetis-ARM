@@ -47,10 +47,10 @@
       </GenExtraFiles>
       <GenExtraFileSrcDir10>lib\Kinetis\startup\</GenExtraFileSrcDir10>
       <GenExtraFileSrcDir6>Repositories\lib\doxygen\</GenExtraFileSrcDir6>
-      <XtraAge7>1231249057</XtraAge7>
+      <XtraAge7>1231250746</XtraAge7>
       <XtraAge8>1231249057</XtraAge8>
       <XtraAge10>1231119287</XtraAge10>
-      <XtraAge11>1231249057</XtraAge11>
+      <XtraAge11>1231250746</XtraAge11>
       <GenExtraFileType11>4</GenExtraFileType11>
       <GenExtraFileType10>5</GenExtraFileType10>
       <GenExtraFileType9>4</GenExtraFileType9>
@@ -357,9 +357,9 @@
     </GenFiles>
     <SignalListFile>Documentation\medidorDistancia_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>13</ProjectModificationStamp>
+    <ProjectModificationStamp>14</ProjectModificationStamp>
   </Options>
-  <CpuID_32>
+  <CpuID_25>
     <Generated>true</Generated>
     <GenCompName>Cpu</GenCompName>
     <GenComponentVersion>01.003</GenComponentVersion>
@@ -438,7 +438,7 @@
     <ExtraFile8>Static_Code/PDD/PDD_Types.h</ExtraFile8>
     <ExtraFile9>Static_Code/IO_Map/MKL46Z4.h</ExtraFile9>
     <ExtraFile10>Generated_Code\Vectors.c</ExtraFile10>
-  </CpuID_32>
+  </CpuID_25>
   <ComponentID_16>
     <Generated>true</Generated>
     <GenCompName>KSDK1</GenCompName>
@@ -714,8 +714,8 @@
     <GenComponentVersion>01.164</GenComponentVersion>
     <GenDriverVersion>01.11</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1231249057</HeaderAge>
-    <CodeAge>1231249057</CodeAge>
+    <HeaderAge>1231250746</HeaderAge>
+    <CodeAge>1231250746</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>22</GenNumMethods>
     <Init>true</Init>
@@ -830,49 +830,49 @@
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
       <LineBeg>144</LineBeg>
-      <LineEnd>229</LineEnd>
+      <LineEnd>221</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos8>Deinit</MethodPos8>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>230</LineBeg>
-      <LineEnd>256</LineEnd>
+      <LineBeg>222</LineBeg>
+      <LineEnd>248</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos9>ResetCounter</MethodPos9>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>257</LineBeg>
-      <LineEnd>290</LineEnd>
+      <LineBeg>249</LineBeg>
+      <LineEnd>282</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos10>GetCaptureValue</MethodPos10>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>291</LineBeg>
-      <LineEnd>340</LineEnd>
+      <LineBeg>283</LineBeg>
+      <LineEnd>332</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos11>SetClockConfiguration</MethodPos11>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>341</LineBeg>
-      <LineEnd>369</LineEnd>
+      <LineBeg>333</LineBeg>
+      <LineEnd>361</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos12>Interrupt</MethodPos12>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>370</LineBeg>
-      <LineEnd>403</LineEnd>
+      <LineBeg>362</LineBeg>
+      <LineEnd>395</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos13>HWEnDi</MethodPos13>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>404</LineBeg>
-      <LineEnd>429</LineEnd>
+      <LineBeg>396</LineBeg>
+      <LineEnd>421</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>1</GenExtraFilesCount>
     <ExtraFile0>Documentation\doxygen\TU1_component.txt</ExtraFile0>
