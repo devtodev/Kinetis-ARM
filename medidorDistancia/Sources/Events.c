@@ -1,7 +1,7 @@
 /** ###################################################################
 **     Filename    : Events.c
 **     Project     : ProcessorExpert
-**     Processor   : MKL25Z128VLK4
+**     Processor   : MKL46Z256VLL4
 **     Component   : Events
 **     Version     : Driver 01.00
 **     Compiler    : GNU C Compiler
@@ -42,9 +42,9 @@ void Cpu_OnNMIINT(void)
 
 /*
 ** ===================================================================
-**     Event       :  TU_US_front_OnChannel0 (module Events)
+**     Event       :  TU1_OnChannel0 (module Events)
 **
-**     Component   :  TU_US_front [TimerUnit_LDD]
+**     Component   :  TU1 [TimerUnit_LDD]
 **     Description :
 **         Called if compare register match the counter registers or
 **         capture register has a new content. OnChannel0 event and
@@ -59,16 +59,16 @@ void Cpu_OnNMIINT(void)
 **     Returns     : Nothing
 ** ===================================================================
 */
-void TU_US_front_OnChannel0(LDD_TUserData *UserDataPtr)
+void TU1_OnChannel0(LDD_TUserData *UserDataPtr)
 {
-  US_Front_EventEchoCapture(UserDataPtr);
+  US_EventEchoCapture(UserDataPtr);
 }
 
 /*
 ** ===================================================================
-**     Event       :  TU_US_front_OnCounterRestart (module Events)
+**     Event       :  TU1_OnCounterRestart (module Events)
 **
-**     Component   :  TU_US_front [TimerUnit_LDD]
+**     Component   :  TU1 [TimerUnit_LDD]
 **     Description :
 **         Called if counter overflow/underflow or counter is
 **         reinitialized by modulo or compare register matching.
@@ -83,57 +83,100 @@ void TU_US_front_OnChannel0(LDD_TUserData *UserDataPtr)
 **     Returns     : Nothing
 ** ===================================================================
 */
-void TU_US_front_OnCounterRestart(LDD_TUserData *UserDataPtr)
+void TU1_OnCounterRestart(LDD_TUserData *UserDataPtr)
 {
-  US_Front_EventEchoOverflow(UserDataPtr);
+  US_EventEchoOverflow(UserDataPtr);
 }
 
 /*
 ** ===================================================================
-**     Event       :  TU_US_back_OnCounterRestart (module Events)
+**     Event       :  BT_OnError (module Events)
 **
-**     Component   :  TU_US_back [TimerUnit_LDD]
+**     Component   :  BT [AsynchroSerial]
+**     Description :
+**         This event is called when a channel error (not the error
+**         returned by a given method) occurs. The errors can be read
+**         using <GetError> method.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
 */
-/*!
-**     @brief
-**         Called if counter overflow/underflow or counter is
-**         reinitialized by modulo or compare register matching.
-**         OnCounterRestart event and Timer unit must be enabled. See
-**         [SetEventMask] and [GetEventMask] methods. This event is
-**         available only if a [Interrupt] is enabled.
-**     @param
-**         UserDataPtr     - Pointer to the user or
-**                           RTOS specific data. The pointer passed as
-**                           the parameter of Init method.
-*/
-/* ===================================================================*/
-void TU_US_back_OnCounterRestart(LDD_TUserData *UserDataPtr)
+void BT_OnError(void)
 {
-  US_Back_EventEchoOverflow(UserDataPtr);
+  /* Write your code here ... */
 }
 
 /*
 ** ===================================================================
-**     Event       :  TU_US_back_OnChannel0 (module Events)
+**     Event       :  BT_OnRxChar (module Events)
 **
-**     Component   :  TU_US_back [TimerUnit_LDD]
+**     Component   :  BT [AsynchroSerial]
+**     Description :
+**         This event is called after a correct character is received.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled and either the <Receiver>
+**         property is enabled or the <SCI output mode> property (if
+**         supported) is set to Single-wire mode.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
 */
-/*!
-**     @brief
-**         Called if compare register match the counter registers or
-**         capture register has a new content. OnChannel0 event and
-**         Timer unit must be enabled. See [SetEventMask] and
-**         [GetEventMask] methods. This event is available only if a
-**         [Interrupt] is enabled.
-**     @param
-**         UserDataPtr     - Pointer to the user or
-**                           RTOS specific data. The pointer passed as
-**                           the parameter of Init method.
-*/
-/* ===================================================================*/
-void TU_US_back_OnChannel0(LDD_TUserData *UserDataPtr)
+void BT_OnRxChar(void)
 {
-	US_Back_EventEchoCapture(UserDataPtr);
+  /* Write your code here ... */
+}
+
+/*
+** ===================================================================
+**     Event       :  BT_OnTxChar (module Events)
+**
+**     Component   :  BT [AsynchroSerial]
+**     Description :
+**         This event is called after a character is transmitted.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void BT_OnTxChar(void)
+{
+  /* Write your code here ... */
+}
+
+/*
+** ===================================================================
+**     Event       :  BT_OnFullRxBuf (module Events)
+**
+**     Component   :  BT [AsynchroSerial]
+**     Description :
+**         This event is called when the input buffer is full;
+**         i.e. after reception of the last character 
+**         that was successfully placed into input buffer.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void BT_OnFullRxBuf(void)
+{
+  /* Write your code here ... */
+}
+
+/*
+** ===================================================================
+**     Event       :  BT_OnFreeTxBuf (module Events)
+**
+**     Component   :  BT [AsynchroSerial]
+**     Description :
+**         This event is called after the last character in output
+**         buffer is transmitted.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void BT_OnFreeTxBuf(void)
+{
+  /* Write your code here ... */
 }
 
 /* END Events */

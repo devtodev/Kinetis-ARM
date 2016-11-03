@@ -17,7 +17,7 @@ C_DEPS += \
 Project_Settings/Startup_Code/%.o: ../Project_Settings/Startup_Code/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross ARM C Compiler'
-	arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/karl/workspace.kds/Kinetis-ARM/medidorDistancia/Static_Code/PDD" -I"/home/karl/workspace.kds/Kinetis-ARM/medidorDistancia/Static_Code/IO_Map" -I"/home/karl/workspace.kds/Kinetis-ARM/medidorDistancia/Sources" -I"/home/karl/workspace.kds/Kinetis-ARM/medidorDistancia/Generated_Code" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/charly/workspace.kds/Kinetis-ARM/medidorDistancia/Static_Code/PDD" -I"/home/charly/workspace.kds/Kinetis-ARM/medidorDistancia/Static_Code/IO_Map" -I"/home/charly/workspace.kds/Kinetis-ARM/medidorDistancia/Sources" -I"/home/charly/workspace.kds/Kinetis-ARM/medidorDistancia/Generated_Code" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

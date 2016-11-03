@@ -4,10 +4,10 @@
 **     Project     : Ascensor
 **     Processor   : MKL46Z256VMC4
 **     Component   : Shell
-**     Version     : Component 01.085, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.081, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-14, 15:30, # CodeGen: 74
+**     Date/Time   : 2016-11-03, 11:35, # CodeGen: 81
 **     Abstract    :
 **
 **     Settings    :
@@ -16,7 +16,6 @@
 **          Prompt                                         : "CMD> "
 **          Project Name                                   : My Project Name
 **          Silent Mode Prefix                             : #
-**          Buffer Size                                    : 48
 **          Blocking Send                                  : Enabled
 **            Wait                                         : WAIT1
 **            Timeout (ms)                                 : 20
@@ -40,7 +39,6 @@
 **         SendNum16s                   - void CLS1_SendNum16s(int16_t val, CLS1_StdIO_OutErr_FctType io);
 **         SendNum32u                   - void CLS1_SendNum32u(uint32_t val, CLS1_StdIO_OutErr_FctType io);
 **         SendNum32s                   - void CLS1_SendNum32s(int32_t val, CLS1_StdIO_OutErr_FctType io);
-**         SendCh                       - void CLS1_SendCh(uint8_t ch, CLS1_StdIO_OutErr_FctType io);
 **         SendStr                      - void CLS1_SendStr(const uint8_t *str, CLS1_StdIO_OutErr_FctType io);
 **         SendData                     - void CLS1_SendData(const uint8_t *data, uint16_t dataSize,...
 **         PrintStatus                  - uint8_t CLS1_PrintStatus(CLS1_ConstStdIOType *io);
@@ -64,32 +62,14 @@
 **         Init                         - void CLS1_Init(void);
 **         Deinit                       - void CLS1_Deinit(void);
 **
-**     * Copyright (c) 2014-2016, Erich Styger
-**      * Web:         https://mcuoneclipse.com
-**      * SourceForge: https://sourceforge.net/projects/mcuoneclipse
-**      * Git:         https://github.com/ErichStyger/McuOnEclipse_PEx
-**      * All rights reserved.
-**      *
-**      * Redistribution and use in source and binary forms, with or without modification,
-**      * are permitted provided that the following conditions are met:
-**      *
-**      * - Redistributions of source code must retain the above copyright notice, this list
-**      *   of conditions and the following disclaimer.
-**      *
-**      * - Redistributions in binary form must reproduce the above copyright notice, this
-**      *   list of conditions and the following disclaimer in the documentation and/or
-**      *   other materials provided with the distribution.
-**      *
-**      * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-**      * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-**      * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-**      * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
-**      * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-**      * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-**      * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
-**      * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-**      * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-**      * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+**     License   :  Open Source (LGPL)
+**     Copyright : (c) Copyright Erich Styger, 2014-2016, all rights reserved.
+**     http      : http://www.mcuoneclipse.com
+**     This an open source software implementing a command line shell with Processor Expert.
+**     This is a free software and is opened for education,  research  and commercial developments under license policy of following terms:
+**     * This is a free software and there is NO WARRANTY.
+**     * No restriction on use. You can use, modify and redistribute it for personal, non-profit or commercial product UNDER YOUR RESPONSIBILITY.
+**     * Redistributions of source code must retain the above copyright notice.
 ** ###################################################################*/
 /*!
 ** @file CLS1.c
@@ -107,7 +87,6 @@
 
 #include "CLS1.h"
 
-uint8_t CLS1_DefaultShellBuffer[CLS1_DEFAULT_SHELL_BUFFER_SIZE]; /* default buffer which can be used by the application */
 #if CLS1_HISTORY_ENABLED
   static uint8_t CLS1_history[CLS1_NOF_HISTORY][CLS1_HIST_LEN]; /* History buffers */
   static uint8_t CLS1_history_index = 0; /* Selected command */
@@ -120,7 +99,7 @@ uint8_t CLS1_DefaultShellBuffer[CLS1_DEFAULT_SHELL_BUFFER_SIZE]; /* default buff
   #pragma MESSAGE DISABLE C3303 /* implicit concatenation of strings */
 #endif
 
-CLS1_ConstStdIOType CLS1_stdio =
+static CLS1_ConstStdIOType CLS1_stdio =
 {
   (CLS1_StdIO_In_FctType)CLS1_ReadChar, /* stdin */
   (CLS1_StdIO_OutErr_FctType)CLS1_SendChar, /* stdout */
@@ -131,22 +110,7 @@ static CLS1_ConstStdIOType *CLS1_currStdIO = &CLS1_stdio;
 /* Internal method prototypes */
 static void SendSeparatedStrings(const uint8_t *strA, const uint8_t *strB, uint8_t tabChar, uint8_t tabPos, CLS1_StdIO_OutErr_FctType io);
 
-/*
-** ===================================================================
-**     Method      :  CLS1_SendCh (component Shell)
-**     Description :
-**         Prints a character using an I/O function
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**         ch              - Character to send
-**         io              - I/O callbacks to be used for printing.
-**     Returns     : Nothing
-** ===================================================================
-*/
-void CLS1_SendCh(uint8_t ch, CLS1_StdIO_OutErr_FctType io)
-{
-  io(ch);
-}
+
 
 /*
 ** ===================================================================
@@ -385,7 +349,7 @@ bool CLS1_IsHistoryCharacter(uint8_t ch, uint8_t *cmdBuf, size_t cmdBufIdx, bool
   *isPrev = FALSE;
 #if CLS1_HISTORY_ENABLED
   if (   cmdBufIdx==0 /* first character on command line */
-      || (UTIL1_strcmp((const char*)cmdBuf, (const char*)CLS1_history[CLS1_history_index])==0) /* pressing prev/next character on previous history element */
+      || (UTIL1_strcmp(cmdBuf, CLS1_history[CLS1_history_index])==0) /* pressing prev/next character on previous history element */
       )
   {
     if (ch==CLS1_HISTORY_PREV_CHAR) {
@@ -466,7 +430,7 @@ bool CLS1_ReadLine(uint8_t *bufStart, uint8_t *buf, size_t bufSize, CLS1_ConstSt
            *buf = '\0';
            bufSize++;
         }
-      } else if (CLS1_IsHistoryCharacter(c, bufStart, (size_t)(buf-bufStart), &isBackwardHistory)) {
+      } else if (CLS1_IsHistoryCharacter(c, bufStart, buf-bufStart, &isBackwardHistory)) {
 #if CLS1_HISTORY_ENABLED
         uint8_t cBuf[3]={'\0','\0','\0'}, cBufIdx = 0;
         bool prevInHistory;
@@ -505,8 +469,8 @@ bool CLS1_ReadLine(uint8_t *bufStart, uint8_t *buf, size_t bufSize, CLS1_ConstSt
           }
           UTIL1_strcpy(bufStart, CLS1_HIST_LEN, CLS1_history[CLS1_history_index]);
         }
-        bufSize = bufSize + buf - bufStart - UTIL1_strlen((const char*)bufStart); /* update the buffer */
-        buf = bufStart + UTIL1_strlen((const char*)bufStart);
+        bufSize = bufSize + buf - bufStart - UTIL1_strlen(bufStart); /* update the buffer */
+        buf = bufStart + UTIL1_strlen(bufStart);
 #endif
 #if CLS1_ECHO_ENABLED
         if (CLS1_EchoEnabled) {
@@ -1045,7 +1009,7 @@ void CLS1_Init(void)
   }
 #endif
 #if CLS1_ECHO_ENABLED
-  CLS1_EchoEnabled = TRUE;
+  CLS1_EchoEnabled = FALSE;
 #endif
 }
 

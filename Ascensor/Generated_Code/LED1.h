@@ -4,10 +4,10 @@
 **     Project     : Ascensor
 **     Processor   : MKL46Z256VMC4
 **     Component   : LED
-**     Version     : Component 01.072, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.071, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-14, 15:30, # CodeGen: 74
+**     Date/Time   : 2016-11-03, 11:35, # CodeGen: 81
 **     Abstract    :
 **          This component implements a universal driver for a single LED.
 **     Settings    :
@@ -54,19 +54,18 @@
 #define __LED1_H
 
 /* MODULE LED1. */
-#ifndef __HIWARE__ /* Hiware compiler (S08, S12) only supports C89 */
-  #include <stdint.h>
-#endif
+#include <stdint.h>
+
 /* Include inherited beans */
 #include "KSDK1.h"
 #include "LEDpin1.h"
 
-#if KSDK1_SDK_VERSION_USED == KSDK1_SDK_VERSION_NONE
-  /* Include shared modules, which are used for whole project */
-  #include "PE_Types.h"
-  #include "PE_Error.h"
-  #include "PE_Const.h"
-  #include "IO_Map.h"
+#if KSDK1_SDK_VERSION_USED == KSDK1_KSDK1_SDK_VERSION_NONE
+/* Include shared modules, which are used for whole project */
+#include "PE_Types.h"
+#include "PE_Error.h"
+#include "PE_Const.h"
+#include "IO_Map.h"
   #include "Cpu.h"
 #endif
 

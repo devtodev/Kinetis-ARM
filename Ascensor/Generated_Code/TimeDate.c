@@ -4,16 +4,15 @@
 **     Project     : Ascensor
 **     Processor   : MKL46Z256VMC4
 **     Component   : GenericTimeDate
-**     Version     : Component 01.028, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.027, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-14, 15:30, # CodeGen: 74
+**     Date/Time   : 2016-11-03, 11:35, # CodeGen: 81
 **     Abstract    :
 **         Software date/time module.
 **     Settings    :
 **          Component name                                 : TimeDate
 **          Critical Section                               : CS1
-**          SDK                                            : KSDK1
 **          Tick Time (ms)                                 : 10
 **          RTOS                                           : Disabled
 **          Shell                                          : Disabled

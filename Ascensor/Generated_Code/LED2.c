@@ -4,10 +4,10 @@
 **     Project     : Ascensor
 **     Processor   : MKL46Z256VMC4
 **     Component   : LED
-**     Version     : Component 01.072, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.071, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-14, 15:30, # CodeGen: 74
+**     Date/Time   : 2016-11-03, 11:35, # CodeGen: 81
 **     Abstract    :
 **          This component implements a universal driver for a single LED.
 **     Settings    :
@@ -149,7 +149,7 @@ void LED2_Put(uint8_t val)
 */
 void LED2_Init(void)
 {
-#if KSDK1_SDK_VERSION_USED != KSDK1_SDK_VERSION_NONE
+#if KSDK1_SDK_VERSION_USED != KSDK1_KSDK1_SDK_VERSION_NONE
   LEDpin2_Init();
 #endif
   LED2_Off();
@@ -166,7 +166,7 @@ void LED2_Init(void)
 */
 void LED2_Deinit(void)
 {
-#if KSDK1_SDK_VERSION_USED != KSDK1_SDK_VERSION_NONE
+#if KSDK1_SDK_VERSION_USED != KSDK1_KSDK1_SDK_VERSION_NONE
   LEDpin2_Deinit();
 #endif
 }

@@ -6,11 +6,11 @@
 /*##                                   */
 /*##     Project   : medidorDistancia  */
 /*##                                   */
-/*##     Processor : MKL25Z128VLK4     */
+/*##     Processor : MKL46Z256VLL4     */
 /*##                                   */
 /*##     Compiler  : GNU C Compiler    */
 /*##                                   */
-/*##     Date/Time : 2016-10-19, 12:19, # CodeGen: 5 */
+/*##     Date/Time : 2016-11-03, 11:00, # CodeGen: 26 */
 /*##                                   */
 /*##     Abstract  :                   */
 /*##                                   */
@@ -28,7 +28,7 @@
 ENTRY(__thumb_startup)
 
 /* Highest address of the user mode stack */
-_estack = 0x20003000;    /* end of m_data */
+_estack = 0x20006000;    /* end of m_data */
 __SP_INIT = _estack;
 __stack = _estack;
 
@@ -38,8 +38,8 @@ __stack_size = 0x0400;                 /* required amount of stack */
 
 MEMORY {
   m_interrupts (RX) : ORIGIN = 0x00000000, LENGTH = 0x000000C0
-  m_text      (RX) : ORIGIN = 0x00000410, LENGTH = 0x0001FBF0
-  m_data      (RW) : ORIGIN = 0x1FFFF000, LENGTH = 0x00004000
+  m_text      (RX) : ORIGIN = 0x00000410, LENGTH = 0x0003FBF0
+  m_data      (RW) : ORIGIN = 0x1FFFE000, LENGTH = 0x00008000
   m_cfmprotrom  (RX) : ORIGIN = 0x00000400, LENGTH = 0x00000010
 }
 

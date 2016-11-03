@@ -11,24 +11,20 @@
   <tr><td>0xDFFFFFFF<br>0x60000000</td><td class="memtypeRAM">RESERVED</td>
   <tr><td>0x43FFFFFF<br>0x41000000</td><td class="memtypeRAM">RESERVED</td>
   <tr><td>0x400FEFFF<br>0x40080000</td><td class="memtypeRAM">RESERVED</td>
-  <tr><td>0x3FFFFFFF<br>0x20003000</td><td class="memtypeRAM">RESERVED</td>
-  <tr><td>0x20002FFF<br>0x20000000</td><td class="memtypeRAM">RAM</td>
-  <tr><td>0x1FFFFFFF<br>0x1FFFF000</td><td class="memtypeRAM">RAM</td>
+  <tr><td>0x3FFFFFFF<br>0x20006000</td><td class="memtypeRAM">RESERVED</td>
+  <tr><td>0x20005FFF<br>0x20000000</td><td class="memtypeRAM">RAM</td>
+  <tr><td>0x1FFFFFFF<br>0x1FFFE000</td><td class="memtypeRAM">RAM</td>
   <tr><td>0x1BFFFFFF<br>0x08000000</td><td class="memtypeRAM">RESERVED</td>
-  <tr><td>0x0001FFFF<br>0x00000410</td><td class="memtypeFLASH">FLASH</td>
+  <tr><td>0x0003FFFF<br>0x00000410</td><td class="memtypeFLASH">FLASH</td>
   <tr><td>0x0000040F<br>0x00000400</td><td class="memtypeRAM">FLASH_CONFIG</td>
   <tr><td>0x000003FF<br>0x00000000</td><td class="memtypeFLASH">FLASH</td>
 </table>
 <br/>
 
 \page page_components Components 
-- \subpage TRIG_US_front
-- \subpage TU_US_front
-- \subpage BitIoLdd1
-- \subpage BitIoLdd2
-- \subpage BitIoLdd3
-- \subpage TRIG_US_Back
-- \subpage TU_US_back
+- \subpage TRIG
+- \subpage TU1
+- \subpage ASerialLdd1
 
 */
 

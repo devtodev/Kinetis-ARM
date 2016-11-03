@@ -49,44 +49,54 @@ registers of the peripheral(s) configured by the component.
 <div class="regdiag">
 <table class="regtbl">
 <tr class="trd1r">
-<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>24</td><td>23</td>
-<td>22</td><td>21</td><td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
+<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td>
+<td>27</td><td>26</td><td>25</td><td>24</td><td>23</td><td>22</td><td>21</td>
+<td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
 </tr>
 <tr>
-<td class="trd1c">R</td><td colspan="1" rowspan="2">DAC0</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">RTC</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">ADC0</td>
-<td colspan="1" rowspan="2">TPM2</td><td colspan="1" rowspan="2">TPM1</td><td colspan="1" rowspan="2">TPM0</td>
-<td colspan="1" rowspan="2">PIT</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td class="trd1c">R</td><td colspan="1" rowspan="2">DAC0</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">RTC</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">ADC0</td>
+<td colspan="1" rowspan="2">TPM2</td><td colspan="1" rowspan="2">TPM1</td>
+<td colspan="1" rowspan="2">TPM0</td><td colspan="1" rowspan="2">PIT</td>
 <td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td>
 </tr>
 <tr>
 <td class="trd1c">W</td>
 </tr>
 <tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td>
 </tr>
 </table>
 <table class="regtbl">
 <tr class="trd1r">
-<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>8</td><td>7</td>
-<td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
+<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td>
+<td>11</td><td>10</td><td>9</td><td>8</td><td>7</td><td>6</td><td>5</td>
+<td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
 </tr>
 <tr>
-<td class="trd1c">R</td><td colspan="1" rowspan="2">I2S</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">DMAMUX</td>
+<td class="trd1c">R</td><td colspan="1" rowspan="2">I2S</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">DMAMUX</td>
 <td colspan="1" rowspan="2">FTF</td>
 </tr>
 <tr>
 <td class="trd1c">W</td>
 </tr>
 <tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td>
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>1</td>
 </tr>
 </table>
         
@@ -110,43 +120,52 @@ registers of the peripheral(s) configured by the component.
 <div class="regdiag">
 <table class="regtbl">
 <tr class="trd1r">
-<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>24</td><td>23</td>
-<td>22</td><td>21</td><td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
+<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td>
+<td>27</td><td>26</td><td>25</td><td>24</td><td>23</td><td>22</td><td>21</td>
+<td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
 </tr>
 <tr>
-<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
 <td colspan="1" rowspan="2">-</td>
 </tr>
 <tr>
 <td class="trd1c">W</td>
 </tr>
 <tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td>
 </tr>
 </table>
 <table class="regtbl">
 <tr class="trd1r">
-<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>8</td><td>7</td>
-<td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
+<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td>
+<td>11</td><td>10</td><td>9</td><td>8</td><td>7</td><td>6</td><td>5</td>
+<td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
 </tr>
 <tr>
-<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">DMA</td><td colspan="1" rowspan="2">TOF</td>
-<td colspan="1" rowspan="2">TOIE</td><td colspan="1" rowspan="2">CPWMS</td><td colspan="2" rowspan="2">CMOD</td>
-<td colspan="3" rowspan="2">PS</td>
+<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">DMA</td><td colspan="1" rowspan="2">TOF</td>
+<td colspan="1" rowspan="2">TOIE</td><td colspan="1" rowspan="2">CPWMS</td>
+<td colspan="2" rowspan="2">CMOD</td><td colspan="3" rowspan="2">PS</td>
 </tr>
 <tr>
 <td class="trd1c">W</td>
 </tr>
 <tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td>
 </tr>
 </table>
         
@@ -166,29 +185,35 @@ registers of the peripheral(s) configured by the component.
 <div class="regdiag">
 <table class="regtbl">
 <tr class="trd1r">
-<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>24</td><td>23</td>
-<td>22</td><td>21</td><td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
+<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td>
+<td>27</td><td>26</td><td>25</td><td>24</td><td>23</td><td>22</td><td>21</td>
+<td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
 </tr>
 <tr>
-<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
 <td colspan="1" rowspan="2">-</td>
 </tr>
 <tr>
 <td class="trd1c">W</td>
 </tr>
 <tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td>
 </tr>
 </table>
 <table class="regtbl">
 <tr class="trd1r">
-<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>8</td><td>7</td>
-<td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
+<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td>
+<td>11</td><td>10</td><td>9</td><td>8</td><td>7</td><td>6</td><td>5</td>
+<td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
 </tr>
 <tr>
 <td class="trd1c">R</td><td colspan="16" rowspan="2">COUNT</td>
@@ -197,8 +222,9 @@ registers of the peripheral(s) configured by the component.
 <td class="trd1c">W</td>
 </tr>
 <tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td>
 </tr>
 </table>
         
@@ -213,44 +239,54 @@ registers of the peripheral(s) configured by the component.
 <div class="regdiag">
 <table class="regtbl">
 <tr class="trd1r">
-<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>24</td><td>23</td>
-<td>22</td><td>21</td><td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
+<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td>
+<td>27</td><td>26</td><td>25</td><td>24</td><td>23</td><td>22</td><td>21</td>
+<td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
 </tr>
 <tr>
-<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
 <td colspan="1" rowspan="2">-</td>
 </tr>
 <tr>
 <td class="trd1c">W</td>
 </tr>
 <tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td>
 </tr>
 </table>
 <table class="regtbl">
 <tr class="trd1r">
-<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>8</td><td>7</td>
-<td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
+<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td>
+<td>11</td><td>10</td><td>9</td><td>8</td><td>7</td><td>6</td><td>5</td>
+<td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
 </tr>
 <tr>
-<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">CHF</td>
-<td colspan="1" rowspan="2">CHIE</td><td colspan="1" rowspan="2">MSB</td><td colspan="1" rowspan="2">MSA</td>
-<td colspan="1" rowspan="2">ELSB</td><td colspan="1" rowspan="2">ELSA</td><td colspan="1" rowspan="2">-</td>
+<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">CHF</td>
+<td colspan="1" rowspan="2">CHIE</td><td colspan="1" rowspan="2">MSB</td>
+<td colspan="1" rowspan="2">MSA</td><td colspan="1" rowspan="2">ELSB</td>
+<td colspan="1" rowspan="2">ELSA</td><td colspan="1" rowspan="2">-</td>
 <td colspan="1" rowspan="2">DMA</td>
 </tr>
 <tr>
 <td class="trd1c">W</td>
 </tr>
 <tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td>
 </tr>
 </table>
         
@@ -271,44 +307,54 @@ registers of the peripheral(s) configured by the component.
 <div class="regdiag">
 <table class="regtbl">
 <tr class="trd1r">
-<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>24</td><td>23</td>
-<td>22</td><td>21</td><td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
+<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td>
+<td>27</td><td>26</td><td>25</td><td>24</td><td>23</td><td>22</td><td>21</td>
+<td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
 </tr>
 <tr>
-<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
 <td colspan="1" rowspan="2">-</td>
 </tr>
 <tr>
 <td class="trd1c">W</td>
 </tr>
 <tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td>
 </tr>
 </table>
 <table class="regtbl">
 <tr class="trd1r">
-<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>8</td><td>7</td>
-<td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
+<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td>
+<td>11</td><td>10</td><td>9</td><td>8</td><td>7</td><td>6</td><td>5</td>
+<td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
 </tr>
 <tr>
-<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">CHF</td>
-<td colspan="1" rowspan="2">CHIE</td><td colspan="1" rowspan="2">MSB</td><td colspan="1" rowspan="2">MSA</td>
-<td colspan="1" rowspan="2">ELSB</td><td colspan="1" rowspan="2">ELSA</td><td colspan="1" rowspan="2">-</td>
+<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">CHF</td>
+<td colspan="1" rowspan="2">CHIE</td><td colspan="1" rowspan="2">MSB</td>
+<td colspan="1" rowspan="2">MSA</td><td colspan="1" rowspan="2">ELSB</td>
+<td colspan="1" rowspan="2">ELSA</td><td colspan="1" rowspan="2">-</td>
 <td colspan="1" rowspan="2">DMA</td>
 </tr>
 <tr>
 <td class="trd1c">W</td>
 </tr>
 <tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td>
 </tr>
 </table>
         
@@ -329,29 +375,35 @@ registers of the peripheral(s) configured by the component.
 <div class="regdiag">
 <table class="regtbl">
 <tr class="trd1r">
-<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>24</td><td>23</td>
-<td>22</td><td>21</td><td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
+<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td>
+<td>27</td><td>26</td><td>25</td><td>24</td><td>23</td><td>22</td><td>21</td>
+<td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
 </tr>
 <tr>
-<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
-<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
 <td colspan="1" rowspan="2">-</td>
 </tr>
 <tr>
 <td class="trd1c">W</td>
 </tr>
 <tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td>
 </tr>
 </table>
 <table class="regtbl">
 <tr class="trd1r">
-<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>8</td><td>7</td>
-<td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
+<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td>
+<td>11</td><td>10</td><td>9</td><td>8</td><td>7</td><td>6</td><td>5</td>
+<td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
 </tr>
 <tr>
 <td class="trd1c">R</td><td colspan="16" rowspan="2">MOD</td>
@@ -360,8 +412,9 @@ registers of the peripheral(s) configured by the component.
 <td class="trd1c">W</td>
 </tr>
 <tr class="trd1r">
-<td class="trd1c">Reset</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
-<td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
+<td class="trd1c">Reset</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
+<td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
+<td>1</td><td>1</td><td>1</td>
 </tr>
 </table>
         
@@ -376,34 +429,40 @@ registers of the peripheral(s) configured by the component.
 <div class="regdiag">
 <table class="regtbl">
 <tr class="trd1r">
-<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>24</td><td>23</td>
-<td>22</td><td>21</td><td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
+<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td>
+<td>27</td><td>26</td><td>25</td><td>24</td><td>23</td><td>22</td><td>21</td>
+<td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
 </tr>
 <tr>
-<td class="trd1c">R</td><td colspan="8" rowspan="2">PRI_19</td><td colspan="8" rowspan="2">PRI_18</td>
+<td class="trd1c">R</td><td colspan="8" rowspan="2">PRI_19</td>
+<td colspan="8" rowspan="2">PRI_18</td>
 </tr>
 <tr>
 <td class="trd1c">W</td>
 </tr>
 <tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td>
 </tr>
 </table>
 <table class="regtbl">
 <tr class="trd1r">
-<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>8</td><td>7</td>
-<td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
+<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td>
+<td>11</td><td>10</td><td>9</td><td>8</td><td>7</td><td>6</td><td>5</td>
+<td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
 </tr>
 <tr>
-<td class="trd1c">R</td><td colspan="8" rowspan="2">PRI_17</td><td colspan="8" rowspan="2">PRI_16</td>
+<td class="trd1c">R</td><td colspan="8" rowspan="2">PRI_17</td>
+<td colspan="8" rowspan="2">PRI_16</td>
 </tr>
 <tr>
 <td class="trd1c">W</td>
 </tr>
 <tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td>
 </tr>
 </table>
         
@@ -421,8 +480,9 @@ registers of the peripheral(s) configured by the component.
 <div class="regdiag">
 <table class="regtbl">
 <tr class="trd1r">
-<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>24</td><td>23</td>
-<td>22</td><td>21</td><td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
+<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td>
+<td>27</td><td>26</td><td>25</td><td>24</td><td>23</td><td>22</td><td>21</td>
+<td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
 </tr>
 <tr>
 <td class="trd1c">R</td><td colspan="16" rowspan="2">SETENA</td>
@@ -431,14 +491,16 @@ registers of the peripheral(s) configured by the component.
 <td class="trd1c">W</td>
 </tr>
 <tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td>
 </tr>
 </table>
 <table class="regtbl">
 <tr class="trd1r">
-<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>8</td><td>7</td>
-<td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
+<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td>
+<td>11</td><td>10</td><td>9</td><td>8</td><td>7</td><td>6</td><td>5</td>
+<td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
 </tr>
 <tr>
 <td class="trd1c">R</td><td colspan="32" rowspan="2">SETENA</td>
@@ -447,8 +509,9 @@ registers of the peripheral(s) configured by the component.
 <td class="trd1c">W</td>
 </tr>
 <tr class="trd1r">
-<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td>
 </tr>
 </table>
         

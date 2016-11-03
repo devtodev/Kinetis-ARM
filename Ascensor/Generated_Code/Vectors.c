@@ -6,7 +6,7 @@
 **     Version     : Component 01.002, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-14, 15:30, # CodeGen: 74
+**     Date/Time   : 2016-11-03, 11:35, # CodeGen: 81
 **     Abstract    :
 **
 **     Settings    :
@@ -129,7 +129,7 @@
     (tIsrFunc)&Cpu_ivINT_Reserved8,    /* 0x08  0x00000020   -   ivINT_Reserved8               unused by PE */
     (tIsrFunc)&Cpu_ivINT_Reserved9,    /* 0x09  0x00000024   -   ivINT_Reserved9               unused by PE */
     (tIsrFunc)&Cpu_ivINT_Reserved10,   /* 0x0A  0x00000028   -   ivINT_Reserved10              unused by PE */
-    (tIsrFunc)&Cpu_ivINT_SVCall,       /* 0x0B  0x0000002C   -   ivINT_SVCall                  unused by PE */
+    (tIsrFunc)&vPortSVCHandler,        /* 0x0B  0x0000002C   -   ivINT_SVCall                  used by PE */
     (tIsrFunc)&Cpu_ivINT_Reserved12,   /* 0x0C  0x00000030   -   ivINT_Reserved12              unused by PE */
     (tIsrFunc)&Cpu_ivINT_Reserved13,   /* 0x0D  0x00000034   -   ivINT_Reserved13              unused by PE */
     (tIsrFunc)&vPortPendSVHandler,     /* 0x0E  0x00000038   -   ivINT_PendableSrvReq          used by PE */

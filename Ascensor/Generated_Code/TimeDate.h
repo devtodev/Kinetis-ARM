@@ -4,16 +4,15 @@
 **     Project     : Ascensor
 **     Processor   : MKL46Z256VMC4
 **     Component   : GenericTimeDate
-**     Version     : Component 01.028, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.027, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-14, 15:30, # CodeGen: 74
+**     Date/Time   : 2016-11-03, 11:35, # CodeGen: 81
 **     Abstract    :
 **         Software date/time module.
 **     Settings    :
 **          Component name                                 : TimeDate
 **          Critical Section                               : CS1
-**          SDK                                            : KSDK1
 **          Tick Time (ms)                                 : 10
 **          RTOS                                           : Disabled
 **          Shell                                          : Disabled
@@ -52,19 +51,14 @@
 #define __TimeDate_H
 
 /* MODULE TimeDate. */
+
+/* Include shared modules, which are used for whole project */
+#include "PE_Types.h"
+#include "PE_Error.h"
+#include "PE_Const.h"
+#include "IO_Map.h"
 /* Include inherited beans */
 #include "CS1.h"
-#include "KSDK1.h"
-
-#if KSDK1_SDK_VERSION_USED == KSDK1_SDK_VERSION_NONE
-/* Include shared modules, which are used for whole project */
-  #include "PE_Types.h"
-  #include "PE_Error.h"
-  #include "PE_Const.h"
-  #include "IO_Map.h"
-  #include "Cpu.h"
-#endif
-
 #define TimeDate_PARSE_COMMAND_ENABLED  0 /* set to 1 if method ParseCommand() is present, 0 otherwise */
 
 #ifndef __BWUserType_TIMEREC
@@ -84,6 +78,8 @@
     uint8_t Day;                       /* days (1 - 31) */
   } DATEREC;
 #endif
+
+#include "Cpu.h"
 
 
 
